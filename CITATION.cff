@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "GroundSight: pipeline for ceiling-relative validation of groundwater favorability models"
+message: "If you use this software, please cite both the software and the associated paper."
+type: software
+authors:
+  - family-names: Alberto
+    given-names: Marcio
+    orcid: "https://orcid.org/0000-0001-6598-3878"
+    affiliation: "GeoInovações Ambientais Ltda."
+    email: mralberto@geoinovacoes.com.br
+repository-code: "https://github.com/mralbertogeo/groundsight-paper"
+license: AGPL-3.0
+version: 1.0.0
+date-released: 2026-08-25
+keywords:
+  - groundwater favorability
+  - predictability ceiling
+  - spatial cross-validation
+  - hydrogeology
+  - machine learning

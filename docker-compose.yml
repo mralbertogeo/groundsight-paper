@@ -1,0 +1,41 @@
+# =====================================================================
+# Favorabilidade Hidrogeológica SIAGAS — Orquestração de containers
+# Uso:  make up  (ou docker compose up -d --build)
+# =====================================================================
+services:
+
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: fav_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5433:5432"          # 5433 no host para não conflitar com Postgres local
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    pipeline:
+    build: ./pipeline
+    container_name: fav_pipeline
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./pipeline:/pipeline
+      - ./data:/data
+    working_dir: /pipeline
+    # Container "ferramenta": não fica rodando; é invocado por estágio.
+    # Ex.: docker compose run --rm pipeline python stages/s02_qaqc.py
+    profiles: ["tools"]
+
+  volumes:
+  pgdata:

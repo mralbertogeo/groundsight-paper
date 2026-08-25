@@ -1,0 +1,78 @@
+# Parâmetros do pipeline — versionado; toda mudança gera novo commit.
+extracao:
+  sleep_fichas_s: 0.5
+  max_pocos_ficha: null
+qaqc:
+  dist_duplicata_m: 10
+  tempo_bombeamento_min_h: 4
+  outlier_mad: 3
+  lacuna_litologia_m: 2
+  tolerancia_filtro_fundo_m: 1
+  divergencia_cota_mde_m: 10      # aplicada no s05 (requer MDE)
+  flags_manuais:                  # achados de conferência manual (auditável)
+    "3500068261": [coord_divergente_siagas]
+hidraulica:
+  tolerancia_nivel_m: 1.0         # divergência ficha × cadastro (NE/ND)
+  tolerancia_qs_rel: 0.20         # divergência relativa Q/s calculado × ficha
+  # Relações T = a·(Q/s)^b, T e Q/s em m²/dia. Aplicadas por domínio.
+  # DECISÃO v1: sem relação calibrada para cristalino/fissural -> T não
+  # estimada nesse domínio (evita pseudo-precisão); calibração local é DT.
+  relacao_t_qs:
+    poroso:   {nome: razack_huntley_1991, a: 15.3, b: 0.67}
+    carstico: {nome: mace_1997, a: 0.76, b: 1.08}
+    fissural: null
+  # Classificação de domínio a partir do texto do aquífero no cadastro
+  dominio_por_texto:
+    fissural: [cristalin, fraturad, fissural, serra geral, basalto]
+    carstico: [carst, calcario, dolomit]
+    poroso:   [sedimentar, aluvi, bauru, botucatu, guarani, tubarao]
+geologia_3d:
+  dicionario_litologico: config/dicionario_litologico.yaml
+  res_superficies_m: 300        # resolução das superfícies de intemperismo
+  cobertura_min_log: 0.6        # fração mínima do intervalo coberta pelo
+                                # perfil do próprio poço p/ usar o log
+  raio_max_condicionamento_m: 2000
+  frac_min_confiavel: 0.5
+covariaveis:
+  limiar_drenagem_km2: 1.0      # área de contribuição mínima p/ drenagem
+lineamentos:
+  familias:                     # azimutes geográficos [de, até)
+    ne_sw: [20, 70]
+    ew: [70, 110]               # candidata transmissiva (Fernandes 2008)
+    nw_se: [110, 160]
+    ns: [160, 20]               # janela com wrap por 0/180
+  escalas:                      # v2.3: escala única CONGELADA
+    - {comprimento_min_m: 1500, gap_px: 3}
+  canny_sigma: 2.0
+  raio_densidade_m: 1000
+  azimutes_iluminacao: [135, 0, 90, 45]
+superficies_rk:                 # v4: krigagem com deriva de terreno
+  covariaveis_deriva: [mde, declividade, tri, twi, hand, dist_drenagem]
+  reducao_rmse_min: 0.05        # regra pré-registrada de adoção por superfície
+  bloco_km: 10
+  n_folds: 5
+produtos:
+  aprofundamento_min_m: 20      # limites do delta produtivo variável
+  aprofundamento_max_m: 160     # p75 dos blocos mais profundos (diagnóstico)
+  bloco_delta_km: 20
+  n_min_bloco: 8
+  res_potenciometria_m: 300
+  profundidade_padrao_m: 150    # poço-padrão do mapa exploratório
+  # lf_padrao_m: (default = mediana do acervo; fixe aqui se quiser)
+modelagem:
+  algoritmos: [random_forest, xgboost]
+  baseline: fuzzy_gamma
+  classes_quantis: [0.25, 0.5, 0.75]
+validacao:
+  aoi_original_bbox: [-47.0, -22.95, -46.4, -22.3]   # v2.3: validação externa
+  teto_vizinho_auc: 0.672       # s09 (10/08/2026): AUC-vizinho a 250 m
+  fator_teto: 0.95              # barra = fator × teto (pré-registro)
+  # Regra de adoção da geofísica (v3, pré-registrada): as covariáveis
+  # só são adotadas se melhorarem SIMULTANEAMENTE o AUC espacial e o
+  # AUC externo em relação à linha de base congelada.
+  cv: spatial_block
+  bloco_km: 10                  # lado do bloco espacial da CV
+  n_folds: 5
+  auc_minimo_bloqueante: 0.70
+  auc_alvo: 0.75
+  seeds: [42, 7, 2026]
