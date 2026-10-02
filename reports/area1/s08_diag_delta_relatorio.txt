@@ -1,0 +1,43 @@
+===== DIAGNÓSTICO — DELTA PRODUTIVO (m na rocha sã) =====
+Poços 'alta' analisados: 611 (limiar log Q/s >= -0.57)
+
+A) GLOBAL:      n= 611  p10=   23  p25=   50  med=   91  p75=  138  p90=  187
+
+B) POR DOMÍNIO:
+   fissural        n= 235  p10=   28  p25=   45  med=   81  p75=  126  p90=  179
+   nao_informado   n=  85  p10=  -10  p25=   11  med=   60  p75=  101  p90=  135
+   outro           n= 188  p10=   34  p25=   71  med=  111  p75=  167  p90=  208
+   poroso          n= 103  p10=   46  p25=   84  med=  121  p75=  164  p90=  217
+
+C) POR UNIDADE CAPTADA:
+   rocha_sa        n= 370  p10=   32  p25=   55  med=   90  p75=  133  p90=  182
+   rocha_sa_sed    n= 142  p10=   48  p25=   86  med=  136  p75=  185  p90=  236
+   saprolito       n=  26  p10=   14  p25=   33  med=   62  p75=   84  p90=  112
+   solo_coluviao   n=  39  p10=  -12  p25=  -10  med=   -6  p75=   45  p90=  110
+
+D) POR BLOCO ESPACIAL DE 20 km (n >= 10):
+ bloco  n  mediana
+15_372 10       14
+15_374 67       51
+16_375 16       79
+14_374 60       86
+14_372 63       89
+15_373 16       93
+14_373 94      103
+13_376 15      110
+15_371 14      114
+13_371 11      118
+14_375 15      119
+13_373 59      133
+13_372 12      139
+13_374 48      155
+
+Blocos válidos: 14 | medianas de 14 a 155 m (amplitude 141 m)
+
+Leitura:
+  amplitude < ~30 m  -> delta escalar único é adequado (decidir teto);
+  amplitude >= ~30 m -> delta espacialmente variável se justifica
+                        (medianas de bloco interpoladas, com limites).
+
+Quicklook: data/outputs/quicklook_delta_produtivo.png
+Relatório salvo em: /data/outputs/s08_diag_delta_relatorio.txt

@@ -1,0 +1,48 @@
+===== s04b — SUPERFÍCIES v4 (regression-kriging) =====
+Deriva de terreno: ['mde', 'declividade', 'tri', 'twi', 'hand', 'dist_drenagem']
+Regra pré-registrada: adotar RK por superfície se o RMSE de CV espacial cair >= 5%
+
+
+===== base_solo (n=4729) =====
+           lag        n   semivar  %patamar
+     0–   300      124     243.0      106%
+   300–   600      177     233.3      102%
+   600–  1200      452     230.1      100%
+  1200–  2500     1340     234.0      102%
+  2500–  5000     3767     224.2       98%
+  5000– 10000    11208     211.8       92%
+ 10000– 20000    36319     209.7       91%
+Fração pepita: 100%
+R² da deriva de terreno (in-sample): 0.018
+RMSE CV espacial — OK: 15.14 m | RK: 15.01 m | redução: +0.8% -> mantém OK
+
+===== topo_zona_rocha (n=4268) =====
+           lag        n   semivar  %patamar
+     0–   300       92     179.2       62%
+   300–   600      153     229.5       79%
+   600–  1200      432     270.1       93%
+  1200–  2500     1333     239.3       83%
+  2500–  5000     3931     246.3       85%
+  5000– 10000    11748     258.0       89%
+ 10000– 20000    37457     264.6       91%
+Fração pepita: 62%
+R² da deriva de terreno (in-sample): 0.054
+RMSE CV espacial — OK: 16.54 m | RK: 16.50 m | redução: +0.3% -> mantém OK
+
+===== topo_rocha_sa (n=4205) =====
+           lag        n   semivar  %patamar
+     0–   300       95     287.4       92%
+   300–   600      149     227.9       73%
+   600–  1200      464     258.8       83%
+  1200–  2500     1367     283.9       91%
+  2500–  5000     3993     268.9       86%
+  5000– 10000    11713     277.9       89%
+ 10000– 20000    37582     284.0       91%
+Fração pepita: 92%
+R² da deriva de terreno (in-sample): 0.051
+RMSE CV espacial — OK: 17.64 m | RK: 17.27 m | redução: +2.1% -> mantém OK
+
+Nenhuma superfície atingiu a redução mínima — método atual mantido integralmente (resultado registrado).
+Quicklook: data/outputs/quicklook_superficies_v4.png
+
+Relatório salvo em: /data/outputs/s04b_relatorio.txt

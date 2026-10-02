@@ -1,0 +1,53 @@
+===== A) INTEGRIDADE DAS COVARIÁVEIS (nos 564 poços) =====
+covariavel                    min    mediana        max n_distintos
+mde                        564.96     680.75    1100.46         552
+declividade                  0.04       4.99      24.84         552
+northness                   -1.00       0.20       1.00         552
+curvatura                   -0.01       0.00       0.01         551
+tri                          0.23       4.57      21.78         552
+twi                          4.95       7.94      20.46         552
+hand                       -74.59      16.13     220.97         506
+dist_drenagem                0.00     268.33    1315.90          98
+dens_drenagem               -0.00       0.05       0.85         447
+esp_solo                    10.21      14.20      20.52         552
+esp_saprolito                0.56       6.35      10.26         552
+esp_rocha_alterada           0.00       0.81       6.49         392
+prof_base_solo              10.21      14.20      20.52         552
+prof_topo_zona_rocha        15.90      19.96      26.72         552
+prof_topo_rocha_sa          17.36      20.64      25.69         436
+
+===== B) SANIDADE DA AMOSTRAGEM =====
+Cota MDE nos poços: 565–1100 m (esperado ~550–1500)
+Correlação mde × tri no ponto: 0.41 (esperado positivo moderado — relevo mais alto é mais rugoso)
+Score fuzzy: min 0.000, max 0.904, desvio 0.225 (se ~0, memberships degenerados)
+
+===== C) CORRELAÇÃO UNIVARIADA COM log10(Q/s) =====
+mde                    -0.136
+dist_drenagem          -0.118
+hand                   -0.097
+esp_rocha_alterada     -0.095
+prof_topo_zona_rocha   +0.040
+esp_saprolito          +0.038
+curvatura              -0.025
+twi                    +0.022
+prof_topo_rocha_sa     -0.020
+dens_drenagem          +0.020
+tri                    +0.017
+declividade            +0.012
+northness              -0.012
+esp_solo               +0.000
+prof_base_solo         +0.000
+
+===== D) CV ALEATÓRIA vs ESPACIAL =====
+AUC CV aleatória (estratificada): 0.523
+AUC CV espacial (blocos 10 km):   0.479
+
+Leitura:
+  ambas ~0,5      -> covariáveis sem informação (defeito técnico ou
+                     ausência total de relação) — investigar A/B/C;
+  aleatória >>    -> dados íntegros; o sinal existe mas é apenas
+  espacial           autocorrelação local, não transferível — caminho é
+                     enriquecer preditores (lineamentos etc.), não
+                     afrouxar a validação.
+
+Relatório completo salvo em: data/outputs/s07_diag_relatorio.txt

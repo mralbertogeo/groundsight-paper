@@ -1,0 +1,9 @@
+===== s08 — PRODUTOS DE FECHAMENTO (v1) =====
+[1] Base auditada: 7868 poços (gpkg + xlsx em outputs/produtos)
+[2] Delta produtivo variável: 564 poços alta válidos, 16 blocos de 20 km (n>=8); medianas de bloco 48–155 m; raster limitado a [20,160] m
+[2] Rasters delta_produtivo.tif e prof_recomendada_perfuracao.tif gerados (= topo da rocha sã + delta local)
+[3] Potenciometria (profundidade do NA, krigagem_ordinaria_esferico): 2473 poços; células corrigidas (prof < 0): 0 (0.00%)
+[4] Quicklook não gerado: name 'delta' is not defined
+
+Rasters de produto no grid (data/derived/covariaveis/): cota_topo_rocha_sa, prof_recomendada_perfuracao, cota_na, prof_na
+Relatório salvo em: /data/outputs/s08_relatorio.txt

@@ -1,0 +1,28 @@
+===== s05c — AEROGEOFÍSICA (v3) =====
+[1039] AUSENTE: 1039/spaulo_rjaneiro_sp.xyz
+[1105_mag] lendo 1105/XYZ/1105_MagLine.XYZ ...
+   11,635,640 linhas no arquivo -> 492,786 pontos na AOI
+[1105_mag] lendo 1105/XYZ/1105_MagTie.XYZ ...
+   705,018 linhas no arquivo -> 28,181 pontos na AOI
+   canal mag: 161,144 células com dado
+[1105_gama] lendo 1105/XYZ/1105_GamaLine.XYZ ...
+   1,169,659 linhas no arquivo -> 515,498 pontos na AOI
+[1105_gama] lendo 1105/XYZ/1105_GamaTie.XYZ ...
+   72,995 linhas no arquivo -> 29,713 pontos na AOI
+   canal k: 161,574 células com dado
+   canal eu: 161,574 células com dado
+   canal eth: 161,574 células com dado
+   canal ct: 161,574 células com dado
+[mosaico] geof_mag: cobertura 100% (1105 em 52%)
+[mosaico] geof_k: cobertura 100% (1105 em 52%)
+[mosaico] geof_eth: cobertura 100% (1105 em 52%)
+[mosaico] geof_eu: cobertura 100% (1105 em 52%)
+[mosaico] geof_ct: cobertura 100% (1105 em 52%)
+
+Covariáveis geofísicas: 8 (geof_mag, geof_k, geof_eth, geof_eu, geof_ct, geof_mag_1dv, geof_mag_ght, geof_mag_tilt)
+Poços com todas as geofísicas: 1354 de 1364
+Quicklook: data/outputs/quicklook_geofisica.png
+
+Próximo: s06 -> s07 -> s07_externa; regra v3 pré-registrada:
+adotar geofísica SOMENTE se AUC espacial > 0,650 E AUC externo > 0,563.
+Relatório salvo em: /data/outputs/s05c_relatorio.txt

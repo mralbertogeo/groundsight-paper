@@ -1,0 +1,19 @@
+===== s08c — CLASSES DE FAVORABILIDADE (5 graus) =====
+Superfície de probabilidade: /data/derived/covariaveis/favorabilidade_prob.tif
+
+Calculando predições out-of-fold (CV espacial)...
+Quebras (quintis das probabilidades OOF dos poços): 0.190 | 0.242 | 0.291 | 0.350
+
+Validação por classe (out-of-fold):
+      classe  n poços  % área  taxa alta   lift
+ muito_baixa      349   59.7%      17.5%   0.7x
+       baixa      348   17.1%      19.8%   0.8x
+       media      348   10.0%      25.3%   1.0x
+        alta      348    6.9%      31.9%   1.3x
+  muito_alta      349    6.3%      30.7%   1.2x
+Taxa-base (fração de poços 'alta'): 25.0%
+Monotonicidade: OK — taxas crescem de muito_baixa a muito_alta
+
+Raster de classes: /data/derived/covariaveis/classes_favorabilidade.tif
+Quicklook: data/outputs/quicklook_classes.png
+Relatório salvo em: /data/outputs/s08c_relatorio.txt

@@ -1,0 +1,127 @@
+===== LEVANTAMENTOS AEROGEOFÍSICOS NA AOI =====
+AOI: [-47.35, -23.25, -46.15, -22.05]
+Camadas no serviço: 4
+
+----- [0] Série 1000 - Projetos DNPM e CPRM: 3 projeto(s) na AOI -----
+      ID_PROJETO: 1039
+      ID_SERIE: 1000
+      SHAPE.AREA: 4.18924264052261
+      SHAPE.LEN: 12.8723354600879
+      OBJECTID: 62797
+      TITULO: São Paulo - Rio de Janeiro (área São Paulo)
+      METODOS: Magnetometria, Gamaespectrometria
+      ALTURA_VOO_M: 150
+      AREA_LEVANTADA_KM2: 58000
+      QUILOMETRAGEM_VOADA_KM: 52436
+      DIRECAO_LV: N-S
+      DIRECAO_LC: E-W
+      ESPACAMENTO_LV_M: 1000
+      ESPACAMENTO_LC_KM: 10
+      SERIE: Projetos conduzidos pelo Departamento Nacional de Produção Mineral (DNPM) e CPRM - Serviço Geológico do Brasil
+      IMAGENS: https://geosgb.sgb.gov.br/downloads/index.php?dir=1039-Projeto_Aerogeofisico_Sao_Paulo_Rio_de_Janeiro_(Area_Sao_Paulo)&widget=1&openAll=1
+      INTERVALO: 100 m
+      CONTRATANTE: Companhia de Pesquisa de Recursos Minerais - CPRM
+      CONTRATADA: ENCAL S.A - Engenheiros Consultores e Aerolevantamentos
+      ANO_PROJETO: 1978
+      DECADA: 1970
+      ANO_CONCLUSAO: 1978
+      SITUACAO: Disponível
+      --------------------------------------------------
+      ID_PROJETO: 1105
+      ID_SERIE: 1000
+      SHAPE.AREA: 4.28125
+      SHAPE.LEN: 9.29056941504209
+      OBJECTID: 63142
+      TITULO: São José dos Campos-Resende
+      METODOS: Magnetometria, Gamaespectrometria
+      ALTURA_VOO_M: 100
+      AREA_LEVANTADA_KM2: 48081
+      QUILOMETRAGEM_VOADA_KM: 101085
+      DIRECAO_LV: N-S
+      DIRECAO_LC: E-W
+      ESPACAMENTO_LV_M: 500
+      ESPACAMENTO_LC_KM: 10
+      SERIE: Projetos conduzidos pelo Departamento Nacional de Produção Mineral (DNPM) e CPRM - Serviço Geológico do Brasil
+      IMAGENS: https://geosgb.sgb.gov.br/downloads/index.php?dir=1105-Projeto_aerogeofisico_Sao_Jose_dos_Campos-Resende&widget=1&openAll=1
+      INTERVALO:  0,1 s (mag) 1 s (gama)
+      CONTRATANTE: Companhia de Pesquisa de Recursos Minerais - CPRM
+      CONTRATADA: Microsurvey  Aerogeofísica e consultoria Cientifica LTDA.
+      ANO_PROJETO: 2010
+      DECADA: 2010
+      ANO_CONCLUSAO: 2014
+      SITUACAO: Disponível
+      --------------------------------------------------
+      ID_PROJETO: 1009
+      ID_SERIE: 1000
+      SHAPE.AREA: 49.036783847738
+      SHAPE.LEN: 34.477254363201794
+      OBJECTID: 62889
+      TITULO: Convênio Geofísica Brasil-Alemanha
+      METODOS: Magnetometria
+      ALTURA_VOO_M: 350
+      AREA_LEVANTADA_KM2: 570000
+      QUILOMETRAGEM_VOADA_KM: 360000
+      DIRECAO_LV: E-W
+      DIRECAO_LC: N-S
+      ESPACAMENTO_LV_M: 2000
+      ESPACAMENTO_LC_KM: 0
+      SERIE: Projetos conduzidos pelo Departamento Nacional de Produção Mineral (DNPM) e CPRM - Serviço Geológico do Brasil
+      IMAGENS: https://geosgb.sgb.gov.br/downloads/index.php?dir=1009-Projeto_Aerogeofisico_Convenio_Brasil_Alemanha&widget=1&openAll=1
+      INTERVALO: 60 m
+      CONTRATANTE: Departamento Nacional da Produção Mineral - DNPM
+      CONTRATADA: CPRM/PRAKLA-SEISMOS GmbH (Alemanha)
+      ANO_PROJETO: 1971
+      DECADA: 1970
+      ANO_CONCLUSAO: 1971
+      SITUACAO: Disponível
+      --------------------------------------------------
+----- [1] Série 2000 - Projetos CNEM e NUCLEBRÁS: 1 projeto(s) na AOI -----
+      ID_PROJETO: 2003
+      ID_SERIE: 2000
+      SHAPE.AREA: 3.5000431659074698
+      SHAPE.LEN: 11.500085680049601
+      OBJECTID: 62923
+      TITULO: Bauru
+      METODOS: Cintilometria
+      ALTURA_VOO_M: 0
+      AREA_LEVANTADA_KM2: 40000
+      QUILOMETRAGEM_VOADA_KM: 26603
+      DIRECAO_LV: E-W
+      DIRECAO_LC: N-S
+      ESPACAMENTO_LV_M: 1500
+      ESPACAMENTO_LC_KM: 0
+      SERIE: Projetos conduzidos pela Comissão Nacional de Energia Nuclear (CNEN) e pela Empresas Nucleares Brasileiras S.A. (NUCLEBRÁS)
+      CONTRATANTE: Comissão Nacional de Energia Nuclear - CNEN
+      CONTRATADA: LASA Engenharia e Prospecções S.A.
+      ANO_PROJETO: 1963
+      DECADA: 1960
+      ANO_CONCLUSAO: 1963
+      --------------------------------------------------
+----- [3] Série 4000 - Projetos CNP e PETROBRAS: 1 projeto(s) na AOI -----
+      ID_PROJETO: 4019
+      ID_SERIE: 4000
+      SHAPE.AREA: 4.00004975318004
+      SHAPE.LEN: 10.000065953048399
+      OBJECTID: 63078
+      TITULO: Botucatu
+      METODOS: Magnetometria
+      ALTURA_VOO_M: 450
+      AREA_LEVANTADA_KM2: 46000
+      QUILOMETRAGEM_VOADA_KM: 25745
+      DIRECAO_LV: N-S
+      DIRECAO_LC: E-W
+      ESPACAMENTO_LV_M: 2000
+      ESPACAMENTO_LC_KM: 20
+      SERIE: Projetos conduzidos pelo Conselho Nacional do Petróleo (CNP) e pela Petróleo Brasileiro S.A. (PETROBRAS)
+      IMAGENS: https://reate.cprm.gov.br/anp/TERRESTRE
+      INTERVALO: 100 m
+      CONTRATANTE: PAULIPETRO - Consórcio CESP/IPT
+      CONTRATADA: ENCAL S.A  - Consultoria e Aerolevantamentos
+      ANO_PROJETO: 1980
+      DECADA: 1980
+      ANO_CONCLUSAO: 1980
+      LOCALIZACAO: Bacia do Paraná
+      SITUACAO: Público
+      --------------------------------------------------
+
+Relatório salvo em: /data/outputs/geofisica_projetos.txt

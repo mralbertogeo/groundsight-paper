@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .env
 *.log
+
+# o manuscrito nao vai para o repositorio publico
+*.docx
+*.doc

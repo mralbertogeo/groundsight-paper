@@ -1,0 +1,11 @@
+===== s07_externa — VALIDAÇÃO EXTERNA (v2.3) =====
+Poços de treino (AOI original): 440
+Poços de teste (expansão):      1302
+Limiar 'alta' (q75 do TREINO): log10(Q/s) = -0.45
+Positivos no teste externo: 233 de 1302
+
+AUC externo  RF: 0.588 | XGB: 0.593
+R² externo (log Q/s): 0.073
+
+Interpretação: este número mede transferência para área nunca vista por nenhuma iteração — é a estimativa mais conservadora do desempenho real do produto.
+Relatório salvo em: /data/outputs/s07_externa_relatorio.txt

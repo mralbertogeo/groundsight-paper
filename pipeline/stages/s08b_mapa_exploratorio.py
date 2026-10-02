@@ -36,7 +36,8 @@ MOD = DERIVED / "modelos"
 RELATORIO = OUT / "s08b_relatorio.txt"
 
 AVISO = ("VALIDADO DENTRO DO TETO MENSURAVEL - AUC espacial "
-         "{auc:.2f} ({frac:.0%} do teto-vizinho {teto:.2f}) | "
+         "{auc:.2f} ({frac:.0%} do teto-vizinho {teto:.2f}, "
+         "fracao corrigida pelo acaso) | "
          "externa {ext} - triagem regional; nao substitui "
          "investigacao local")
 
@@ -100,7 +101,8 @@ def main():
         auc = float(dfv[["auc_rf", "auc_xgb",
                          "auc_ens"]].mean().max())
     teto = float(cfg.get("teto_vizinho_auc", 0.672))
-    aviso = AVISO.format(auc=auc, ext=ext, teto=teto, frac=auc / teto)
+    frac = (auc - 0.5) / (teto - 0.5) if teto > 0.5 else float("nan")
+    aviso = AVISO.format(auc=auc, ext=ext, teto=teto, frac=frac)
     print("===== s08b — MAPA DE FAVORABILIDADE (validado no teto) =====")
     print(aviso)
 

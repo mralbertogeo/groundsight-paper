@@ -157,16 +157,21 @@ def main():
     print(f"CV: blocos de {bloco_km:.0f} km, {n_folds} folds, "
           f"seeds {seeds}")
 
-    # Barra RELATIVA AO TETO medido (pré-registro de 10/08/2026):
+    # Barra RELATIVA AO TETO medido (critério declarado em 10/08/2026):
     # exigir mais discriminação do que o próprio local replicado a
     # 250 m oferece é exigir o impossível — o critério passa a ser a
     # fração capturada do discriminável (s09: teto-vizinho).
+    # A fração é CORRIGIDA PELO ACASO: AUC 0,5 é a expectativa de um
+    # ranking aleatório, não um zero de habilidade. Pela razão bruta
+    # AUC/teto um modelo aleatório já marcaria ~74% de um teto 0,672.
     teto = float(cfg.get("teto_vizinho_auc", 0.672))
     fator = float(cfg.get("fator_teto", 0.95))
     barra = fator * teto
-    fracao = melhor_ml / teto
+    fracao = ((melhor_ml - 0.5) / (teto - 0.5)
+              if teto > 0.5 else float("nan"))
     print(f"Barra bloqueante = {fator:.2f} × teto-vizinho {teto:.3f} "
-          f"= {barra:.3f} | fração do teto capturada: {fracao:.0%}")
+          f"= {barra:.3f} | fração do teto capturada "
+          f"(corrigida pelo acaso): {fracao:.0%}")
 
     ok = True
     if melhor_ml < barra:
@@ -179,7 +184,7 @@ def main():
         ok = False
     if ok:
         print(f"\nAPROVADO: melhor AUC {melhor_ml:.3f} "
-              f"({fracao:.0%} do teto mensurável)")
+              f"({fracao:.0%} do teto mensurável, corrigido pelo acaso)")
     sys.exit(0 if ok else 1)
 
 

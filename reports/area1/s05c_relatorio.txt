@@ -1,0 +1,34 @@
+===== s05c — AEROGEOFÍSICA (v3) =====
+[1039] lendo 1039/spaulo_rjaneiro_sp.xyz ...
+   539,049 linhas no arquivo -> 141,362 pontos na AOI
+   canal mag: 55,809 células com dado
+   canal eth: 55,809 células com dado
+   canal eu: 55,809 células com dado
+   canal k: 55,809 células com dado
+   canal ct: 55,809 células com dado
+[1105_mag] lendo 1105/XYZ/1105_MagLine.XYZ ...
+   11,635,640 linhas no arquivo -> 174,758 pontos na AOI
+[1105_mag] lendo 1105/XYZ/1105_MagTie.XYZ ...
+   705,018 linhas no arquivo -> 11,470 pontos na AOI
+   canal mag: 54,976 células com dado
+[1105_gama] lendo 1105/XYZ/1105_GamaLine.XYZ ...
+   1,169,659 linhas no arquivo -> 167,335 pontos na AOI
+[1105_gama] lendo 1105/XYZ/1105_GamaTie.XYZ ...
+   72,995 linhas no arquivo -> 14,838 pontos na AOI
+   canal k: 53,648 células com dado
+   canal eu: 53,648 células com dado
+   canal eth: 53,648 células com dado
+   canal ct: 53,648 células com dado
+[mosaico] geof_mag: cobertura 98% (1105 em 17%)
+[mosaico] geof_k: cobertura 98% (1105 em 17%)
+[mosaico] geof_eth: cobertura 98% (1105 em 17%)
+[mosaico] geof_eu: cobertura 98% (1105 em 17%)
+[mosaico] geof_ct: cobertura 98% (1105 em 17%)
+
+Covariáveis geofísicas: 8 (geof_mag, geof_k, geof_eth, geof_eu, geof_ct, geof_mag_1dv, geof_mag_ght, geof_mag_tilt)
+Poços com todas as geofísicas: 7618 de 7646
+Quicklook: data/outputs/quicklook_geofisica.png
+
+Próximo: s06 -> s07 -> s07_externa; regra v3 pré-registrada:
+adotar geofísica SOMENTE se AUC espacial > 0,650 E AUC externo > 0,563.
+Relatório salvo em: /data/outputs/s05c_relatorio.txt

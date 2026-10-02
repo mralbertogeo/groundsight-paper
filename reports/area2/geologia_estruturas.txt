@@ -1,0 +1,3198 @@
+===== INVENTÁRIO DE SERVIÇOS/CAMADAS DE GEOLOGIA =====
+AOI: [-46.1, -23.35, -44.9, -22.15]
+
+Pastas no diretório raiz: ['aflora', 'basegeo', 'cartografia', 'colaboracao', 'dados_plataforma', 'ETL', 'geofisica', 'geologia', 'geologia_marinha', 'geoquimica', 'gestaoterritorial', 'gptools', 'hidrologia', 'Hosted', 'isagro', 'mapsdocs', 'pdac', 'projeto_neotectonica', 'projetos', 'pronasolos', 'sigs_especiais', 'sistemas', 'suplan', 'tools', 'Utilities']
+
+Serviços encontrados: 412
+
+--- aflora/estacao_geologica_qa (MapServer) — 2 camadas ---
+   [  0] basegeo_qa.estacao.es_estacao_geologica
+   [  1] basegeo_qa.estacao.es_visita_atividade
+
+--- basegeo/basegeo_prod_amostra (MapServer) — 1 camadas ---
+   [  0] basegeo_prod_amostra
+
+--- basegeo/basegeo_prod_publicacao (MapServer) — 1 camadas ---
+   [  0] Publicação
+
+--- basegeo/basegeo_prod_validacao (MapServer) — 1 camadas ---
+   [  0] Validação
+
+--- cartografia/bacias_rs (MapServer) — 1 camadas ---
+   [190] BACIAS_RS_SIRGAS2000
+
+--- cartografia/divisao_politica (MapServer) — 3 camadas ---
+   [  0] Municípios
+   [  1] Estados
+   [  2] Regiões
+
+--- cartografia/divisao_politico_administrativo (MapServer) — 3 camadas ---
+   [  0] Municípios
+   [  1] Estados
+   [  2] Regiões
+
+--- cartografia/limites_cartograficos (MapServer) — 5 camadas ---
+   [  0] Grid 1:50.000
+   [  1] Grid 1:100.000
+   [  2] Grid 1:250.000
+   [  3] Grid 1:500.000
+   [  4] Grid 1:1.000.000
+
+--- cartografia/unifilar_1000000 (FeatureServer) — 1 camadas ---
+   [  0] Drenagens 1:1.000.000
+
+--- cartografia/unifilar_1000000 (MapServer) — 1 camadas ---
+   [  0] Drenagens 1:1.000.000
+
+--- geofisica/aerogeofisica_congresso (FeatureServer) — 4 camadas ---
+   [  0] Série 1000 - Projetos DNPM e CPRM
+   [  1] Série 2000 - Projetos CNEM e NUCLEBRÁS
+   [  2] Série 3000 - Projetos governamentais e de empresas privadas
+   [  3] Série 4000 - Projetos CNP e PETROBRAS
+
+--- geofisica/aerogeofisica_congresso (MapServer) — 4 camadas ---
+   [  0] Série 1000 - Projetos DNPM e CPRM
+   [  1] Série 2000 - Projetos CNEM e NUCLEBRÁS
+   [  2] Série 3000 - Projetos governamentais e de empresas privadas
+   [  3] Série 4000 - Projetos CNP e PETROBRAS
+
+--- geofisica/aerogeofisica_query (FeatureServer) — 1 camadas ---
+   [  0] Todas as séries
+
+--- geofisica/aerogeofisica_query (MapServer) — 1 camadas ---
+   [  0] Todas as séries
+
+--- geofisica/aerogeofisica (FeatureServer) — 4 camadas ---
+   [  0] Série 1000 - Projetos DNPM e CPRM
+   [  1] Série 2000 - Projetos CNEM e NUCLEBRÁS
+   [  2] Série 3000 - Projetos governamentais e de empresas privadas
+   [  3] Série 4000 - Projetos CNP e PETROBRAS
+
+--- geofisica/aerogeofisica (MapServer) — 4 camadas ---
+   [  0] Série 1000 - Projetos DNPM e CPRM
+   [  1] Série 2000 - Projetos CNEM e NUCLEBRÁS
+   [  2] Série 3000 - Projetos governamentais e de empresas privadas
+   [  3] Série 4000 - Projetos CNP e PETROBRAS
+
+--- geofisica/cartas_anomalia_manutencao (FeatureServer) — 1 camadas ---
+   [  0] Cartas de Anomalia (Manutenção)
+
+--- geofisica/cartas_anomalia_manutencao (MapServer) — 1 camadas ---
+   [  0] Cartas de Anomalia (Manutenção)
+
+--- geofisica/cartas_anomalia (MapServer) — 1 camadas ---
+   [  0] Cartas de Anomalia
+
+[geofisica/geofisica_terrestre] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- geofisica/geofísicaTerrestre (MapServer) — 2 camadas ---
+   [  0] Gravimetria
+   [  1] Magnetotelurico
+
+--- geofisica/gravimetria_2026 (MapServer) — 2 camadas ---
+   [  0] Levantamentos Geofísicos Terrestres
+   [  1] Gravimetria
+
+--- geofisica/gravimetria (FeatureServer) — 1 camadas ---
+   [  0] Dados gravimétricos
+
+--- geofisica/gravimetria (MapServer) — 1 camadas ---
+   [  0] Dados gravimétricos
+
+--- geofisica/levantamento_hiperespectral (FeatureServer) — 1 camadas ---
+   [  0] Levantamentos Hiperespectrais
+
+--- geofisica/levantamento_hiperespectral (MapServer) — 1 camadas ---
+   [  0] Levantamentos Hiperespectrais
+
+--- geofisica/magnetotelurico (MapServer) — 2 camadas ---
+   [  0] Levantamentos Geofísicos Terrestres
+   [  1] Magnetotelurico
+
+--- geofisica/sismologia (MapServer) — 1 camadas ---
+   [  0] Sismologia
+
+--- geofisica/sismos (MapServer) — 1 camadas ---
+   [  0] Sismos
+
+--- geologia/aespectral_postgres (MapServer) — 2 camadas ---
+   [  1] Biblioteca Espectral Oracle
+   [  0] Biblioteca Espectral Postgres
+
+--- geologia/aespectral (MapServer) — 1 camadas ---
+   [  0] Biblioteca espectral
+
+--- geologia/afloramentos (MapServer) — 1 camadas ---
+   [  0] Afloramentos geológicos
+
+--- geologia/bacias_sedimentares (FeatureServer) — 2 camadas ---
+   [  0] Bacias Sedimentares - Inline
+   [  1] Bacias Sedimentares - Outline
+
+--- geologia/bacias_sedimentares (MapServer) — 2 camadas ---
+   [  0] Bacias Sedimentares - Inline
+   [  1] Bacias Sedimentares - Outline
+
+--- geologia/diamante_brasil (MapServer) — 4 camadas ---
+   [  0] Afloramentos de Kimberlito
+   [  1] Minerais Indicadores
+   [  2] Ocorrências de Diamantes
+   [  3] Química Mineral
+
+--- geologia/Estruturas_GIS_Brasil_2004 (MapServer) — 1 camadas ---
+   [  0] Estruturas_GIS_Brasil_2004 <== CANDIDATA
+
+--- geologia/furos_sondagem (MapServer) — 1 camadas ---
+   [  0] Sondagens
+
+--- geologia/geocronologia (MapServer) — 1 camadas ---
+   [  0] Datações geocronológicas
+
+--- geologia/geoq_externa (FeatureServer) — 21 camadas ---
+   [  0] Geoquímica - Pontos de Amostragem
+   [  1] Furos de Sondagem - Pontos de Amostragem
+   [  2] Amostras analisadas de Água
+   [  3] Amostras analisadas de Concentrado de Batéia
+   [  4] Amostras analisadas de Contagem de Pintas Au
+   [  5] Amostras analisadas de Mineral Minério
+   [  6] Amostras analisadas de Mineralometria
+   [  7] Amostras analisadas de Outros
+   [  8] Amostras analisadas de Rocha
+   [  9] Amostras analisadas de Sedimento de Corrente
+   [ 10] Amostras analisadas de Solo
+   [ 11] Área dos Projetos
+   [ 12] query_all_Água
+   [ 13] query_all_Concentrado_de_Batéia
+   [ 14] query_all_Contagem_de_Pintas_Au
+   [ 15] query_all_Mineral_Minério
+   [ 16] query_all_Mineralometria
+   [ 17] query_all_Outros
+   [ 18] query_all_Rocha
+   [ 19] query_all_Sedimento_de_Corrente
+   [ 20] query_all_Solo
+
+--- geologia/geoq_externa (MapServer) — 21 camadas ---
+   [  0] Geoquímica - Pontos de Amostragem
+   [  1] Furos de Sondagem - Pontos de Amostragem
+   [  2] Amostras analisadas de Água
+   [  3] Amostras analisadas de Concentrado de Batéia
+   [  4] Amostras analisadas de Contagem de Pintas Au
+   [  5] Amostras analisadas de Mineral Minério
+   [  6] Amostras analisadas de Mineralometria
+   [  7] Amostras analisadas de Outros
+   [  8] Amostras analisadas de Rocha
+   [  9] Amostras analisadas de Sedimento de Corrente
+   [ 10] Amostras analisadas de Solo
+   [ 11] Área dos Projetos
+   [ 12] query_all_Água
+   [ 13] query_all_Concentrado_de_Batéia
+   [ 14] query_all_Contagem_de_Pintas_Au
+   [ 15] query_all_Mineral_Minério
+   [ 16] query_all_Mineralometria
+   [ 17] query_all_Outros
+   [ 18] query_all_Rocha
+   [ 19] query_all_Sedimento_de_Corrente
+   [ 20] query_all_Solo
+
+--- geologia/indice_assimetria (FeatureServer) — 5 camadas ---
+   [  0] IndiceT
+   [  1] Drenagem Brasil
+   [  2] Sub Bacias 3ª Ordem Brasil
+   [  3] Sub Bacias Hidrográficas Brasil
+   [  4] Bacias Hidrográficas Brasil
+
+--- geologia/indice_assimetria (MapServer) — 5 camadas ---
+   [  0] IndiceT
+   [  1] Drenagem Brasil
+   [  2] Sub Bacias 3ª Ordem Brasil
+   [  3] Sub Bacias Hidrográficas Brasil
+   [  4] Bacias Hidrográficas Brasil
+
+--- geologia/litoestratigrafia_1000000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:1.000.000 [2004]
+
+--- geologia/litoestratigrafia_100000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:100.000
+
+--- geologia/litoestratigrafia_150000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:150.000
+
+--- geologia/litoestratigrafia_2500000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:2.500.000 [2025]
+
+--- geologia/litoestratigrafia_250000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:250.000
+
+--- geologia/litoestratigrafia_25000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:25.000
+
+--- geologia/litoestratigrafia_50000 (MapServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:50.000
+
+--- geologia/litoestratigrafia_estados (MapServer) — 24 camadas ---
+   [ 29] Acre - 1:750.000 [2026]
+   [ 30] Alagoas - 1:250.000 [2016]
+   [  0] Amapá - 1:500.000 [2024]
+   [  1] Amazonas - 1:1.000.000 [2006]
+   [  2] Ceará - 1:500.000 [2020]
+   [  3] Espírito Santo - 1:400.000 [2020]
+   [  4] Goiás - 1:1.000.000 [2008]
+   [  5] Maranhão - 1:750.000 [2012]
+   [  6] Mato Grosso - 1:1.000.000 [2006]
+   [  7] Mato Grosso do Sul - 1:1.000.000 [2006]
+   [  8] Minas Gerais - 1:1.000.000 [2021]
+   [  9] Pará - 1:1.000.000 [2008]
+   [ 10] Paraná - 1:600.000 [2021]
+   [ 28] Pernambuco - 1:500.000 [2023]
+   [ 11] Piauí - 1:1.000.000 [2006]
+   [ 12] Rio de Janeiro - 1:400.000 [2018]
+   [ 13] Rio Grande do Norte - 1:500.000 [2021]
+   [ 14] Rio Grande do Sul - 1:750.000 [2008]
+   [ 26] Rondônia - 1:500.000 [2023]
+   [ 27] Roraima - 1:1.000.000 [2023]
+   [ 16] Santa Catarina - 1:500.000 [2020]
+   [ 17] São Paulo - 1:750.000 [2006]
+   [ 18] Sergipe - 1:250.000 [2014]
+   [ 19] Tocantins - 1:500.000 [2022]
+
+--- geologia/MapaBaciaParana (MapServer) — 5 camadas ---
+   [  0] bacia_do_parana_recmin
+   [  1] bacia_do_parana_afloramento
+   [  2] bacia_do_parana_estrutura <== CANDIDATA
+   [  3] bacia_do_parana_dique
+   [  4] bacia_do_parana_lito
+
+--- geologia/MapaGeologicoBaciaSaoFrancisco (MapServer) — 2 camadas ---
+   [  0] bsf_estrutura <== CANDIDATA
+   [  1] bsf_lito
+
+--- geologia/ocorrencias (MapServer) — 1 camadas ---
+   [  0] Ocorrências minerais
+
+--- geologia/paleo (MapServer) — 1 camadas ---
+   [  0] Ocorrências fossilíferas
+
+--- geologia/petrografia (MapServer) — 1 camadas ---
+   [  0] Petrografia
+
+--- geologia_marinha/areas_costeiras (FeatureServer) — 3 camadas ---
+   [  0] Ilhas
+   [  1] Lajes
+   [  2] Recifes
+
+--- geologia_marinha/areas_costeiras (MapServer) — 3 camadas ---
+   [  0] Ilhas
+   [  1] Lajes
+   [  2] Recifes
+
+--- geologia_marinha/batimetria (FeatureServer) — 2 camadas ---
+   [  0] Curvas_Batimétricas
+   [  1] Áreas batimétricas
+
+--- geologia_marinha/batimetria (MapServer) — 2 camadas ---
+   [  0] Curvas_Batimétricas
+   [  1] Áreas batimétricas
+
+--- geologia_marinha/geomar_fernando_noronha (MapServer) — 9 camadas ---
+   [  0] Sentido Solapamento
+   [  1] Estruturas <== CANDIDATA
+   [  2] Solapamento / Colapso de caldeira
+   [  3] Quebra da Plataforma Insular
+   [  4] Estruturas1 <== CANDIDATA
+   [  5] Alinhamento Morfo-Estrutural <== CANDIDATA
+   [  6] Faciologia - Fernando de Noronha
+   [  7] Litologia_Fernando de Noronha
+   [  8] Curvas de níveis: batimetria
+
+--- geologia_marinha/geomar (FeatureServer) — 46 camadas ---
+   [  1] Limite área
+   [  2] Isóbatas
+   [  3] Amostras dos subtratos marinho
+   [  4] Faciologia
+   [  5] Substrato marinho (classificação supervisionada)
+   [  6] Isoteores de fósforo 
+   [ 11] Limite área
+   [ 12] Isóbatas
+   [ 19] Limite área
+   [ 20] Isóbatas
+   [ 21] Estruturas lineares <== CANDIDATA
+   [ 22] Escarpa de falha <== CANDIDATA
+   [ 23] Unidades morfoestruturais <== CANDIDATA
+   [ 29] Limite área
+   [ 30] Isóbatas
+   [ 36] Limite da área
+   [ 37] Medida estrutural <== CANDIDATA
+   [ 38] Estruturas lineares <== CANDIDATA
+   [ 39] Unidades litoestratigraficas da terras emersar (ilhas)
+   [ 40] Unidades litoestratigraficas plataforma insular
+   [ 44] Limite da área
+   [ 45] Cometas
+   [ 46] Direção de fluxo - correntes de fundo
+   [ 47] Dunas subaquosas
+   [ 48] Faciologia - Alagoas
+   [ 50] Limite da área
+   [ 51] Isóbatas
+   [ 52] Complexos recifais
+   [ 53] Teor de CaCO3 ( % )
+   [ 54] Faciologia
+   [ 57] Limite da área
+   [ 58] Isóbatas
+   [ 59] Complexos recifais
+   [ 60] Diâmetro médio (mm)
+   [ 61] Teor de CaCO3 ( % )
+   [ 62] Faciologia
+   [ 64] Isóbatas
+   [ 65] Isocronas
+   [ 66] Isópacas dos diápiros de sal (m)
+   [ 67] Estruturas <== CANDIDATA
+   [ 68] Topo do embasamento
+   [ 69] Limite das bacias marginais
+   [ 70] Nódulos polimetálicos
+   [ 71] Áreas de relevante interesse para mineração
+   [ 72] Fácies granulométricas dominantes
+   [ 73] Bacias marginais
+
+--- geologia_marinha/geomar (MapServer) — 74 camadas ---
+   [  0] Terraço do Rio Grande
+   [  1] Limite área
+   [  2] Isóbatas
+   [  3] Amostras dos subtratos marinho
+   [  4] Faciologia
+   [  5] Substrato marinho (classificação supervisionada)
+   [  6] Isoteores de fósforo 
+   [  7] Batimetria (m)
+   [  8] Retroespalhamento acústico backscatter (db)
+   [  9] Relevo sombreado
+   [ 10] Elevação do Rio Grande Central
+   [ 11] Limite área
+   [ 12] Isóbatas
+   [ 13] Declividade (°)
+   [ 14] Composição batimetria com retroespalhamento acústico
+   [ 15] Retroespalhamento acústico backscatter (db)
+   [ 16] Batimetria (m)
+   [ 17] Prospecção e Exploração de Sulfetos Polimetálicos da Cordilheira Mesoatlântica (PROCORDILHEIRA)
+   [ 18] Procordilheira - Segmento 02
+   [ 19] Limite área
+   [ 20] Isóbatas
+   [ 21] Estruturas lineares <== CANDIDATA
+   [ 22] Escarpa de falha <== CANDIDATA
+   [ 23] Unidades morfoestruturais <== CANDIDATA
+   [ 24] Batimetria (m)
+   [ 25] Declividade (°)
+   [ 26] Retroespalhamento acústico backscatter (db)
+   [ 27] Relevo sombreado
+   [ 28] Arquipélago de São Pedro e São Paulo
+   [ 29] Limite área
+   [ 30] Isóbatas
+   [ 31] Geofísica FreeAir
+   [ 32] Geofísca Bouguer
+   [ 33] Batimetria
+   [ 34] Plataforma rasa do Brasil
+   [ 35] Arquipélago Fernando de Noronha
+   [ 36] Limite da área
+   [ 37] Medida estrutural <== CANDIDATA
+   [ 38] Estruturas lineares <== CANDIDATA
+   [ 39] Unidades litoestratigraficas da terras emersar (ilhas)
+   [ 40] Unidades litoestratigraficas plataforma insular
+   [ 41] Modelo de elevação digital altura ortométrica
+   [ 42] Modelo de elevação digital altura elipsoidal
+   [ 43] Litoral de Alagoas
+   [ 44] Limite da área
+   [ 45] Cometas
+   [ 46] Direção de fluxo - correntes de fundo
+   [ 47] Dunas subaquosas
+   [ 48] Faciologia - Alagoas
+   [ 49] Litoral de Pernambuco
+   [ 50] Limite da área
+   [ 51] Isóbatas
+   [ 52] Complexos recifais
+   [ 53] Teor de CaCO3 ( % )
+   [ 54] Faciologia
+   [ 55] Litoral do Rio Grande do Norte
+   [ 56] Setor - Touros
+   [ 57] Limite da área
+   [ 58] Isóbatas
+   [ 59] Complexos recifais
+   [ 60] Diâmetro médio (mm)
+   [ 61] Teor de CaCO3 ( % )
+   [ 62] Faciologia
+   [ 63] Plataforma Continental Jurídica Brasiliera
+   [ 64] Isóbatas
+   [ 65] Isocronas
+   [ 66] Isópacas dos diápiros de sal (m)
+   [ 67] Estruturas <== CANDIDATA
+   [ 68] Topo do embasamento
+   [ 69] Limite das bacias marginais
+   [ 70] Nódulos polimetálicos
+   [ 71] Áreas de relevante interesse para mineração
+   [ 72] Fácies granulométricas dominantes
+   [ 73] Bacias marginais
+
+--- geoquimica/geoquimica_integrada_all (FeatureServer) — 1 camadas ---
+   [  0] Amostras Geoquímicas
+
+--- geoquimica/geoquimica_integrada_all (MapServer) — 1 camadas ---
+   [  0] Amostras Geoquímicas
+
+--- geoquimica/geoquimica_integrada (FeatureServer) — 9 camadas ---
+   [  0] Água
+   [  1] Concentrado de Bateia
+   [  2] Sedimento de Corrente
+   [  3] Sedimento Marinho
+   [  4] Rocha
+   [  5] Solo
+   [  6] Vegetação
+   [  7] Mineral/Minério
+   [  8] Outros
+
+--- geoquimica/geoquimica_integrada (MapServer) — 9 camadas ---
+   [  0] Água
+   [  1] Concentrado de Bateia
+   [  2] Sedimento de Corrente
+   [  3] Sedimento Marinho
+   [  4] Rocha
+   [  5] Solo
+   [  6] Vegetação
+   [  7] Mineral/Minério
+   [  8] Outros
+
+[gestaoterritorial/Bacia_Carbonifera_SC] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[gestaoterritorial/Bacia_Carbonifera_SC] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[gestaoterritorial/bacia_carbonifera] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- gestaoterritorial/carbonifera_superficial (FeatureServer) — 1 camadas ---
+   [  0] Bacia Carbonífera - Monitoramento Superficial
+
+--- gestaoterritorial/carbonifera_superficial (MapServer) — 1 camadas ---
+   [  0] Bacia Carbonífera - Monitoramento Superficial
+
+--- gestaoterritorial/corrida_de_massa (FeatureServer) — 1 camadas ---
+   [  0] Corrida de Massa Área
+
+--- gestaoterritorial/corrida_de_massa (MapServer) — 1 camadas ---
+   [  0] Corrida de Massa Área
+
+--- gestaoterritorial/enxurrada (FeatureServer) — 1 camadas ---
+   [  0] Enxurrada Área
+
+--- gestaoterritorial/enxurrada (MapServer) — 1 camadas ---
+   [  0] Enxurrada Área
+
+--- gestaoterritorial/geodiversidade_1000000 (MapServer) — 1 camadas ---
+   [  0] Unidades geoambientais - 1:1.000.000
+
+--- gestaoterritorial/geodiversidade_estados_all (FeatureServer) — 1 camadas ---
+   [  0] Unidades geológico-ambientais - Mapas estaduais
+
+--- gestaoterritorial/geodiversidade_estados_all (MapServer) — 1 camadas ---
+   [  0] Unidades geológico-ambientais - Mapas estaduais
+
+--- gestaoterritorial/geodiversidade_estados (MapServer) — 26 camadas ---
+   [  0] Acre
+   [  1] Alagoas
+   [  2] Amapá
+   [  3] Amazonas
+   [  4] Bahia
+   [  5] Ceará
+   [  6] Espírito Santo
+   [  7] Goiás
+   [  8] Maranhão
+   [  9] Mato Grosso
+   [ 10] Mato Grosso do Sul
+   [ 11] Minas Gerais
+   [ 12] Pará
+   [ 13] Paraíba
+   [ 14] Paraná
+   [ 15] Pernambuco
+   [ 16] Piauí
+   [ 17] Rio de Janeiro
+   [ 18] Rio Grande do Norte
+   [ 19] Rio Grande do Sul
+   [ 20] Rondônia
+   [ 21] Roraima
+   [ 22] Santa Catarina
+   [ 23] São Paulo
+   [ 24] Sergipe
+   [ 25] Tocantins
+
+--- gestaoterritorial/geoq_ambiental (MapServer) — 3 camadas ---
+   [  0] Alíquotas de Água
+   [  1] Alíquotas de Solo
+   [  2] Alíquotas de Sedimento
+
+--- gestaoterritorial/geoquimica_ambiental_atlas (MapServer) — 2 camadas ---
+   [  0] Atlas Geoquímicos Bacias Hidrográficas
+   [  1] Atlas Geoquímicos Estaduais
+
+--- gestaoterritorial/geoquimica_baixa_densidade (FeatureServer) — 4 camadas ---
+   [  0] Sedimento de Corrente
+   [  1] Solo
+   [  2] PGAGEM - Atlas de Bacias Hidrograficas
+   [  3] PGAGEM - Atlas Estaduais
+
+--- gestaoterritorial/geoquimica_baixa_densidade (MapServer) — 4 camadas ---
+   [  0] Sedimento de Corrente
+   [  1] Solo
+   [  2] PGAGEM - Atlas de Bacias Hidrograficas
+   [  3] PGAGEM - Atlas Estaduais
+
+--- gestaoterritorial/geossit (FeatureServer) — 1 camadas ---
+   [  0] Geossit
+
+--- gestaoterritorial/geossit (MapServer) — 1 camadas ---
+   [  0] Geossit
+
+--- gestaoterritorial/homolog_desastre_google (FeatureServer) — 1 camadas ---
+   [  0] Ocorrências Desastre - Analisadas
+
+--- gestaoterritorial/homolog_desastre_google (MapServer) — 1 camadas ---
+   [  0] Ocorrências Desastre - Analisadas
+
+--- gestaoterritorial/inundacao_raster (MapServer) — 1 camadas ---
+   [  0] inundacao
+
+--- gestaoterritorial/inundacao (FeatureServer) — 1 camadas ---
+   [  0] Inundação Área
+
+--- gestaoterritorial/inundacao (MapServer) — 1 camadas ---
+   [  0] Inundação Área
+
+--- gestaoterritorial/not_homolog_desastre_google (FeatureServer) — 1 camadas ---
+   [  0] Ocorrências Desastre - Em análise
+
+--- gestaoterritorial/not_homolog_desastre_google (MapServer) — 1 camadas ---
+   [  0] Ocorrências Desastre - Em análise
+
+--- gestaoterritorial/padrao_relevo (FeatureServer) — 1 camadas ---
+   [  0] Cartas de Padrão de Relevo
+
+--- gestaoterritorial/padrao_relevo (MapServer) — 1 camadas ---
+   [  0] Cartas de Padrão de Relevo
+
+--- gestaoterritorial/perigo (FeatureServer) — 1 camadas ---
+   [  0] Perigo
+
+--- gestaoterritorial/perigo (MapServer) — 1 camadas ---
+   [  0] Perigo
+
+--- gestaoterritorial/risco_am (FeatureServer) — 1 camadas ---
+   [  0] Setorização de Risco Amazonas
+
+--- gestaoterritorial/risco_am (MapServer) — 1 camadas ---
+   [  0] Setorização de Risco Amazonas
+
+--- gestaoterritorial/risco_mobile_google (FeatureServer) — 1 camadas ---
+   [  0] Ocorrências aplicativo Google Play
+
+--- gestaoterritorial/risco_mobile_google (MapServer) — 1 camadas ---
+   [  0] Ocorrências aplicativo Google Play
+
+--- gestaoterritorial/risco (FeatureServer) — 1 camadas ---
+   [  0] Setorização de Risco
+
+--- gestaoterritorial/risco (MapServer) — 1 camadas ---
+   [  0] Setorização de Risco
+
+--- hidrologia/aquifero_uf_sp (FeatureServer) — 15 camadas ---
+   [  0] Poços representativos
+   [  1] Poços representativos Aquífero Guarani confinado
+   [  2] Direção de fluxo Aquífero Guarani confinado
+   [  3] Curvas equipotenciais Aquífero Guarani confinado
+   [  4] Limite área de pressão confinante
+   [  5] Limite área de surgência
+   [  6] Estruturas  <== CANDIDATA
+   [  7] Direção de fluxo
+   [  8] Curvas equipotenciais
+   [  9] Área do Aquífero Guarani confinado
+   [ 10] Aquífero Guarani confinado
+   [ 11] Teor salino
+   [ 12] Tipo químico
+   [ 13] Limite aquíferos
+   [ 14] Aquífero
+
+--- hidrologia/aquifero_uf_sp (MapServer) — 15 camadas ---
+   [  0] Poços representativos
+   [  1] Poços representativos Aquífero Guarani confinado
+   [  2] Direção de fluxo Aquífero Guarani confinado
+   [  3] Curvas equipotenciais Aquífero Guarani confinado
+   [  4] Limite área de pressão confinante
+   [  5] Limite área de surgência
+   [  6] Estruturas  <== CANDIDATA
+   [  7] Direção de fluxo
+   [  8] Curvas equipotenciais
+   [  9] Área do Aquífero Guarani confinado
+   [ 10] Aquífero Guarani confinado
+   [ 11] Teor salino
+   [ 12] Tipo químico
+   [ 13] Limite aquíferos
+   [ 14] Aquífero
+
+--- hidrologia/bacia_acre (MapServer) — 4 camadas ---
+   [  0] BACIA DO ACRE
+   [  1] XAPURI
+   [  2] EVENTOS
+   [  3] CHEIA_2023
+
+--- hidrologia/BACIA_DO_AMAZONAS_MANAUS (MapServer) — 5 camadas ---
+   [  0] BACIA DO AMAZONAS
+   [  1] MANAUS
+   [  2] EVENTOS
+   [  3] COTA_2900cm
+   [  4] COTA_3002cm
+
+--- hidrologia/BACIA_DO_CAI_MONTENEGRO (MapServer) — 431 camadas ---
+   [  0] BACIA DO ACRE
+   [  1] XAPURI
+   [  2] EVENTOS
+   [  3] CHEIA_2023
+   [  4] BACIA DO AMAZONAS
+   [  5] MANAUS
+   [  6] EVENTOS
+   [  7] COTA_2900cm
+   [  8] COTA_3002cm
+   [  9] BACIA CAI
+   [ 10] MONTENEGRO
+   [ 11] MODELAGEM
+   [ 12] cota 250 cm
+   [ 13] cota 300 cm
+   [ 14] cota 350 cm
+   [ 15] cota 400 cm
+   [ 16] cota 450 cm
+   [ 17] cota 500 cm
+   [ 18] cota 550 cm
+   [ 19] cota 600 cm
+   [ 20] cota 650 cm
+   [ 21] cota 700 cm
+   [ 22] cota 750 cm
+   [ 23] cota 800 cm
+   [ 24] cota 850 cm
+   [ 25] cota 900 cm
+   [ 26] cota 950 cm
+   [ 27] cota 1000 cm
+   [ 28] período de retorno de 1 ano
+   [ 29] período de retorno de 3 anos
+   [ 30] período de retorno de 5 anos
+   [ 31] período de retorno de 10 anos
+   [ 32] período de retorno de 25 anos
+   [ 33] período de retorno de 50 anos
+   [ 34] período de retorno de 100 anos
+   [ 35] SÃO SEBASTIÃO DO CAI
+   [ 36] MODELAGEM
+   [ 37] cota 750 cm
+   [ 38] cota 800 cm
+   [ 39] cota 850 cm
+   [ 40] cota 900 cm
+   [ 41] cota 950 cm
+   [ 42] cota 1000 cm
+   [ 43] cota 1100 cm
+   [ 44] cota 1050 cm
+   [ 45] cota 1150 cm
+   [ 46] cota 1200 cm
+   [ 47] cota 1250 cm
+   [ 48] cota 1300 cm
+   [ 49] cota 1350 cm
+   [ 50] cota 1400 cm
+   [ 51] cota 1450 cm
+   [ 52] cota 1500 cm
+   [ 53] cota 1550 cm
+   [ 54] cota 1600 cm
+   [ 55] TR_001ANO
+   [ 56] TR_003ANO
+   [ 57] TR_005ANO
+   [ 58] TR_010ANO
+   [ 59] TR_025ANO
+   [ 60] TR_050ANO
+   [ 61] período de retorno de 100 anos
+   [ 62] BACIA DO DOCE
+   [ 63] GOVERNADOR VALADARES
+   [ 64] EVENTOS
+   [ 65] cheia de 1997
+   [ 66] cheia de 1992
+   [ 67] cheia de 1979
+   [ 68] MODELAGEM
+   [ 69] COTA_350cm
+   [ 70] COTA_400cm
+   [ 71] COTA_450cm
+   [ 72] COTA_500cm
+   [ 73] COTA_550cm
+   [ 74] COTA_600cm
+   [ 75] COTA_650cm
+   [ 76] COTA_700cm
+   [ 77] COTA_750cm
+   [ 78] TR_2anos
+   [ 79] TR_5anos
+   [ 80] TR_10anos
+   [ 81] TR_50anos
+   [ 82] TR_100anos
+   [ 83] COLATINA
+   [ 84] EVENTOS
+   [ 85] CHEIA_1979
+   [ 86] CHEIA_1997
+   [ 87] MODELAGEM
+   [ 88] COTA_0550cm
+   [ 89] COTA_0600cm
+   [ 90] COTA_0650cm
+   [ 91] COTA_750 cm
+   [ 92] COTA_800 cm
+   [ 93] COTA_850 cm
+   [ 94] COTA_900 cm
+   [ 95] COTA_950 cm
+   [ 96] COTA_1000 cm
+   [ 97] COTA_1050 cm
+   [ 98] COTA_1100 cm
+   [ 99] COTA_1150cm
+   [100] COTA_1200cm
+   [101] TR_002
+   [102] TR_003
+   [103] TR_005
+   [104] TR_010
+   [105] TR_025
+   [106] TR_050
+   [107] TR_100
+   [108] NOVA ERA
+   [109] MODELAGEM
+   [110] COTA_0470cm
+   [111] COTA_0500cm
+   [112] COTA_0550cm
+   [113] COTA_0600cm
+   [114] COTA_0650cm
+   [115] COTA_0700cm
+   [116] COTA_0750cm
+   [117] COTA_0800cm
+   [118] COTA_0828cm
+   [119] COTA_0850cm
+   [120] COTA_0900cm
+   [121] COTA_0950cm
+   [122] COTA_1000cm
+   [123] COTA_1050cm
+   [124] COTA_1100cm
+   [125] TR_0002_anos
+   [126] TR_0005_anos
+   [127] TR_0010_anos
+   [128] TR_0025_anos
+   [129] TR_0050_anos
+   [130] TR_0100_anos
+   [131] TR_1000_anos
+   [132] PONTE NOVA
+   [133] EVENTOS
+   [134] CHEIA_2008
+   [135] CHEIA_2012
+   [136] CBH DOCE
+   [137] AIMORES E BAIXO GUANDU
+   [138] TR_002
+   [139] TR_005
+   [140] TR_010
+   [141] TR_025
+   [142] TR_050
+   [143] TR_100
+   [144] TR_500
+   [145] COLATINA CBH
+   [146] TR_002
+   [147] TR_005
+   [148] TR_010
+   [149] TR_025
+   [150] TR_050
+   [151] TR_100
+   [152] TR_500
+   [153] ANTÔNIO DIAS
+   [154] TR_002
+   [155] TR_005
+   [156] TR_010
+   [157] TR_025
+   [158] TR_050
+   [159] TR_100
+   [160] TR_500
+   [161] BELO ORIENTE
+   [162] TR_002
+   [163] TR_005
+   [164] TR_010
+   [165] TR_025
+   [166] TR_050
+   [167] TR_100
+   [168] TR_500
+   [169] CARATINGA
+   [170] TR_002
+   [171] TR_005
+   [172] TR_010
+   [173] TR_025
+   [174] TR_050
+   [175] TR_100
+   [176] TR_500
+   [177] CONSELHEIRO PENA
+   [178] TR_002
+   [179] TR_005
+   [180] TR_010
+   [181] TR_025
+   [182] TR_050
+   [183] TR_100
+   [184] TR_500
+   [185] DOM CALVATI
+   [186] TR_002
+   [187] TR_005
+   [188] TR_010
+   [189] TR_025
+   [190] TR_050
+   [191] TR_100
+   [192] TR_500
+   [193] GOVERNADOR VALADARES CBH
+   [194] TR_002
+   [195] TR_005
+   [196] TR_010
+   [197] TR_025
+   [198] TR_050
+   [199] TR_100
+   [200] TR_500
+   [201] GUARACIABA
+   [202] TR_002
+   [203] TR_005
+   [204] TR_010
+   [205] TR_025
+   [206] TR_050
+   [207] TR_100
+   [208] TR_500
+   [209] LINHARES
+   [210] TR_002
+   [211] TR_005
+   [212] TR_010
+   [213] TR_025
+   [214] TR_050
+   [215] TR_100
+   [216] TR_500
+   [217] NOVA ERA CBH
+   [218] TR_002
+   [219] TR_005
+   [220] TR_010
+   [221] TR_025
+   [222] TR_050
+   [223] TR_100
+   [224] TR_500
+   [225] PIRANGA
+   [226] TR_002
+   [227] TR_005
+   [228] TR_010
+   [229] TR_025
+   [230] TR_050
+   [231] TR_100
+   [232] TR_500
+   [233] PONTE NOVA CBH
+   [234] TR_002
+   [235] TR_005
+   [236] TR_010
+   [237] TR_025
+   [238] TR_050
+   [239] TR_100
+   [240] TR_500
+   [241] PORTO FIRME
+   [242] TR_002
+   [243] TR_005
+   [244] TR_010
+   [245] TR_025
+   [246] TR_050
+   [247] TR_100
+   [248] TR_500
+   [249] RESPLENDOR
+   [250] TR_002
+   [251] TR_005
+   [252] TR_010
+   [253] TR_025
+   [254] TR_050
+   [255] TR_100
+   [256] TR_500
+   [257] RIO PIRACICABA
+   [258] TR_002
+   [259] TR_005
+   [260] TR_010
+   [261] TR_025
+   [262] TR_050
+   [263] TR_100
+   [264] TR_500
+   [265] SANTA BÁRBARA DO LESTE
+   [266] TR_002
+   [267] TR_005
+   [268] TR_010
+   [269] TR_025
+   [270] TR_050
+   [271] TR_100
+   [272] TR_500
+   [273] SANTA RITA DE MINAS
+   [274] TR_002
+   [275] TR_005
+   [276] TR_010
+   [277] TR_025
+   [278] TR_050
+   [279] TR_100
+   [280] TR_500
+   [281] TIMÓTEO
+   [282] TR_002
+   [283] TR_005
+   [284] TR_010
+   [285] TR_025
+   [286] TR_050
+   [287] TR_100
+   [288] TR_500
+   [289] TUMIRITINGA
+   [290] TR_002
+   [291] TR_005
+   [292] TR_010
+   [293] TR_025
+   [294] TR_050
+   [295] TR_100
+   [296] TR_500
+   [297] UBAPORANGA E INHAPIM
+   [298] TR_002
+   [299] TR_005
+   [300] TR_010
+   [301] TR_025
+   [302] TR_050
+   [303] TR_100
+   [304] TR_500
+   [305] BACIA ITAPECURU
+   [306] CAXIAS
+   [307] MODELAGEM
+   [308] COTA_500
+   [309] COTA_550
+   [310] COTA_600
+   [311] COTA_650
+   [312] COTA_700
+   [313] COTA_750
+   [314] COTA_800
+   [315] COTA_850
+   [316] TR_2
+   [317] TR_5
+   [318] TR_10
+   [319] TR_15
+   [320] TR_20
+   [321] TR_25
+   [322] TR_30
+   [323] TR_50
+   [324] TR_100
+   [325] BACIA MADEIRA
+   [326] PORTO VELHO
+   [327] EVENTOS
+   [328] cota 16 m
+   [329] cota 17 m
+   [330] cota 18 m
+   [331] cota 19 m
+   [332] cota 19,50 m
+   [333] BACIA DO MUNDAU
+   [334] SANTANA DO MUNDAU
+   [335] MODELAGEM
+   [336] COTA_531cm
+   [337] COTA_581cm
+   [338] COTA_631cm
+   [339] COTA_731cm
+   [340] COTA_681cm
+   [341] COTA_781cm
+   [342] COTA_831cm
+   [343] COTA_881cm
+   [344] COTA_931cm
+   [345] COTA_981cm
+   [346] COTA_1031cm
+   [347] COTA_1081cm
+   [348] COTA_1131cm
+   [349] COTA_1181cm
+   [350] TR_5anos
+   [351] TR_10anos
+   [352] TR_25anos
+   [353] TR_50anos
+   [354] TR_100anos
+   [355] BACIA PARNAÍBA
+   [356] TERESINA
+   [357] MODELAGEM
+   [358] TR_002X002anos
+   [359] TR_005X005anos
+   [360] TR_010X010anos
+   [361] BACIA DO POMBA
+   [362] SANTO ANTÔNIO DE PÂDUA
+   [363] MODELAGEM
+   [364] COTA_300cm
+   [365] COTA_325cm
+   [366] COTA_350cm
+   [367] COTA_375cm
+   [368] COTA_400cm
+   [369] COTA_425cm
+   [370] COTA_450cm
+   [371] COTA_475cm
+   [372] COTA_500cm
+   [373] COTA_525cm
+   [374] COTA_550cm
+   [375] TR_002anos
+   [376] TR_010anos
+   [377] TR_015anos
+   [378] TR_020anos
+   [379] TR_050anos
+   [380] TR_055anos
+   [381] TR_100anos
+   [382] BACIA DO TAQUARI
+   [383] LAJEADO
+   [384] MODELAGEM
+   [385] COTA_1900cm
+   [386] COTA_2000cm
+   [387] COTA_2100cm
+   [388] COTA_2200cm
+   [389] COTA_2300cm
+   [390] COTA_2400cm
+   [391] COTA_2500cm
+   [392] COTA_2600cm
+   [393] COTA_2700cm
+   [394] COTA_2800cm
+   [395] COTA_2900cm
+   [396] COTA_3000cm
+   [397] COTA_3100cm
+   [398] COTA_3200cm
+   [399] COTA_3300cm
+   [400] COTA_3367cm
+   [401] COTA_3400cm
+   [402] COTA_3500cm
+   [403] COTA_3600cm
+   [404] BACIA URUGUAI
+   [405] ALEGRETE
+   [406] MODELAGEM
+   [407] COTA_0950cm
+   [408] COTA_1000cm
+   [409] COTA_1050cm
+   [410] COTA_1100cm
+   [411] COTA_1150cm
+   [412] COTA_1200
+   [413] COTA_1250cm
+   [414] COTA_1300cm
+   [415] COTA_1350cm
+   [416] COTA_1400cm
+   [417] COTA_1450cm
+   [418] TR_002anos
+   [419] TR_005anos
+   [420] TR_010anos
+   [421] TR_015anos
+   [422] TR_020anos
+   [423] TR_050anos
+   [424] TR_100anos
+   [425] URUGUAIANA
+   [426] EVENTOS
+   [427] COTA_0833cm
+   [428] COTA_952cm
+   [429] COTA_1205cm
+   [430] COTA_1252cm
+
+--- hidrologia/BACIA_DO_CAI_SÃO_SEBASTIÃO_DO_CAI (MapServer) — 28 camadas ---
+   [  0] BACIA CAI
+   [  1] SÃO SEBASTIÃO DO CAI
+   [  2] MODELAGEM
+   [  3] cota 750 cm
+   [  4] cota 800 cm
+   [  5] cota 850 cm
+   [  6] cota 900 cm
+   [  7] cota 950 cm
+   [  8] cota 1000 cm
+   [  9] cota 1100 cm
+   [ 10] cota 1050 cm
+   [ 11] cota 1150 cm
+   [ 12] cota 1200 cm
+   [ 13] cota 1250 cm
+   [ 14] cota 1300 cm
+   [ 15] cota 1350 cm
+   [ 16] cota 1400 cm
+   [ 17] cota 1450 cm
+   [ 18] cota 1500 cm
+   [ 19] cota 1550 cm
+   [ 20] cota 1600 cm
+   [ 21] TR_001ANO
+   [ 22] TR_003ANO
+   [ 23] TR_005ANO
+   [ 24] TR_010ANO
+   [ 25] TR_025ANO
+   [ 26] TR_050ANO
+   [ 27] período de retorno de 100 anos
+
+--- hidrologia/bacia_do_doce_total (MapServer) — 211 camadas ---
+   [  0] BACIA DO DOCE
+   [  1] CBH DOCE
+   [  2] AIMORES E BAIXO GUANDU
+   [  3] TR_002
+   [  4] TR_005
+   [  5] TR_010
+   [  6] TR_025
+   [  7] TR_050
+   [  8] TR_100
+   [  9] TR_500
+   [ 10] ANTÔNIO DIAS
+   [ 11] TR_002
+   [ 12] TR_005
+   [ 13] TR_010
+   [ 14] TR_025
+   [ 15] TR_050
+   [ 16] TR_100
+   [ 17] TR_500
+   [ 18] BELO ORIENTE
+   [ 19] TR_002
+   [ 20] TR_005
+   [ 21] TR_010
+   [ 22] TR_025
+   [ 23] TR_050
+   [ 24] TR_100
+   [ 25] TR_500
+   [ 26] CARATINGA
+   [ 27] TR_002
+   [ 28] TR_005
+   [ 29] TR_010
+   [ 30] TR_025
+   [ 31] TR_050
+   [ 32] TR_100
+   [ 33] TR_500
+   [ 34] CONSELHEIRO PENA
+   [ 35] TR_002
+   [ 36] TR_005
+   [ 37] TR_010
+   [ 38] TR_025
+   [ 39] TR_050
+   [ 40] TR_100
+   [ 41] TR_500
+   [ 42] DOM CALVATI
+   [ 43] TR_002
+   [ 44] TR_005
+   [ 45] TR_010
+   [ 46] TR_025
+   [ 47] TR_050
+   [ 48] TR_100
+   [ 49] TR_500
+   [ 50] GUARACIABA
+   [ 51] TR_002
+   [ 52] TR_005
+   [ 53] TR_010
+   [ 54] TR_025
+   [ 55] TR_050
+   [ 56] TR_100
+   [ 57] TR_500
+   [ 58] LINHARES
+   [ 59] TR_002
+   [ 60] TR_005
+   [ 61] TR_010
+   [ 62] TR_025
+   [ 63] TR_050
+   [ 64] TR_100
+   [ 65] TR_500
+   [ 66] PIRANGA
+   [ 67] TR_002
+   [ 68] TR_005
+   [ 69] TR_010
+   [ 70] TR_025
+   [ 71] TR_050
+   [ 72] TR_100
+   [ 73] TR_500
+   [ 74] PORTO FIRME
+   [ 75] TR_002
+   [ 76] TR_005
+   [ 77] TR_010
+   [ 78] TR_025
+   [ 79] TR_050
+   [ 80] TR_100
+   [ 81] TR_500
+   [ 82] RESPLENDOR
+   [ 83] TR_002
+   [ 84] TR_005
+   [ 85] TR_010
+   [ 86] TR_025
+   [ 87] TR_050
+   [ 88] TR_100
+   [ 89] TR_500
+   [ 90] RIO PIRACICABA
+   [ 91] TR_002
+   [ 92] TR_005
+   [ 93] TR_010
+   [ 94] TR_025
+   [ 95] TR_050
+   [ 96] TR_100
+   [ 97] TR_500
+   [ 98] SANTA BÁRBARA DO LESTE
+   [ 99] TR_002
+   [100] TR_005
+   [101] TR_010
+   [102] TR_025
+   [103] TR_050
+   [104] TR_100
+   [105] TR_500
+   [106] SANTA RITA DE MINAS
+   [107] TR_002
+   [108] TR_005
+   [109] TR_010
+   [110] TR_025
+   [111] TR_050
+   [112] TR_100
+   [113] TR_500
+   [114] TIMÓTEO
+   [115] TR_002
+   [116] TR_005
+   [117] TR_010
+   [118] TR_025
+   [119] TR_050
+   [120] TR_100
+   [121] TR_500
+   [122] TUMIRITINGA
+   [123] TR_002
+   [124] TR_005
+   [125] TR_010
+   [126] TR_025
+   [127] TR_050
+   [128] TR_100
+   [129] TR_500
+   [130] UBAPORANGA E INHAPIM
+   [131] TR_002
+   [132] TR_005
+   [133] TR_010
+   [134] TR_025
+   [135] TR_050
+   [136] TR_100
+   [137] TR_500
+   [138] GOVERNADOR VALADARES
+   [139] EVENTOS
+   [140] cheia de 1997
+   [141] cheia de 1992
+   [142] cheia de 1979
+   [143] MODELAGEM
+   [144] COTA_350cm
+   [145] COTA_400cm
+   [146] COTA_450cm
+   [147] COTA_500cm
+   [148] COTA_550cm
+   [149] COTA_600cm
+   [150] COTA_650cm
+   [151] COTA_700cm
+   [152] COTA_750cm
+   [153] TR_2anos
+   [154] TR_5anos
+   [155] TR_10anos
+   [156] TR_50anos
+   [157] TR_100anos
+   [158] COLATINA
+   [159] EVENTOS
+   [160] CHEIA_1979
+   [161] CHEIA_1997
+   [162] MODELAGEM
+   [163] COTA_0550cm
+   [164] COTA_0600cm
+   [165] COTA_0650cm
+   [166] COTA_750 cm
+   [167] COTA_800 cm
+   [168] COTA_850 cm
+   [169] COTA_900 cm
+   [170] COTA_950 cm
+   [171] COTA_1000 cm
+   [172] COTA_1050 cm
+   [173] COTA_1100 cm
+   [174] COTA_1150cm
+   [175] COTA_1200cm
+   [176] TR_002
+   [177] TR_003
+   [178] TR_005
+   [179] TR_010
+   [180] TR_025
+   [181] TR_050
+   [182] TR_100
+   [183] NOVA ERA
+   [184] MODELAGEM
+   [185] COTA_0470cm
+   [186] COTA_0500cm
+   [187] COTA_0550cm
+   [188] COTA_0600cm
+   [189] COTA_0650cm
+   [190] COTA_0700cm
+   [191] COTA_0750cm
+   [192] COTA_0800cm
+   [193] COTA_0828cm
+   [194] COTA_0850cm
+   [195] COTA_0900cm
+   [196] COTA_0950cm
+   [197] COTA_1000cm
+   [198] COTA_1050cm
+   [199] COTA_1100cm
+   [200] TR_0002_anos
+   [201] TR_0005_anos
+   [202] TR_0010_anos
+   [203] TR_0025_anos
+   [204] TR_0050_anos
+   [205] TR_0100_anos
+   [206] TR_1000_anos
+   [207] PONTE NOVA
+   [208] EVENTOS
+   [209] CHEIA_2008
+   [210] CHEIA_2012
+
+--- hidrologia/BACIA_DO_MADEIRA_PORTO_VELHO (MapServer) — 8 camadas ---
+   [  0] BACIA MADEIRA
+   [  1] PORTO VELHO
+   [  2] EVENTOS
+   [  3] cota 16 m
+   [  4] cota 17 m
+   [  5] cota 18 m
+   [  6] cota 19 m
+   [  7] cota 19,50 m
+
+--- hidrologia/BACIA_DO_MUNDAU (MapServer) — 22 camadas ---
+   [  0] BACIA DO MUNDAU
+   [  1] SANTANA DO MUNDAU
+   [  2] MODELAGEM
+   [  3] COTA_531cm
+   [  4] COTA_581cm
+   [  5] COTA_631cm
+   [  6] COTA_731cm
+   [  7] COTA_681cm
+   [  8] COTA_781cm
+   [  9] COTA_831cm
+   [ 10] COTA_881cm
+   [ 11] COTA_931cm
+   [ 12] COTA_981cm
+   [ 13] COTA_1031cm
+   [ 14] COTA_1081cm
+   [ 15] COTA_1131cm
+   [ 16] COTA_1181cm
+   [ 17] TR_5anos
+   [ 18] TR_10anos
+   [ 19] TR_25anos
+   [ 20] TR_50anos
+   [ 21] TR_100anos
+
+--- hidrologia/BACIA_DO_RIO_MURIAÉ (MapServer) — 20 camadas ---
+   [  0] BACIA DO RIO MURIAÉ
+   [  1] ITAPERUNA
+   [  2] MODELAGEM
+   [  3] COTA_0400cm
+   [  4] COTA_0425cm
+   [  5] COTA_0450cm
+   [  6] COTA_0525cm
+   [  7] COTA_0475cm
+   [  8] COTA_0500cm
+   [  9] COTA_0550cm
+   [ 10] COTA_0575cm
+   [ 11] COTA_0600cm
+   [ 12] COTA_0625cm
+   [ 13] TR_002anos
+   [ 14] TR_005anos
+   [ 15] TR_010anos
+   [ 16] TR_015anos
+   [ 17] TR_020anos
+   [ 18] TR_050anos
+   [ 19] TR_100anos
+
+--- hidrologia/BACIA_DO_URUGUAI_URUGUAIANA (MapServer) — 7 camadas ---
+   [  0] BACIA URUGUAI
+   [  1] URUGUAIANA
+   [  2] EVENTOS
+   [  3] COTA_0833cm
+   [  4] COTA_952cm
+   [  5] COTA_1205cm
+   [  6] COTA_1252cm
+
+--- hidrologia/bacia_doce (MapServer) — 74 camadas ---
+   [  0] BACIA DO DOCE
+   [  1] COLATINA
+   [  2] EVENTOS
+   [  3] CHEIA_1979
+   [  4] CHEIA_1997
+   [  5] MODELAGEM
+   [  6] COTA_0550cm
+   [  7] COTA_0600cm
+   [  8] COTA_0650cm
+   [  9] COTA_750 cm
+   [ 10] COTA_800 cm
+   [ 11] COTA_850 cm
+   [ 12] COTA_900 cm
+   [ 13] COTA_950 cm
+   [ 14] COTA_1000 cm
+   [ 15] COTA_1050 cm
+   [ 16] COTA_1100 cm
+   [ 17] COTA_1150cm
+   [ 18] COTA_1200cm
+   [ 19] TR_002
+   [ 20] TR_003
+   [ 21] TR_005
+   [ 22] TR_010
+   [ 23] TR_025
+   [ 24] TR_050
+   [ 25] TR_100
+   [ 26] GOVERNADOR VALADARES
+   [ 27] EVENTOS
+   [ 28] cheia de 1997
+   [ 29] cheia de 1992
+   [ 30] cheia de 1979
+   [ 31] MODELAGEM
+   [ 32] COTA_350cm
+   [ 33] COTA_400cm
+   [ 34] COTA_450cm
+   [ 35] COTA_500cm
+   [ 36] COTA_550cm
+   [ 37] COTA_600cm
+   [ 38] COTA_650cm
+   [ 39] COTA_700cm
+   [ 40] COTA_750cm
+   [ 41] TR_2anos
+   [ 42] TR_5anos
+   [ 43] TR_10anos
+   [ 44] TR_50anos
+   [ 45] TR_100anos
+   [ 46] NOVA ERA
+   [ 47] MODELAGEM
+   [ 48] COTA_0470cm
+   [ 49] COTA_0500cm
+   [ 50] COTA_0550cm
+   [ 51] COTA_0600cm
+   [ 52] COTA_0650cm
+   [ 53] COTA_0700cm
+   [ 54] COTA_0750cm
+   [ 55] COTA_0800cm
+   [ 56] COTA_0828cm
+   [ 57] COTA_0850cm
+   [ 58] COTA_0900cm
+   [ 59] COTA_0950cm
+   [ 60] COTA_1000cm
+   [ 61] COTA_1050cm
+   [ 62] COTA_1100cm
+   [ 63] TR_0002_anos
+   [ 64] TR_0005_anos
+   [ 65] TR_0010_anos
+   [ 66] TR_0025_anos
+   [ 67] TR_0050_anos
+   [ 68] TR_0100_anos
+   [ 69] TR_1000_anos
+   [ 70] PONTE NOVA
+   [ 71] EVENTOS
+   [ 72] CHEIA_2008
+   [ 73] CHEIA_2012
+
+--- hidrologia/bacia_experimental_piabanha (MapServer) — 10 camadas ---
+   [  0] 9_Estaçoes_Piabanha_IQA
+   [  1] Hidrografia250_Clip
+   [  2] Rio_Piabanha_250_Clip
+   [  3] Bacia_Urbana_mod
+   [  4] Bacia_Agricola
+   [  5] Preservada_Rocio
+   [  6] bacia_representiva
+   [  7] bacia_Piabanha1
+   [  8] Rio_de_Janeiro
+   [  9] Brasil_Estados_geo
+
+--- hidrologia/bacia_itapecuru (MapServer) — 20 camadas ---
+   [  0] BACIA ITAPECURU
+   [  1] CAXIAS
+   [  2] MODELAGEM
+   [  3] COTA_500
+   [  4] COTA_550
+   [  5] COTA_600
+   [  6] COTA_650
+   [  7] COTA_700
+   [  8] COTA_750
+   [  9] COTA_800
+   [ 10] COTA_850
+   [ 11] TR_2
+   [ 12] TR_5
+   [ 13] TR_10
+   [ 14] TR_15
+   [ 15] TR_20
+   [ 16] TR_25
+   [ 17] TR_30
+   [ 18] TR_50
+   [ 19] TR_100
+
+--- hidrologia/bacia_parnaiba (MapServer) — 6 camadas ---
+   [  0] BACIA PARNAÍBA
+   [  1] TERESINA
+   [  2] MODELAGEM
+   [  3] TR_002X002anos
+   [  4] TR_005X005anos
+   [  5] TR_010X010anos
+
+--- hidrologia/bacia_pomba (MapServer) — 21 camadas ---
+   [  0] BACIA DO POMBA
+   [  1] SANTO ANTÔNIO DE PÂDUA
+   [  2] MODELAGEM
+   [  3] COTA_300cm
+   [  4] COTA_325cm
+   [  5] COTA_350cm
+   [  6] COTA_375cm
+   [  7] COTA_400cm
+   [  8] COTA_425cm
+   [  9] COTA_450cm
+   [ 10] COTA_475cm
+   [ 11] COTA_500cm
+   [ 12] COTA_525cm
+   [ 13] COTA_550cm
+   [ 14] TR_002anos
+   [ 15] TR_010anos
+   [ 16] TR_015anos
+   [ 17] TR_020anos
+   [ 18] TR_050anos
+   [ 19] TR_055anos
+   [ 20] TR_100anos
+
+--- hidrologia/BACIA_URUGGUAI_ALEGRETE (MapServer) — 21 camadas ---
+   [  0] BACIA URUGUAI
+   [  1] ALEGRETE
+   [  2] MODELAGEM
+   [  3] COTA_0950cm
+   [  4] COTA_1000cm
+   [  5] COTA_1050cm
+   [  6] COTA_1100cm
+   [  7] COTA_1150cm
+   [  8] COTA_1200
+   [  9] COTA_1250cm
+   [ 10] COTA_1300cm
+   [ 11] COTA_1350cm
+   [ 12] COTA_1400cm
+   [ 13] COTA_1450cm
+   [ 14] TR_002anos
+   [ 15] TR_005anos
+   [ 16] TR_010anos
+   [ 17] TR_015anos
+   [ 18] TR_020anos
+   [ 19] TR_050anos
+   [ 20] TR_100anos
+
+--- hidrologia/BACIA_URUGUAI_ALEGRETE (MapServer) — 21 camadas ---
+   [  0] BACIA URUGUAI
+   [  1] ALEGRETE
+   [  2] MODELAGEM
+   [  3] COTA_0950cm
+   [  4] COTA_1000cm
+   [  5] COTA_1050cm
+   [  6] COTA_1100cm
+   [  7] COTA_1150cm
+   [  8] COTA_1200
+   [  9] COTA_1250cm
+   [ 10] COTA_1300cm
+   [ 11] COTA_1350cm
+   [ 12] COTA_1400cm
+   [ 13] COTA_1450cm
+   [ 14] TR_002anos
+   [ 15] TR_005anos
+   [ 16] TR_010anos
+   [ 17] TR_015anos
+   [ 18] TR_020anos
+   [ 19] TR_050anos
+   [ 20] TR_100anos
+
+--- hidrologia/cbh_doce (MapServer) — 138 camadas ---
+   [  0] BACIA DO DOCE
+   [  1] CBH DOCE
+   [  2] AIMORES E BAIXO GUANDU
+   [  3] TR_002
+   [  4] TR_005
+   [  5] TR_010
+   [  6] TR_025
+   [  7] TR_050
+   [  8] TR_100
+   [  9] TR_500
+   [ 10] ANTÔNIO DIAS
+   [ 11] TR_002
+   [ 12] TR_005
+   [ 13] TR_010
+   [ 14] TR_025
+   [ 15] TR_050
+   [ 16] TR_100
+   [ 17] TR_500
+   [ 18] BELO ORIENTE
+   [ 19] TR_002
+   [ 20] TR_005
+   [ 21] TR_010
+   [ 22] TR_025
+   [ 23] TR_050
+   [ 24] TR_100
+   [ 25] TR_500
+   [ 26] CARATINGA
+   [ 27] TR_002
+   [ 28] TR_005
+   [ 29] TR_010
+   [ 30] TR_025
+   [ 31] TR_050
+   [ 32] TR_100
+   [ 33] TR_500
+   [ 34] CONSELHEIRO PENA
+   [ 35] TR_002
+   [ 36] TR_005
+   [ 37] TR_010
+   [ 38] TR_025
+   [ 39] TR_050
+   [ 40] TR_100
+   [ 41] TR_500
+   [ 42] DOM CALVATI
+   [ 43] TR_002
+   [ 44] TR_005
+   [ 45] TR_010
+   [ 46] TR_025
+   [ 47] TR_050
+   [ 48] TR_100
+   [ 49] TR_500
+   [ 50] GUARACIABA
+   [ 51] TR_002
+   [ 52] TR_005
+   [ 53] TR_010
+   [ 54] TR_025
+   [ 55] TR_050
+   [ 56] TR_100
+   [ 57] TR_500
+   [ 58] LINHARES
+   [ 59] TR_002
+   [ 60] TR_005
+   [ 61] TR_010
+   [ 62] TR_025
+   [ 63] TR_050
+   [ 64] TR_100
+   [ 65] TR_500
+   [ 66] PIRANGA
+   [ 67] TR_002
+   [ 68] TR_005
+   [ 69] TR_010
+   [ 70] TR_025
+   [ 71] TR_050
+   [ 72] TR_100
+   [ 73] TR_500
+   [ 74] PORTO FIRME
+   [ 75] TR_002
+   [ 76] TR_005
+   [ 77] TR_010
+   [ 78] TR_025
+   [ 79] TR_050
+   [ 80] TR_100
+   [ 81] TR_500
+   [ 82] RESPLENDOR
+   [ 83] TR_002
+   [ 84] TR_005
+   [ 85] TR_010
+   [ 86] TR_025
+   [ 87] TR_050
+   [ 88] TR_100
+   [ 89] TR_500
+   [ 90] RIO PIRACICABA
+   [ 91] TR_002
+   [ 92] TR_005
+   [ 93] TR_010
+   [ 94] TR_025
+   [ 95] TR_050
+   [ 96] TR_100
+   [ 97] TR_500
+   [ 98] SANTA BÁRBARA DO LESTE
+   [ 99] TR_002
+   [100] TR_005
+   [101] TR_010
+   [102] TR_025
+   [103] TR_050
+   [104] TR_100
+   [105] TR_500
+   [106] SANTA RITA DE MINAS
+   [107] TR_002
+   [108] TR_005
+   [109] TR_010
+   [110] TR_025
+   [111] TR_050
+   [112] TR_100
+   [113] TR_500
+   [114] TIMÓTEO
+   [115] TR_002
+   [116] TR_005
+   [117] TR_010
+   [118] TR_025
+   [119] TR_050
+   [120] TR_100
+   [121] TR_500
+   [122] TUMIRITINGA
+   [123] TR_002
+   [124] TR_005
+   [125] TR_010
+   [126] TR_025
+   [127] TR_050
+   [128] TR_100
+   [129] TR_500
+   [130] UBAPORANGA E INHAPIM
+   [131] TR_002
+   [132] TR_005
+   [133] TR_010
+   [134] TR_025
+   [135] TR_050
+   [136] TR_100
+   [137] TR_500
+
+--- hidrologia/COLATINA_CBH (MapServer) — 9 camadas ---
+   [  0] CBH DOCE
+   [  1] COLATINA CBH
+   [  2] TR_002
+   [  3] TR_005
+   [  4] TR_010
+   [  5] TR_025
+   [  6] TR_050
+   [  7] TR_100
+   [  8] TR_500
+
+--- hidrologia/COLATINA_SGB (MapServer) — 26 camadas ---
+   [  0] BACIA DO DOCE
+   [  1] COLATINA
+   [  2] EVENTOS
+   [  3] CHEIA_1979
+   [  4] CHEIA_1997
+   [  5] MODELAGEM
+   [  6] COTA_0550cm
+   [  7] COTA_0600cm
+   [  8] COTA_0650cm
+   [  9] COTA_750 cm
+   [ 10] COTA_800 cm
+   [ 11] COTA_850 cm
+   [ 12] COTA_900 cm
+   [ 13] COTA_950 cm
+   [ 14] COTA_1000 cm
+   [ 15] COTA_1050 cm
+   [ 16] COTA_1100 cm
+   [ 17] COTA_1150cm
+   [ 18] COTA_1200cm
+   [ 19] TR_002
+   [ 20] TR_003
+   [ 21] TR_005
+   [ 22] TR_010
+   [ 23] TR_025
+   [ 24] TR_050
+   [ 25] TR_100
+
+--- hidrologia/Dominios_hidrogeologicos_Brasil (FeatureServer) — 1 camadas ---
+   [  0] Domínios hidrogeológicos
+
+--- hidrologia/Dominios_hidrogeologicos_Brasil (MapServer) — 1 camadas ---
+   [  0] Domínios hidrogeológicos
+
+--- hidrologia/estudo_in_loco (FeatureServer) — 1 camadas ---
+   [  0] Estudo In Loco
+
+--- hidrologia/estudo_in_loco (MapServer) — 1 camadas ---
+   [  0] Estudo In Loco
+
+--- hidrologia/fontes_hidrominerais (FeatureServer) — 1 camadas ---
+   [  0] Fontes Hidrominerais - Concessão Estadual
+
+--- hidrologia/fontes_hidrominerais (MapServer) — 1 camadas ---
+   [  0] Fontes Hidrominerais - Concessão Estadual
+
+--- hidrologia/GOVERNADOR_VALADARES_CBH (MapServer) — 9 camadas ---
+   [  0] CBH DOCE
+   [  1] GOVERNADOR VALADARES CBH
+   [  2] TR_002
+   [  3] TR_005
+   [  4] TR_010
+   [  5] TR_025
+   [  6] TR_050
+   [  7] TR_100
+   [  8] TR_500
+
+--- hidrologia/hidrogeologico_manaus (FeatureServer) — 3 camadas ---
+   [  0] arruamento_area_projeto
+   [  1] rede de drenagem
+   [  2] area_do_projeto
+
+--- hidrologia/hidrogeologico_manaus (MapServer) — 3 camadas ---
+   [  0] arruamento_area_projeto
+   [  1] rede de drenagem
+   [  2] area_do_projeto
+
+[hidrologia/hybras] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[hidrologia/hybras] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- hidrologia/isoietas (MapServer) — 1 camadas ---
+   [  0] Isoietas_PMA_1977_2006
+
+--- hidrologia/mancha_caxias_ma (MapServer) — 20 camadas ---
+   [100] Caxias / MA
+   [101] Manchas associadas a nível do rio
+   [102] cota 500 cm
+   [103] cota 550 cm
+   [104] cota 600 cm
+   [105] cota 650 cm
+   [106] cota 700 cm
+   [107] cota 750 cm
+   [108] cota 800 cm
+   [109] cota 850 cm
+   [119] Manchas associadas a período de retorno
+   [110] período de retorno de 2 anos
+   [111] período de retorno de 5 anos
+   [112] período de retorno de 10 anos
+   [113] período de retorno de 15 anos
+   [114] período de retorno de 20 anos
+   [115] período de retorno de 25 anos
+   [116] período de retorno de 30 anos
+   [117] período de retorno de 50 anos
+   [118] período de retorno de 100 anos
+
+--- hidrologia/mancha_colatina (MapServer) — 10 camadas ---
+   [  0] Manchas associadas a níveis do Rio a cada(50cm)
+   [  1] cota 700 cm
+   [  2] cota 750 cm
+   [  3] cota 800 cm
+   [  4] cota 850 cm
+   [  5] cota 900 cm
+   [  6] cota 950 cm
+   [  7] cota 1000 cm
+   [  8] cota 1050 cm
+   [  9] cota 1100 cm
+
+--- hidrologia/mancha_governador_valadares (MapServer) — 20 camadas ---
+   [  0] Manchas associadas a níveis do Rio a cada(50cm)
+   [  1] cota 350 cm
+   [  2] cota 400 cm
+   [  3] cota 450 cm
+   [  4] cota 500 cm
+   [  5] cota 550 cm
+   [  6] cota 600 cm
+   [  7] cota 650 cm
+   [  8] cota 700 cm
+   [  9] cota 750 cm
+   [ 10] Manchas associadas a periodos de retorno
+   [ 11] período de retorno de 2 anos
+   [ 12] período de retorno de 5 anos
+   [ 13] período de retorno de 10 anos
+   [ 14] período de retorno de 50 anos
+   [ 15] período de retorno de 100 anos
+   [ 16] Mancha de cheias históricas
+   [ 17] cheia de 1992
+   [ 18] cheia de 1997
+   [ 19] cheia de 1979
+
+--- hidrologia/mancha_manaus (MapServer) — 5 camadas ---
+   [  0] Manaus / AM
+   [  2] Eventos
+   [136] cheia de 2021
+   [138] Cota 2900 cm
+   [134] Cota 3002 cm
+
+--- hidrologia/mancha_montenegro (MapServer) — 25 camadas ---
+   [  0] Manchas associadas a níveis do Rio a cada (50cm)
+   [  1] cota 250 cm
+   [  2] cota 300 cm
+   [  3] cota 350 cm
+   [  4] cota 400 cm
+   [  5] cota 450 cm
+   [  6] cota 500 cm
+   [  7] cota 550 cm
+   [  8] cota 600 cm
+   [  9] cota 650 cm
+   [ 10] cota 700 cm
+   [ 11] cota 750 cm
+   [ 12] cota 800 cm
+   [ 13] cota 850 cm
+   [ 14] cota 900 cm
+   [ 15] cota 950 cm
+   [ 16] cota 1000 cm
+   [ 17] Manchas associadas a períodos de retorno
+   [ 18] período de retorno de 1 ano
+   [ 19] período de retorno de 3 anos
+   [ 20] período de retorno de 5 anos
+   [ 21] período de retorno de 10 anos
+   [ 22] período de retorno de 25 anos
+   [ 23] período de retorno de 50 anos
+   [ 24] período de retorno de 100 anos
+
+--- hidrologia/mancha_nova_era (MapServer) — 25 camadas ---
+   [  0] Bacia do Doce
+   [  1] Nova Era
+   [  2] Modelagem
+   [  3] COTA_0470cm
+   [  4] COTA_0500cm
+   [  5] COTA_0550cm
+   [  6] COTA_0600cm
+   [  7] COTA_0650cm
+   [  8] COTA_0700cm
+   [  9] COTA_0750cm
+   [ 10] COTA_0800cm
+   [ 11] COTA_0828cm
+   [ 12] COTA_0850cm
+   [ 13] COTA_0900cm
+   [ 14] COTA_0950cm
+   [ 15] COTA_1000cm
+   [ 16] COTA_1050cm
+   [ 17] COTA_1100cm
+   [ 18] TR_0002_anos
+   [ 19] TR_0005_anos
+   [ 20] TR_0010_anos
+   [ 21] TR_0025_anos
+   [ 22] TR_0050_anos
+   [ 23] TR_0100_anos
+   [ 24] TR_1000_anos
+
+--- hidrologia/mancha_ponte_nova (MapServer) — 3 camadas ---
+   [  0] Mancha de cheias históricas
+   [  1] cheia de 2012
+   [  2] cheia de 2008
+
+[hidrologia/mancha_porto_velho] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- hidrologia/mancha_santo_antonio_de_padua (MapServer) — 21 camadas ---
+   [  0] BACIA DO POMBA
+   [  1] SANTO ANTÔNIO DE PÂDUA
+   [  2] MODELAGEM
+   [  3] COTA_300cm
+   [  4] COTA_325cm
+   [  5] COTA_350cm
+   [  6] COTA_375cm
+   [  7] COTA_400cm
+   [  8] COTA_425cm
+   [  9] COTA_450cm
+   [ 10] COTA_475cm
+   [ 11] COTA_500cm
+   [ 12] COTA_525cm
+   [ 13] COTA_550cm
+   [ 14] TR_002anos
+   [ 15] TR_010anos
+   [ 16] TR_015anos
+   [ 17] TR_020anos
+   [ 18] TR_050anos
+   [ 19] TR_055anos
+   [ 20] TR_100anos
+
+--- hidrologia/mancha_sao_sebastiao_cai (MapServer) — 27 camadas ---
+   [  0] Manchas associadas a níveis do Rio a cada (50cm)
+   [  1] cota 750 cm
+   [  2] cota 800 cm
+   [  3] cota 850 cm
+   [  4] cota 900 cm
+   [  5] cota 950 cm
+   [  6] cota 1000 cm
+   [  7] cota 1050 cm
+   [  8] cota 1100 cm
+   [  9] cota 1150 cm
+   [ 10] cota 1200 cm
+   [ 11] cota 1250 cm
+   [ 12] cota 1300 cm
+   [ 13] cota 1350 cm
+   [ 14] cota 1400 cm
+   [ 15] cota 1450 cm
+   [ 16] cota 1500 cm
+   [ 17] cota 1550 cm
+   [ 18] cota 1600 cm
+   [ 19] Manchas associadas a períodos de retorno
+   [ 20] período de retorno de 1 ano
+   [ 21] período de retorno de 3 anos
+   [ 22] período de retorno de 5 anos
+   [ 23] período de retorno de 10 anos
+   [ 24] período de retorno de 25 anos
+   [ 25] período de retorno de 50 anos
+   [ 26] período de retorno de 100 anos
+
+--- hidrologia/mancha_teresina (MapServer) — 7 camadas ---
+   [  0] Bacia do Parnaíba
+   [  1] Teresina
+   [  2] Modelagem
+   [  3] TR_002X002anos
+   [  4] TR_005X005anos
+   [  5] TR_010X010anos
+   [  6] eventos
+
+--- hidrologia/mancha_uruguaiana (MapServer) — 7 camadas ---
+   [  0] BACIA URUGUAI
+   [  1] URUGUAIANA
+   [  2] EVENTOS
+   [  3] COTA_0833cm
+   [  4] COTA_952cm
+   [  5] COTA_1205cm
+   [  6] COTA_1252cm
+
+--- hidrologia/mancha_xapuri (MapServer) — 4 camadas ---
+   [  0] BACIA DO ACRE
+   [  1] XAPURI
+   [  2] EVENTOS
+   [  3] CHEIA_2023
+
+--- hidrologia/manchas_inundacao (MapServer) — 21 camadas ---
+   [  0] BACIA DO DOCE
+   [  1] GOVERNADOR VALADARES
+   [  2] EVENTOS
+   [  3] cheia de 1997
+   [  4] cheia de 1992
+   [  5] cheia de 1979
+   [  6] MODELAGEM
+   [  7] COTA_350cm
+   [  8] COTA_400cm
+   [  9] COTA_450cm
+   [ 10] COTA_500cm
+   [ 11] COTA_550cm
+   [ 12] COTA_600cm
+   [ 13] COTA_650cm
+   [ 14] COTA_700cm
+   [ 15] COTA_750cm
+   [ 16] TR_2anos
+   [ 17] TR_5anos
+   [ 18] TR_10anos
+   [ 19] TR_50anos
+   [ 20] TR_100anos
+
+--- hidrologia/Mapa_Hidrogeologico_Alagoas (FeatureServer) — 10 camadas ---
+   [  0] Poços representativos 
+   [  1] Pontenciometria do aquífero Barreira - Piaçabuçu
+   [  2] Estruturas embasamento fraturado <== CANDIDATA
+   [  3] Contato de unidade hidroestratigráfica aflorante
+   [  4] Hidrogeologia
+   [  5] Domínio Hidrolitológico
+   [  6] Condutividade elétrica
+   [  7] Capacidade de infiltracao dos solos
+   [  8] Volume anual explorado
+   [  9] Densidade de poços
+
+--- hidrologia/Mapa_Hidrogeologico_Alagoas (MapServer) — 10 camadas ---
+   [  0] Poços representativos 
+   [  1] Pontenciometria do aquífero Barreira - Piaçabuçu
+   [  2] Estruturas embasamento fraturado <== CANDIDATA
+   [  3] Contato de unidade hidroestratigráfica aflorante
+   [  4] Hidrogeologia
+   [  5] Domínio Hidrolitológico
+   [  6] Condutividade elétrica
+   [  7] Capacidade de infiltracao dos solos
+   [  8] Volume anual explorado
+   [  9] Densidade de poços
+
+--- hidrologia/Mapa_Hidrogeologico_Atlas_Brasil (FeatureServer) — 2 camadas ---
+   [  0] Contato Atlas do Brasil
+   [  1] Hidrogeologia Atlas do Brasil
+
+--- hidrologia/Mapa_Hidrogeologico_Atlas_Brasil (MapServer) — 2 camadas ---
+   [  0] Contato Atlas do Brasil
+   [  1] Hidrogeologia Atlas do Brasil
+
+--- hidrologia/Mapa_Hidrogeologico_Bacia_Prata (MapServer) — 12 camadas ---
+   [  0] Limite_Internacional
+   [  1] Area_Cuenca_Plata
+   [  2] Contato_AR
+   [  3] Contacto_BO
+   [  4] Contacto_BR
+   [  5] Contacto_PY
+   [  6] Contacto_UR
+   [  7] Hidrogeologia_AR
+   [  8] Hidrogeologia_BO
+   [  9] Hidrogeologia_BR
+   [ 10] Hidrogeologia_PY
+   [ 11] Hidrogeologia_UR
+
+--- hidrologia/Mapa_Hidrogeologico_Cuenca_Cuareim (MapServer) — 2 camadas ---
+   [  0] Contato Bacia do Quaraí
+   [  1] Hidrogeologia Bacia do Quaraí
+
+--- hidrologia/Mapa_Hidrogeologico_Cuenca_Plata (FeatureServer) — 4 camadas ---
+   [  0] Limite_Internacional
+   [  1] Area_Cuenca_Plata
+   [  2] Contacto
+   [  3] Hidrogeologia_Cuenca_Plata
+
+--- hidrologia/Mapa_Hidrogeologico_Cuenca_Plata (MapServer) — 4 camadas ---
+   [  0] Limite_Internacional
+   [  1] Area_Cuenca_Plata
+   [  2] Contacto
+   [  3] Hidrogeologia_Cuenca_Plata
+
+--- hidrologia/Mapa_Hidrogeologico_DF (FeatureServer) — 7 camadas ---
+   [  0] Poços representativos 
+   [  1] Estruturas embasamento fraturado <== CANDIDATA
+   [  2] Hidrogeologia
+   [  3] Hidrogeologia unidades superficiais
+   [  4] Capacidade de infiltração dos solos
+   [  5] Volume anual explorado
+   [  6] Densidade de poços
+
+--- hidrologia/Mapa_Hidrogeologico_DF (MapServer) — 7 camadas ---
+   [  0] Poços representativos 
+   [  1] Estruturas embasamento fraturado <== CANDIDATA
+   [  2] Hidrogeologia
+   [  3] Hidrogeologia unidades superficiais
+   [  4] Capacidade de infiltração dos solos
+   [  5] Volume anual explorado
+   [  6] Densidade de poços
+
+--- hidrologia/Mapa_Hidrogeologico_Norte_de_Minas (MapServer) — 1 camadas ---
+   [  0] Hidrogeologia Norte de Minas
+
+--- hidrologia/Mapa_Hidrogeologico_Parana (FeatureServer) — 9 camadas ---
+   [  0] Poços representativos 
+   [  1] Potenciometria do aquífero
+   [  2] Contatos hidrogeológicos
+   [  3] Hidrogeologia
+   [  4] Área do Áquifero Guarani
+   [  5] Domínio hidrolitológico
+   [  6] Capacidade de infiltracao dos solos
+   [  7] Volume anual explorado
+   [  8] Densidade de poços
+
+--- hidrologia/Mapa_Hidrogeologico_Parana (MapServer) — 9 camadas ---
+   [  0] Poços representativos 
+   [  1] Potenciometria do aquífero
+   [  2] Contatos hidrogeológicos
+   [  3] Hidrogeologia
+   [  4] Área do Áquifero Guarani
+   [  5] Domínio hidrolitológico
+   [  6] Capacidade de infiltracao dos solos
+   [  7] Volume anual explorado
+   [  8] Densidade de poços
+
+--- hidrologia/Mapa_Hidrogeologico_RM_Goiania_Atual (FeatureServer) — 6 camadas ---
+   [  0] Poços representativos
+   [  1] Estruturas <== CANDIDATA
+   [  2] Hidrogeologia
+   [  3] Espessura do manto de intemperismo
+   [  4] Densidade de poços
+   [  5] Volume anual explorado
+
+--- hidrologia/Mapa_Hidrogeologico_RM_Goiania_Atual (MapServer) — 6 camadas ---
+   [  0] Poços representativos
+   [  1] Estruturas <== CANDIDATA
+   [  2] Hidrogeologia
+   [  3] Espessura do manto de intemperismo
+   [  4] Densidade de poços
+   [  5] Volume anual explorado
+
+--- hidrologia/Mapa_Hidrogeologico_RM_Recife (FeatureServer) — 9 camadas ---
+   [  0] Poços representativos 
+   [  1] Potenciometria do aquífero Beberibe
+   [  2] Potenciometria do aquífero Cabo
+   [  3] Contato de unidade hidroestratigráfica
+   [  4] Hidrogeologia
+   [  5] Domínio Hidrolitológico
+   [  6] Volume anual explorado Aquifero Beberibe
+   [  7] Volume anual explorado Aquifero Boa Viagem 
+   [  8] Volume anual explorado Aquifero Cabo
+
+--- hidrologia/Mapa_Hidrogeologico_RM_Recife (MapServer) — 9 camadas ---
+   [  0] Poços representativos 
+   [  1] Potenciometria do aquífero Beberibe
+   [  2] Potenciometria do aquífero Cabo
+   [  3] Contato de unidade hidroestratigráfica
+   [  4] Hidrogeologia
+   [  5] Domínio Hidrolitológico
+   [  6] Volume anual explorado Aquifero Beberibe
+   [  7] Volume anual explorado Aquifero Boa Viagem 
+   [  8] Volume anual explorado Aquifero Cabo
+
+--- hidrologia/Mapa_Midrogeologico_Paraiba (FeatureServer) — 10 camadas ---
+   [  0] Poços representativos 
+   [  1] Potenciometria do aquífero Beberibe
+   [  2] Estruturas embasamento fraturado <== CANDIDATA
+   [  3] Contato de unidade hidroestratigráfica
+   [  4] Hidrogeologia
+   [  5] Domínio Hidrolitológico
+   [  6] Condutividade elétrica
+   [  7] Capacidade de infiltração dos solos
+   [  8] Volume anual explorado
+   [  9] Densidade de poços
+
+--- hidrologia/Mapa_Midrogeologico_Paraiba (MapServer) — 10 camadas ---
+   [  0] Poços representativos 
+   [  1] Potenciometria do aquífero Beberibe
+   [  2] Estruturas embasamento fraturado <== CANDIDATA
+   [  3] Contato de unidade hidroestratigráfica
+   [  4] Hidrogeologia
+   [  5] Domínio Hidrolitológico
+   [  6] Condutividade elétrica
+   [  7] Capacidade de infiltração dos solos
+   [  8] Volume anual explorado
+   [  9] Densidade de poços
+
+--- hidrologia/NOVA_ERA_CBH (MapServer) — 9 camadas ---
+   [  0] CBH DOCE
+   [  1] NOVA ERA CBH
+   [  2] TR_002
+   [  3] TR_005
+   [  4] TR_010
+   [  5] TR_025
+   [  6] TR_050
+   [  7] TR_100
+   [  8] TR_500
+
+--- hidrologia/piabanha (MapServer) — 11 camadas ---
+   [  0] Estacoes
+   [  1] Hidrografia
+   [  2] Liceu
+   [  3] ParquePetropolis
+   [  4] PocoTarzan
+   [  5] PedroRio
+   [  6] Rocio
+   [  7] Bacia_Agricola
+   [  8] Bacia_Representativa
+   [  9] Bacia_Urbana
+   [ 10] EIBEX SRTM
+
+--- hidrologia/PONTE_NOVA_CBH (MapServer) — 9 camadas ---
+   [  0] CBH DOCE
+   [  1] PONTE NOVA CBH
+   [  2] TR_002
+   [  3] TR_005
+   [  4] TR_010
+   [  5] TR_025
+   [  6] TR_050
+   [  7] TR_100
+   [  8] TR_500
+
+--- hidrologia/PONTENOVA_SGB (MapServer) — 5 camadas ---
+   [  0] BACIA DO DOCE
+   [  1] PONTE NOVA
+   [  2] EVENTOS
+   [  3] CHEIA_2008
+   [  4] CHEIA_2012
+
+--- hidrologia/rimas (FeatureServer) — 1 camadas ---
+   [  0] Rimas
+
+--- hidrologia/rimas (MapServer) — 1 camadas ---
+   [  0] Rimas
+
+--- hidrologia/SIAGAS_MODDAD (FeatureServer) — 1 camadas ---
+   [  0] Siagas Web
+
+--- hidrologia/SIAGAS_MODDAD (MapServer) — 1 camadas ---
+   [  0] Siagas Web
+
+[hidrologia/urucuia_estacoes] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[hidrologia/urucuia_estacoes] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- hidrologia/Urucuia (MapServer) — 4 camadas ---
+   [  0] RIMAS
+   [  1] Rio São Francisco
+   [  2] Urucuia - Potenciometria
+   [  3] Limite da Área do Urucuia
+
+--- Hosted/Amostra_BrasilExplore_7 (FeatureServer) — 1 camadas ---
+   [  0] outputLayer
+
+--- Hosted/APA_Morro_Pedreira (FeatureServer) — 1 camadas ---
+   [  0] APA_Morro_da_Pedreira
+
+--- Hosted/Aquíferos_BR (FeatureServer) — 1 camadas ---
+   [  0] Aquiferos_Estados
+
+--- Hosted/areas_costeiras (FeatureServer) — 3 camadas ---
+   [  0] Ilhas
+   [  1] Lajes
+   [  2] Recifes
+
+--- Hosted/atrativos_geoturisticos_capivara (FeatureServer) — 1 camadas ---
+   [  0] atrativos_geoturisticos
+
+--- Hosted/atrativos_geoturiticos_canastra_2 (FeatureServer) — 1 camadas ---
+   [  0] Pontos_Canastra_Site
+
+--- Hosted/atrativos_geoturiticos_canastra (FeatureServer) — 1 camadas ---
+   [  0] Pontos_Canastra_Site
+
+--- Hosted/AtrativosGeoturisticosCipo (FeatureServer) — 1 camadas ---
+   [  0] Atrativos_GeoturisticosCipo
+
+--- Hosted/AtrativosGeoturisticos (FeatureServer) — 1 camadas ---
+   [  0] Atrativos_Geoturisticos
+
+--- Hosted/Base_Suscet_gdb (FeatureServer) — 1 camadas ---
+   [  0] Base_Suscet
+
+--- Hosted/Base_Suscet_v2 (FeatureServer) — 1 camadas ---
+   [  0] Base_Suscet
+
+--- Hosted/batimetria (FeatureServer) — 1 camadas ---
+   [  0] Áreas batimétricas
+
+--- Hosted/BR_UF_2021 (FeatureServer) — 1 camadas ---
+   [  0] BR_UF_2021
+
+--- Hosted/BR_UF_IBGE_2022 (FeatureServer) — 1 camadas ---
+   [  0] BR_UF_2022
+
+--- Hosted/Cartas_Anomalia (FeatureServer) — 1 camadas ---
+   [  0] CartasAnomalia_New
+
+--- Hosted/cnag (FeatureServer) — 1 camadas ---
+   [  0] Cadastro Nacional de Arquivos Geoténicos
+
+--- Hosted/commodities_brasil_2025_PDAC (FeatureServer) — 1 camadas ---
+   [  0] commodities_brasil_2025_final
+
+--- Hosted/consulta_folhas_12_abril (FeatureServer) — 1 camadas ---
+   [  0] PLANGEO_consulta_pública_folhas_cenários_12_abril
+
+--- Hosted/Consulta_Pública_blocos (FeatureServer) — 1 camadas ---
+   [  0] PLANGEO_consulta_pública_blocos
+
+--- Hosted/Divisao_Politica_2022_gdb (FeatureServer) — 2 camadas ---
+   [  0] Estados
+   [  1] Municipios
+
+--- Hosted/divisao_politica_claro (MapServer) — 3 camadas ---
+   [  0] Municípios
+   [  1] Estados
+   [  2] Regiões
+
+--- Hosted/divisao_politica_escuro (MapServer) — 3 camadas ---
+   [  0] Municípios
+   [  1] Estados
+   [  2] Regiões
+
+--- Hosted/divisao (FeatureServer) — 3 camadas ---
+   [  0] Municípios
+   [  1] Estados
+   [  2] Regiões
+
+--- Hosted/EntradasCipo (FeatureServer) — 1 camadas ---
+   [  0] entradas_do_parque
+
+--- Hosted/ER_CE (FeatureServer) — 1 camadas ---
+   [  0] ER_CE
+
+--- Hosted/Escudos_Bacias (FeatureServer) — 1 camadas ---
+   [  0] Escudos_Bacias
+
+--- Hosted/estoque_carbono (MapServer) — 1 camadas ---
+   [  0] Estoque de COS a 0-30 cm (t ha<SUP>-1</SUP>)
+
+--- Hosted/Geologia_medica (FeatureServer) — 1 camadas ---
+   [  0] Geologia_medica
+
+--- Hosted/IMG (FeatureServer) — 1 camadas ---
+   [  0] MAP_TOUR
+
+--- Hosted/ISAgro_NPK2 (FeatureServer) — 1 camadas ---
+   [  5] Unidades Federativas
+
+--- Hosted/ISAgroBalançoNPK_View (FeatureServer) — 1 camadas ---
+   [  0] unidade_federativa
+
+--- Hosted/Join_amonia (FeatureServer) — 1 camadas ---
+   [  0] Join_amonia
+
+--- Hosted/Join_GEE2 (FeatureServer) — 1 camadas ---
+   [  0] Join_GEE2
+
+--- Hosted/JOin_ILP (FeatureServer) — 1 camadas ---
+   [  0] JOin_ILP
+
+--- Hosted/join (FeatureServer) — 1 camadas ---
+   [  0] Mapa Geológico
+
+--- Hosted/Ligar_Feições_à_Amostras_de_Ouro_Brasil_4 (FeatureServer) — 1 camadas ---
+   [  0] Ligar_Feições_à_Amostras_de_Ouro_Brasil_4
+
+--- Hosted/Ligar_Feições_à_isagro (FeatureServer) — 1 camadas ---
+   [  0] Ligar_Feições_à_isagro
+
+--- Hosted/Limite_Serido (FeatureServer) — 1 camadas ---
+   [  0] Limite_Area
+
+--- Hosted/LimiteParnaCipo (FeatureServer) — 1 camadas ---
+   [  0] Limite_PARNA_Cipo
+
+--- Hosted/limites_canastra (FeatureServer) — 1 camadas ---
+   [  0] Limite_Parna
+
+--- Hosted/Limites_Municipais_2022_IBGE (FeatureServer) — 1 camadas ---
+   [  0] BR_Municipios_2022
+
+--- Hosted/Limites (FeatureServer) — 1 camadas ---
+   [  0] brasil
+
+--- Hosted/litoestratigrafia_gis_brasil_2004 (FeatureServer) — 1 camadas ---
+   [  0] Unidades litoestratigráficas - 1:1.000.000 [2004]
+
+--- Hosted/Locacao_Poco (FeatureServer) — 1 camadas ---
+   [  0] Locacao_Poco
+
+--- Hosted/Mapeamento_Geologico_PAT_2025 (FeatureServer) — 1 camadas ---
+   [  0] PAT_2025_Plataforma_Mapeamento
+
+--- Hosted/MapeamentoGeologico_gdb (FeatureServer) — 1 camadas ---
+   [  0] PAT2024
+
+--- Hosted/MapeamentoGeologico_PAT2025 (FeatureServer) — 1 camadas ---
+   [  0] PAT_2025
+
+--- Hosted/medidas_estruturais_ds (FeatureServer) — 1 camadas ---
+   [  0] Medidas Estruturais DS <== CANDIDATA
+
+--- Hosted/Mineral_Resources (FeatureServer) — 1 camadas ---
+   [  0] PDAC2024_RecMin
+
+--- Hosted/NOVO_COVID_Publica_2022 (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/NOVO_COVID_Publica (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/NOVO_COVID (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/ods_18 (FeatureServer) — 3 camadas ---
+   [  0] ODS_18
+   [  1] fav_in_ql_buffer_1KM
+   [  2] estados
+
+--- Hosted/ods_18 (MapServer) — 3 camadas ---
+   [  0] ODS_18
+   [  1] fav_in_ql_buffer_1KM
+   [  2] estados
+
+--- Hosted/padrao_relevo (FeatureServer) — 1 camadas ---
+   [  0] Cartas de Padrão de Relevo
+
+--- Hosted/padraoderelevo (FeatureServer) — 2 camadas ---
+   [  0] RJ_limite_utm_23
+   [  1] merge_padrao_geomorf_27062020
+
+--- Hosted/pat2025 (FeatureServer) — 1 camadas ---
+   [  0] patderem2025d
+
+--- Hosted/Patrimônio_Geológico_Glaciogênicos (FeatureServer) — 1 camadas ---
+   [  0] tabela_patr_geolog
+
+--- Hosted/perfil_solos (MapServer) — 1 camadas ---
+   [  0] Perfis de Solos
+
+--- Hosted/PlanGeo_Consulta_2024 (FeatureServer) — 1 camadas ---
+   [  0] PLANGEO_consulta_pública
+
+--- Hosted/Plangeo_DEREM_2024 (FeatureServer) — 3 camadas ---
+   [  0] DEREM
+   [  1] Mapeamento
+   [  2] Merge
+
+--- Hosted/Plangeo_DEREM_Consulta_Pública (FeatureServer) — 1 camadas ---
+   [  0] PlanoDecenalDerem2025_JOIN_ConsultaPublica
+
+--- Hosted/Plangeo_DEREM_gdb (FeatureServer) — 1 camadas ---
+   [  0] DEREM_Estado_Arte
+
+--- Hosted/Plangeo_PAT_DEREM_2024 (FeatureServer) — 1 camadas ---
+   [  0] patderem2024b
+
+--- Hosted/Plano_Decenal_DEREM_2025 (FeatureServer) — 1 camadas ---
+   [  0] PlanoDecenalDeremBJoin3
+
+--- Hosted/pontos_de_interesse_capivara (FeatureServer) — 2 camadas ---
+   [  0] pontos_de_interesse
+   [  1] limite_parque_capivara
+
+--- Hosted/Projeto_Ouro_Brasil (FeatureServer) — 3 camadas ---
+   [  0] Estações_Au_
+   [  1] Estações_Au_Clipado
+   [  2] Areas_Projetos__Au
+
+--- Hosted/Províncias_e_Distritos_Portadores_de_Ouro (FeatureServer) — 1 camadas ---
+   [  0] Au_Brazil_Prov_District
+
+--- Hosted/Pós_Consulta_Plangeo_blocos (FeatureServer) — 1 camadas ---
+   [  0] PLANGEO_consulta_pública_blocos_final
+
+--- Hosted/Pós_Consulta_Plangeo_folha (FeatureServer) — 1 camadas ---
+   [  0] PLANGEO_consulta_pública_folhas_cenários_final
+
+--- Hosted/Racismo_ambiental_junho_2025 (FeatureServer) — 1 camadas ---
+   [  0] Racismo ambiental julho 2025
+
+--- Hosted/RecMin_PDAC_2026 (FeatureServer) — 1 camadas ---
+   [  0] RecMin_PDAC_2025
+
+--- Hosted/Redes (FeatureServer) — 9 camadas ---
+   [  0] Sedes CPRM
+   [  1] Rede Fluviométrica
+   [  2] Rede Pluviométrica
+   [  3] SACE
+   [  4] RIMAS
+   [  5] Trecho_drenagem_5000
+   [  6] natural
+   [  7] Área de Atuação
+   [  8] UF
+
+--- Hosted/Regiões_macroeconômicas (FeatureServer) — 1 camadas ---
+   [  0] BRASIL_MACRO_GEOECONOMICA
+
+--- Hosted/risco_am_ds (FeatureServer) — 1 camadas ---
+   [  0] Setorização de Risco Amazonas
+
+--- Hosted/risco_am_ds (MapServer) — 1 camadas ---
+   [  0] Setorização de Risco Amazonas
+
+--- Hosted/risco_ba_ds (FeatureServer) — 1 camadas ---
+   [  0] Setorização de Risco Bahia
+
+--- Hosted/risco_ba_ds (MapServer) — 1 camadas ---
+   [  0] Setorização de Risco Bahia
+
+--- Hosted/risco_edg_tile (MapServer) — 1 camadas ---
+   [  0] Setorização de Risco
+
+--- Hosted/risco_total (FeatureServer) — 1 camadas ---
+   [  0] Setorização de Risco
+
+--- Hosted/sbcd_mobile (FeatureServer) — 1 camadas ---
+   [  0] sbcd_mobile
+
+--- Hosted/service_1fa10e9223f44d218d99bad0182ed32b (FeatureServer) — 1 camadas ---
+   [  0] PlanGeo
+
+--- Hosted/service_2f48639693294137b2d73092fb3a55d9 (FeatureServer) — 1 camadas ---
+   [  0] SCDI_v6
+
+--- Hosted/service_46346406ca6049fb92feb4ea40978d3f (FeatureServer) — 1 camadas ---
+   [  0] Formulario_1
+
+--- Hosted/service_5517384f106c440696cb79b2523f8cad (FeatureServer) — 1 camadas ---
+   [  0] MT Brasil
+
+--- Hosted/service_6e0fda341d044e9b802615bde485bf02_form (FeatureServer) — 1 camadas ---
+   [  0] MT Brasil
+
+--- Hosted/service_6e0fda341d044e9b802615bde485bf02 (FeatureServer) — 1 camadas ---
+   [  0] MT Brasil
+
+--- Hosted/service_90eedd34167949fc97867e9ae7164133_form (FeatureServer) — 1 camadas ---
+   [  0] Aquisicao_MT
+
+--- Hosted/service_90eedd34167949fc97867e9ae7164133 (FeatureServer) — 1 camadas ---
+   [  0] Aquisicao_MT
+
+--- Hosted/service_f652d4256804408dbb1195ac43f9c21b_form (FeatureServer) — 1 camadas ---
+   [  0] PlanGeo_RecMin
+
+--- Hosted/service_f652d4256804408dbb1195ac43f9c21b (FeatureServer) — 1 camadas ---
+   [  0] PlanGeo_RecMin
+
+--- Hosted/SGBEduca (FeatureServer) — 9 camadas ---
+   [  0] Pontos_geoturísticos
+   [  1] Hidrografia_linha_RO
+   [  2] Elementos_fisiográficos_RO
+   [  3] Hidrografia_poligono_RO
+   [  4] rocha_ignea_plutonica
+   [  5] rocha_ignea_vulcanica
+   [  6] rocha_metamorfica
+   [  7] rocha_sedimentar
+   [  8] sedimento
+
+--- Hosted/siagas_web (FeatureServer) — 3 camadas ---
+   [  0] Poços Legacy
+   [  1] Poços
+   [  2] Poços Rimas
+
+--- Hosted/SIG_GESTAO_ANO_BASE_2018 (FeatureServer) — 1 camadas ---
+   [  0] PAT_2018
+
+--- Hosted/Sondagem (FeatureServer) — 1 camadas ---
+   [  0] DIEMGE_SONDA
+
+--- Hosted/survey123_2ff059b181cf44d0a1da472fc03fa066_form (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/survey123_7ff3f033ec0f4cf8b4b378a16fd9be1b_results (FeatureServer) — 3 camadas ---
+   [  0] Formulario_20
+   [  1] grupo_localidade
+   [  2] grupo_talhao
+
+--- Hosted/survey123_bb6e4cd21607493a8db9b5ba0f6c0eed_form (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/survey123_cac41a8bb12540688b39f49192118174_form (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/survey123_f80c8aa2c50d4ae9a29d0c4ebbb89a65 (FeatureServer) — 1 camadas ---
+   [  0] survey
+
+--- Hosted/T_Indígenas (FeatureServer) — 1 camadas ---
+   [  0] tis_poligonais
+
+--- Hosted/Versão_final_PlanGeo (FeatureServer) — 1 camadas ---
+   [  0] PLANGEO_consulta_pública_blocos_integrados_3_set
+
+--- Hosted/vulnerabilidade_2019 (MapServer) — 1 camadas ---
+   [  0] Vulnerabilidade_2019_2.tif
+
+--- Hosted/Índice_Lavoura_Pecuária_WTL1 (MapServer) — 12 camadas ---
+   [  0] ILP - Mato Grosso
+   [  1] Sistemas de Cultivo - Ano Safra 2020-2021
+   [  2] Sistemas de Cultivo - Ano Safra 2019-2020
+   [  3] Sistemas de Cultivo - Ano Safra 2018-2019
+   [  4] Sistemas de Cultivo - Ano Safra 2017-2018
+   [  5] Sistemas de Cultivo - Ano Safra 2016-2017
+   [  6] Sistemas de Cultivo - Ano Safra 2015-2016
+   [  7] Sistemas de Cultivo - Ano Safra 2014-2015
+   [  8] Sistemas de Cultivo - Ano Safra 2013-2014
+   [  9] Sistemas de Cultivo - Ano Safra 2012-2013
+   [ 10] Sistemas de Cultivo - Ano Safra 2011-2012
+   [ 11] Sistemas de Cultivo - Ano Safra 2010-2011
+
+--- mapsdocs/Risco_Geológico___Edit (FeatureServer) — 1 camadas ---
+   [  0] Risco Geológico - Edit
+
+--- mapsdocs/Risco_Geológico___Edit (MapServer) — 1 camadas ---
+   [  0] Risco Geológico - Edit
+
+--- pdac/pdac_2023_geochemistry (MapServer) — 1 camadas ---
+   [  0] Geochemistry_PDAC2023
+
+--- pdac/pdac_2023_geology (MapServer) — 4 camadas ---
+   [  0] Geology_50k
+   [  1] Geology_100k
+   [  2] Geology_250k
+   [  3] Geology_1M
+
+--- pdac/pdac_2023_geophysiscs (MapServer) — 1 camadas ---
+   [  0] Airborne_Geophysics_Onshore
+
+--- pdac/pdac_2023_mineral_resources (MapServer) — 1 camadas ---
+   [  0] Mineral_Resources
+
+--- projeto_neotectonica/dr_bacia_Merge (FeatureServer) — 1 camadas ---
+   [  0] dr_bacia_Merge
+
+--- projeto_neotectonica/dr_bacia_Merge (MapServer) — 1 camadas ---
+   [  0] dr_bacia_Merge
+
+--- projeto_neotectonica/IndiceT_Merge (MapServer) — 1 camadas ---
+   [  0] IndiceT_Brasil
+
+--- projeto_neotectonica/sub_3_Merge (FeatureServer) — 1 camadas ---
+   [  0] sub_3_Merge
+
+--- projeto_neotectonica/sub_3_Merge (MapServer) — 1 camadas ---
+   [  0] sub_3_Merge
+
+--- projeto_neotectonica/Subacias_Brasileiras (FeatureServer) — 1 camadas ---
+   [  0] Subacias_Brasileiras
+
+--- projeto_neotectonica/Subacias_Brasileiras (MapServer) — 1 camadas ---
+   [  0] Subacias_Brasileiras
+
+--- projetos/fotoindice (MapServer) — 5 camadas ---
+   [  0] poligonos_fotoindices_mg
+   [  1] limite_estadual_mg
+   [  2] 2178-Januária_gr.tif
+   [  3] 2216-Formosa_gr.tif
+   [  4] 2270-Salinas_gr.tif
+
+--- projetos/projetos_3d (MapServer) — 1 camadas ---
+   [  1] Limite dos projetos
+
+--- projetos/projetos (MapServer) — 1 camadas ---
+   [  0] Projetos
+
+--- pronasolos/agua_disponivel_rj (MapServer) — 1 camadas ---
+   [  0] Água Disponível no RJ
+
+[pronasolos/agua_disponivel] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/agua_disponivel] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/apt_agricola_brasil_abc] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/apt_agricola_brasil_bc] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/aptd_agr_br (MapServer) — 1 camadas ---
+   [  0] Mapa de aptidão agrícola das terras do Brasil, escala 1:500.000 (2a Aproximação)
+
+--- pronasolos/aptidao_agricola_brasil (MapServer) — 1 camadas ---
+   [  0] Mapa de aptidão agrícola das terras do Brasil, escala 1:500.000 (2a Aproximação)
+
+[pronasolos/aptidao_fazenda_gado_corte] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/aptidao_fazenda_gado_corte] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/atributos_solo_90m (MapServer) — 57 camadas ---
+   [  0] Atributos do Solo (Resolução 90 m)
+   [  1] Estoque de Carbono (Mg/ha)
+   [  2] 0-5 cm
+   [  3] 5-15 cm
+   [  4] 15-30 cm
+   [  5] 30-60 cm
+   [  6] 60-100 cm
+   [  7] 100-200 cm
+   [  8] Teor de Carbono Orgânico (g/kg)
+   [  9] 0-5 cm
+   [ 10] 5-15 cm
+   [ 11] 15-30 cm
+   [ 12] 30-60 cm
+   [ 13] 60-100 cm
+   [ 14] 100-200 cm
+   [ 15] Teor de Areia (g/kg)
+   [ 16] 0-5 cm
+   [ 17] 5-15 cm
+   [ 18] 15-30 cm
+   [ 19] 30-60 cm
+   [ 20] 60-100 cm
+   [ 21] 100-200 cm
+   [ 22] Teor de Argila (g/kg)
+   [ 23] 0-5 cm
+   [ 24] 5-15 cm
+   [ 25] 15-30 cm
+   [ 26] 30-60 cm
+   [ 27] 60-100 cm
+   [ 28] 100-200 cm
+   [ 29] Teor de Silte (g/kg)
+   [ 30] 0-5 cm
+   [ 31] 5-15 cm
+   [ 32] 15-30 cm
+   [ 33] 30-60 cm
+   [ 34] 60-100 cm
+   [ 35] 100-200 cm
+   [ 36] Capacidade de Troca Catiônica (cmolc/kg)
+   [ 37] 0-5 cm
+   [ 38] 5-15 cm
+   [ 39] 15-30 cm
+   [ 40] 30-60 cm
+   [ 41] 60-100 cm
+   [ 42] 100-200 cm
+   [ 43] Acidez (pH)
+   [ 44] 0-5 cm
+   [ 45] 5-15 cm
+   [ 46] 15-30 cm
+   [ 47] 30-60 cm
+   [ 48] 60-100 cm
+   [ 49] 100-200 cm
+   [ 50] Salinidade (Condutividade Elétrica - dS/m)
+   [ 51] 0-5 cm
+   [ 52] 5-15 cm
+   [ 53] 15-30 cm
+   [ 54] 30-60 cm
+   [ 55] 60-100 cm
+   [ 56] 100-200 cm
+
+--- pronasolos/bacia_paraguai_ms (MapServer) — 1 camadas ---
+   [  0] Bacia do Rio Paraguai - MS
+
+--- pronasolos/bacia_paraguai (MapServer) — 1 camadas ---
+   [  0] Bacia do Paraguai
+
+[pronasolos/bacias_hidrograficas] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/bacias_hidrograficas] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/bacias_itaipu] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/bacias_itaipu] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/Balanco_N_P (MapServer) — 4 camadas ---
+   [  0] Volume Balanco_Nitrogenio_Mton_2017
+   [  1] Balanco_Nitrogenio_kg_ha_2017
+   [  2] Volume_Balanço_Fosforo_Mton_2017
+   [  3] Balanço_Fosforo_kg_ha_2017
+
+--- pronasolos/BalancoNitrogenioeFosforo (FeatureServer) — 4 camadas ---
+   [  0] Volume_Balanco_Nitrogenio_Mton
+   [  1] Balanco_Nitrogenio_kgha
+   [  2] Volume_Balanco_Fosforo_Mton
+   [  3] Balanco_Fosforo_kgha
+
+--- pronasolos/BalancoNitrogenioeFosforo (MapServer) — 4 camadas ---
+   [  0] Volume_Balanco_Nitrogenio_Mton
+   [  1] Balanco_Nitrogenio_kgha
+   [  2] Volume_Balanco_Fosforo_Mton
+   [  3] Balanco_Fosforo_kgha
+
+--- pronasolos/BalançoNeP (MapServer) — 4 camadas ---
+   [  0] Volume Balanco_Nitrogenio_Mton_2017
+   [  1] Balanco_Nitrogenio_kg_ha_2017
+   [  2] Volume_Balanço_Fosforo_Mton_2017
+   [  3] Balanço_Fosforo_kg_ha_2017
+
+[pronasolos/banco_solos_embrapa] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/banco_solos_embrapa] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/biomas] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/biomas] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/classe_ph_030] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/condut_ele_030] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/divisao_politica_claro] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/divisao_politica_escuro] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/embrapa_apt_matopiba] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/embrapa_apt_matopiba] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/embrapa_solos_brasil_5kk] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/embrapa_solos_campo_grande_ms] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/embrapa_zae_campo_grande_ms (FeatureServer) — 1 camadas ---
+   [  0] Zoneamento - Campo Grande - MS
+
+--- pronasolos/embrapa_zae_campo_grande_ms (MapServer) — 1 camadas ---
+   [  0] Zoneamento - Campo Grande - MS
+
+[pronasolos/erodibilidade] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/estoque_carbono_90m (MapServer) — 8 camadas ---
+   [  0] Atributos do Solo (Resolução 90 m)
+   [  1] Estoque de Carbono (Mg/ha)
+   [  2] 0-5 cm
+   [  3] 5-15 cm
+   [  4] 15-30 cm
+   [  5] 30-60 cm
+   [  6] 60-100 cm
+   [  7] 100-200 cm
+
+[pronasolos/fazenda_experimental_gado_corte] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/fazenda_experimental_gado_corte] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/geoabc (MapServer) — 10 camadas ---
+   [  0] GeoABC
+   [  1] Municipios UDs
+   [  2] UD Rural Sustentável
+   [  3] MAPAS GeoABC
+   [  4] 2018_2019_PRS.tif
+   [  5] 2018_2018_PRS_Kernel.tif
+   [  6] 2012_2013_PRS.tif
+   [  7] 2012_2013_PRS_Kernel.tif
+   [  8] EstadosPRS
+   [  9] Cerrado
+
+--- pronasolos/geoabcweb (MapServer) — 28 camadas ---
+   [  0] GeoABC - GOIÁS
+   [  1] 2010 - 2011
+   [  2] 2011 - 2012
+   [  3] 2012 - 2013
+   [  4] 2013 - 2014
+   [  5] 2014 - 2015
+   [  6] 2015 - 2016
+   [  7] 2016 - 2017
+   [  8] 2017 - 2018
+   [  9] 2018 - 2019
+   [ 10] 2019 - 2020
+   [ 11] 2020 - 2021
+   [ 12] 2021 - 2022
+   [ 13] 2022 - 2023
+   [ 14] GeoABC - MATO GROSSO DO SUL
+   [ 15] 2010 - 2011
+   [ 16] 2011 - 2012
+   [ 17] 2012 - 2013
+   [ 18] 2013 - 2014
+   [ 19] 2014 - 2015
+   [ 20] 2015 - 2016
+   [ 21] 2016 - 2017
+   [ 22] 2017 - 2018
+   [ 23] 2018 - 2019
+   [ 24] 2019 - 2020
+   [ 25] 2020 - 2021
+   [ 26] 2021 - 2022
+   [ 27] 2022 - 2023
+
+[pronasolos/hidrovias] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/hidrovias] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/ibge_perfil_solos] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/ibge_perfil_solos] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/IBGE_solos_250k] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/IBGE_solos_250k] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/ilp_18_19 (MapServer) — 1 camadas ---
+   [  0] 18_19
+
+--- pronasolos/ilp (MapServer) — 12 camadas ---
+   [  0] ILP - Mato Grosso
+   [  1] Sistemas de Cultivo - Ano Safra 2020-2021
+   [  2] Sistemas de Cultivo - Ano Safra 2019-2020
+   [  3] Sistemas de Cultivo - Ano Safra 2018-2019
+   [  4] Sistemas de Cultivo - Ano Safra 2017-2018
+   [  5] Sistemas de Cultivo - Ano Safra 2016-2017
+   [  6] Sistemas de Cultivo - Ano Safra 2015-2016
+   [  7] Sistemas de Cultivo - Ano Safra 2014-2015
+   [  8] Sistemas de Cultivo - Ano Safra 2013-2014
+   [  9] Sistemas de Cultivo - Ano Safra 2012-2013
+   [ 10] Sistemas de Cultivo - Ano Safra 2011-2012
+   [ 11] Sistemas de Cultivo - Ano Safra 2010-2011
+
+--- pronasolos/is_aggro_gcs (MapServer) — 11 camadas ---
+   [  8] 2020 - 2021 - GCS
+   [  9] 2019 - 2020 - GCS
+   [ 10] 2018 - 2019 - GCS
+   [ 11] 2017 - 2018 - GCS 
+   [ 12] 2016 - 2017 - GCS
+   [ 13] 2015 - 2016 - GCS
+   [ 14] 2014 - 2015 - GCS
+   [ 15] 2013 - 2014 - GCS
+   [ 16] 2012 - 2013 - GCS
+   [ 17] 2011 - 2012 - GCS
+   [ 18] 2010 - 2011 - GCS
+
+--- pronasolos/ISEAgro (MapServer) — 13 camadas ---
+   [  0] estados
+   [  1] AREA_IMOVEL_SORRISO_MT
+   [  2] AREA_IMOVEL_TUPARHA_mt
+   [  3] AREA_IMOVEL_LUCAS_DO_RIO_VERDE_MT
+   [  4] AREA_IMOVEL_IPIRANGA-DO_NORTE_MT
+   [  5] 18_19
+   [  6] k18_19
+   [  7] k12_13
+   [  8] 12_13
+   [  9] VEGETACAO_NATIVA_TUPARHA
+   [ 10] VEGETACAO_NATIVA_SORRISO
+   [ 11] VEGETACAO_NATIVA_LUCAS
+   [ 12] VEGETACAO_NATIVA_IPIRANGA
+
+--- pronasolos/k12_13 (MapServer) — 1 camadas ---
+   [  0] k12_13
+
+--- pronasolos/k18_19 (MapServer) — 1 camadas ---
+   [  0] k18_19
+
+[pronasolos/mapa_indice] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/mapa_indice] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/mapa_solos_zonpb (MapServer) — 2 camadas ---
+   [  0] Solos da área de influência do Canal das Vertentes Litorâneas da Paraíba - 1:50.000
+   [  1] Mapa de Solos - 1:50.000
+
+--- pronasolos/mun_aguas_agro (FeatureServer) — 1 camadas ---
+   [  0] 301 Municípios - Águas do Agro 
+
+--- pronasolos/mun_aguas_agro (MapServer) — 1 camadas ---
+   [  0] 301 Municípios - Águas do Agro 
+
+[pronasolos/parana_solos_250k] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/perfil_solo_rj] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/perfil_solo_rj] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/rodovias_federais] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/rodovias] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/solos_90m (MapServer) — 8 camadas ---
+   [  0] Atributos do Solo (Resolução 90 m)
+   [  1] Estoque de Carbono (Mg/ha)
+   [  2] 0-5 cm
+   [  3] 5-15 cm
+   [  4] 15-30 cm
+   [  5] 30-60 cm
+   [  6] 60-100 cm
+   [  7] 100-200 cm
+
+--- pronasolos/solos_bacia_paraguai (FeatureServer) — 1 camadas ---
+   [  1] Bacia do Paraguai
+
+--- pronasolos/solos_bacia_paraguai (MapServer) — 1 camadas ---
+   [  1] Bacia do Paraguai
+
+--- pronasolos/uds_aprovadas (FeatureServer) — 1 camadas ---
+   [  0] UD's Aprovadas - Água Solo
+
+--- pronasolos/uds_aprovadas (MapServer) — 1 camadas ---
+   [  0] UD's Aprovadas - Água Solo
+
+--- pronasolos/usle (MapServer) — 1 camadas ---
+   [  0] USLE 2023
+
+[pronasolos/vulnerabilidade_2019_erosao_hidrica] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/zae_ms_rio_paraguai] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+[pronasolos/zae_ms_rio_paraguai] erro: HTTPSConnectionPool(host='geoportal.sgb.gov.br', port=443): Read timed out. (read timeout=60)
+--- pronasolos/zonpb_canal_das_vertentes (MapServer) — 84 camadas ---
+   [  0] ZON-PB: Zoneamento pedoclimático da área de influência do Canal das Vertentes Litorâneas da Paraíba
+   [  1] Aptidão Climática
+   [  2] Aptidão Climática para Abacaxi 
+   [  3] Aptidão Climática para Abacaxi - Cenário Chuvoso
+   [  4] Aptidão Climática para Abacaxi - Cenário Regular
+   [  5] Aptidão Climática para Abacaxi - Cenário Seco
+   [  6] Aptidão Climática para Cana-de-açúcar 
+   [  7] Aptidão Climática para Cana-de-açúcar - Cenário Chuvoso
+   [  8] Aptidão Climática para Cana-de-açúcar - Cenário Regular
+   [  9] Aptidão Climática para Cana-de-açúcar - Cenário Seco
+   [ 10] Aptidão Climática para Mandioca
+   [ 11] Aptidão Climática para Mandioca - Cenário Chuvoso
+   [ 12] Aptidão Climática para Mandioca - Cenário Regular
+   [ 13] Aptidão Climática para Mandioca - Cenário Seco
+   [ 14] Aptidão Climática para Milho
+   [ 15] Aptidão Climática para Milho - Cenário Chuvoso
+   [ 16] Aptidão Climática para Milho - Cenário Regular
+   [ 17] Aptidão Climática para Milho - Cenário Seco
+   [ 18] Aptidão Climática para Sorgo
+   [ 19] Aptidão Climática para Sorgo - Cenário Chuvoso
+   [ 20] Aptidão Climática para Sorgo - Cenário Regular
+   [ 21] Aptidão Climática para Sorgo - Cenário Seco
+   [ 22] Potencial de Terras para Irrigação
+   [ 23] PTI - Geral
+   [ 24] PTI milho aspersão
+   [ 25] PTI milho localizada
+   [ 26] Potencial Pedoclimático
+   [ 27] Potencial Pedoclimático para Abacaxi - Nível de Manejo B
+   [ 28] Potencial Pedoclimático para Abacaxi - B - Chuvoso
+   [ 29] Potencial Pedoclimático para Abacaxi - B - Regular
+   [ 30] Potencial Pedoclimático para Abacaxi - B - Seco
+   [ 31] Potencial Pedoclimático para Abacaxi - Nível de Manejo C
+   [ 32] Potencial Pedoclimático para Abacaxi - C - Chuvoso
+   [ 33] Potencial Pedoclimático para Abacaxi - C - Regular
+   [ 34] Potencial Pedoclimático para Abacaxi - C - Seco
+   [ 35] Potencial Pedoclimático para Cana-de-açúcar - Nível de Manejo B
+   [ 36] Potencial Pedoclimático para Cana-de-açúcar - B - Chuvoso
+   [ 37] Potencial Pedoclimático para Cana-de-açúcar - B - Regular
+   [ 38] Potencial Pedoclimático para Cana-de-açúcar - B - Seco
+   [ 39] Potencial Pedoclimático para Cana-de-açúcar - Nível de Manejo C
+   [ 40] Potencial Pedoclimático para Cana-de-açúcar - C - Chuvoso
+   [ 41] Potencial Pedoclimático para Cana-de-açúcar - C - Regular
+   [ 42] Potencial Pedoclimático para Cana-de-açúcar - C - Seco
+   [ 43] Potencial Pedoclimático para Mandioca - Nível de Manejo B 
+   [ 44] Potencial Pedoclimático para Mandioca - B - Chuvoso
+   [ 45] Potencial Pedoclimático para Mandioca - B - Regular
+   [ 46] Potencial Pedoclimático para Mandioca - B - Seco
+   [ 47] Potencial Pedoclimático para Mandioca - Nível de Manejo C
+   [ 48] Potencial Pedoclimático para Mandioca - C - Chuvoso
+   [ 49] Potencial Pedoclimático para Mandioca - C - Regular
+   [ 50] Potencial Pedoclimático para Mandioca - C - Seco
+   [ 51] Potencial Pedoclimático para Milho - Nível de Manejo B
+   [ 52] Potencial Pedoclimático para Milho - B - Chuvoso
+   [ 53] Potencial Pedoclimático para Milho - B - Regular
+   [ 54] Potencial Pedoclimático para Milho - B - Seco
+   [ 55] Potencial Pedoclimático para Milho - Nível de Manejo C
+   [ 56] Potencial Pedoclimático para Milho - C - Chuvoso
+   [ 57] Potencial Pedoclimático para Milho - C - Regular
+   [ 58] Potencial Pedoclimático para Milho - C - Seco
+   [ 59] Potencial Pedoclimático para Sorgo - Nível de Manejo B
+   [ 60] Potencial Pedoclimático para Sorgo - B - Chuvoso
+   [ 61] Potencial Pedoclimático para Sorgo - B - Regular
+   [ 62] Potencial Pedoclimático para Sorgo - B - Seco
+   [ 63] Potencial Pedoclimático para Sorgo - Nível de Manejo C
+   [ 64] Potencial Pedoclimático para Sorgo - C - Chuvoso
+   [ 65] Potencial Pedoclimático para Sorgo - C - Regular
+   [ 66] Potencial Pedoclimático para Sorgo - C - Seco
+   [ 67] Potencial Pedológico
+   [ 68] Potencial Pedológico para Abacaxi
+   [ 69] Potencial Pedológico para Abacaxi - Média tecnologia B
+   [ 70] Potencial Pedológico para Abacaxi - Alta tecnologia C
+   [ 71] Potencial Pedológico para Cana-de-açúcar
+   [ 72] Potencial Pedológico para Cana-de-açúcar - Média tecnologia B
+   [ 73] Potencial Pedológico para Cana-de-açúcar - Alta tecnologia C
+   [ 74] Potencial Pedológico para Mandioca
+   [ 75] Potencial Pedológico para Mandioca - Média tecnologia B
+   [ 76] Potencial Pedológico para Mandioca - Alta tecnologia C
+   [ 77] Potencial Pedológico para Milho
+   [ 78] Potencial Pedológico para Milho - Média tecnologia B
+   [ 79] Potencial Pedológico para Milho - Alta tecnologia C
+   [ 80] Potencial Pedológico para Sorgo
+   [ 81] Potencial Pedológico para Sorgo - Média tecnologia B
+   [ 82] Potencial Pedológico para Sorgo - Alta tecnologia C
+   [ 83] Uso e Cobertura
+
+--- sigs_especiais/fotos (MapServer) — 1 camadas ---
+   [  0] maceio.maceio.ponto_foto
+
+--- sigs_especiais/litio (MapServer) — 12 camadas ---
+   [  0] Área do projeto
+   [  1] Recursos Minerais
+   [  2] Estrutural <== CANDIDATA
+   [  3] Litologia
+   [  4] Minas Gerais
+   [  5] mapa bouguer.tif
+   [  6] mag sinal analitico.tif
+   [  7] mag intensidade total.tif
+   [  8] mag derivada vertical.tif
+   [  9] gama mapa ternario KThU.tif
+   [ 10] Mapa Geológico
+   [ 11] Interpretação Geofísica-Estrutural <== CANDIDATA
+
+--- sigs_especiais/mapeamento_geologico_brasil_manutencao (FeatureServer) — 1 camadas ---
+   [  1] Mapeamento geológico
+
+--- sigs_especiais/mapeamento_geologico_brasil_manutencao (MapServer) — 1 camadas ---
+   [  1] Mapeamento geológico
+
+--- sigs_especiais/mapeamento_geologico_brasil_por_escala (MapServer) — 5 camadas ---
+   [  5] Mapeamentos 1:25.000
+   [  4] Mapeamentos 1:50.000
+   [  3] Mapeamentos 1:100.000
+   [  2] Mapeamentos 1:250.000
+   [  1] Mapeamentos 1:1.000.000
+
+--- sigs_especiais/mapeamento_geologico_brasil (MapServer) — 1 camadas ---
+   [  1] Mapeamento geológico
+
+--- sigs_especiais/sig_maceio (MapServer) — 34 camadas ---
+   [  0] Levantamento_AMT_Audiomagnetotelúrico
+   [  1] maceio.maceio.Pontos de Aquisição AMT
+   [  2] Sondagens_SPT
+   [  3] maceio.maceio.Sondagens SPT Executadas
+   [  4] Gravimetria
+   [  5] maceio.maceio.Estacoes Gravimétricas
+   [  6] Sismos Registrados pela Rede Simográfica
+   [  7] maceio.maceio.Sismos
+   [  8] GPR
+   [  9] maceio.maceio.Pontos de Levantamento GPR
+   [ 10] maceio.maceio.Linhas de Levantamento GPR
+   [ 11] Eletrorresistividade
+   [ 12] maceio.maceio.Sondagens Elétricas Verticais
+   [ 13] maceio.maceio.Tendência Linear da Eletrorresistividade
+   [ 14] maceio.maceio.Caminhamento Elétrico
+   [ 15] Batimetria
+   [ 16] maceio.maceio.Área de Levamentamento da Batimetria
+   [ 17] Lineamentos <== CANDIDATA
+   [ 18] maceio.maceio.Lineamentos <== CANDIDATA
+   [ 19] Minas de Sal-gema da Brasken
+   [ 20] maceio.maceio.Centro das Minas Originais
+   [ 21] maceio.maceio.Minas de Sal-gema Originais
+   [ 22] maceio.maceio.Minas de Sal-gema Atuais
+   [ 23] Mapa de Feições de Instabilidade
+   [ 24] maceio.maceio.Pontos de Mapeamento do Bairro Pinheiro
+   [ 25] maceio.maceio.Área Vistoriada em Março
+   [ 26] maceio.maceio.Trincas
+   [ 27] maceio.maceio.Setores de Intensidade de Feições
+   [ 28] Setorização de Risco de Deslizamento
+   [ 29] maceio.maceio.AL_MACEIO_SR_CPRM
+   [ 30] Áreas Abaciadas
+   [ 31] maceio.maceio.Arruamento
+   [ 32] maceio.maceio.Abaciamentos
+   [ 33] maceio.maceio.Ocupação do Bairro Pinheiro em 1964
+
+--- sigs_especiais/tecams (FeatureServer) — 25 camadas ---
+   [  0] Cities
+   [  1] Eclogites
+   [  2] Impact Crater
+   [  3] Kimberlites
+   [  4] Active Volcanoes
+   [  5] Dykes
+   [  6] Suture Zones
+   [  7] Continent Boundary
+   [  8] Craton Terranes Limits
+   [  9] Plate Boundary
+   [ 10] Continent Structure
+   [ 11] Paleoz Erosional Border
+   [ 12] Ocean Structure
+   [ 13] Main River
+   [ 14] Isopachs
+   [ 15] COB
+   [ 16] Glacial
+   [ 17] Lake Lagoon
+   [ 18] Water
+   [ 19] Salt Lakes
+   [ 20] Tec Units Setting
+   [ 21] Tec Units Age
+   [ 22] Ocean Crust Age
+   [ 23] Bathymetry
+   [ 24] Ocean Features
+
+--- sigs_especiais/tecams (MapServer) — 25 camadas ---
+   [  0] Cities
+   [  1] Eclogites
+   [  2] Impact Crater
+   [  3] Kimberlites
+   [  4] Active Volcanoes
+   [  5] Dykes
+   [  6] Suture Zones
+   [  7] Continent Boundary
+   [  8] Craton Terranes Limits
+   [  9] Plate Boundary
+   [ 10] Continent Structure
+   [ 11] Paleoz Erosional Border
+   [ 12] Ocean Structure
+   [ 13] Main River
+   [ 14] Isopachs
+   [ 15] COB
+   [ 16] Glacial
+   [ 17] Lake Lagoon
+   [ 18] Water
+   [ 19] Salt Lakes
+   [ 20] Tec Units Setting
+   [ 21] Tec Units Age
+   [ 22] Ocean Crust Age
+   [ 23] Bathymetry
+   [ 24] Ocean Features
+
+--- sistemas/novo_fcampo (MapServer) — 1 camadas ---
+   [  1] Limites Politicos
+
+--- suplan/SIGGESTAO2022 (MapServer) — 1 camadas ---
+   [  0] SIGGESTÃO 2022
+
+
+===== CONSULTA DAS 33 CANDIDATAS NA AOI =====
+[Estruturas_GIS_Brasil_2004] serviço retornou erro: Pagination is not supported.
+[bacia_do_parana_estrutura] serviço retornou erro: Pagination is not supported.
+[bsf_estrutura] serviço retornou erro: Pagination is not supported.
+[Estruturas] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Estruturas1] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Alinhamento Morfo-Estrutural] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Estruturas lineares] 0 feições na AOI
+[Escarpa de falha] 0 feições na AOI
+[Unidades morfoestruturais] 0 feições na AOI
+[Medida estrutural] 0 feições na AOI
+[Estruturas lineares] 0 feições na AOI
+----- https://geoportal.sgb.gov.br/server/rest/services/geologia_marinha/geomar/FeatureServer [67] Estruturas: 1+ feições na AOI -----
+      Zona de fratura Martin Vaz
+
+[Estruturas lineares] 0 feições na AOI
+[Escarpa de falha] 0 feições na AOI
+[Unidades morfoestruturais] 0 feições na AOI
+[Medida estrutural] 0 feições na AOI
+[Estruturas lineares] 0 feições na AOI
+----- https://geoportal.sgb.gov.br/server/rest/services/geologia_marinha/geomar/MapServer [67] Estruturas: 1+ feições na AOI -----
+      Zona de fratura Martin Vaz
+
+[Estruturas ] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Estruturas ] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Estruturas embasamento fraturado] 0 feições na AOI
+[Estruturas embasamento fraturado] 0 feições na AOI
+[Estruturas embasamento fraturado] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Estruturas embasamento fraturado] serviço retornou erro: Error handling service request :Wait timeout for the request exceeded.
+[Estruturas] 0 feições na AOI
+[Estruturas] 0 feições na AOI
+[Estruturas embasamento fraturado] 0 feições na AOI
+[Estruturas embasamento fraturado] 0 feições na AOI
+[Medidas Estruturais DS] 0 feições na AOI
+[Estrutural] serviço retornou erro: Pagination is not supported.
+[Interpretação Geofísica-Estrutural] serviço retornou erro: Invalid or missing input parameters.
+[Lineamentos] serviço retornou erro: Invalid or missing input parameters.
+[maceio.maceio.Lineamentos] 0 feições na AOI
+Use os nomes de projeto/folha acima na área de downloads do GeoSGB (Cartografia Geológica).
+Relatório salvo em: /data/outputs/geologia_estruturas.txt

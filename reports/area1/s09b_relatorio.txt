@@ -1,0 +1,24 @@
+===== s09b — TETO DO ALVO DE ZONA =====
+Poços de entrada: 1742 | referência do s09 (poço a poço): AUC-vizinho 0,672 | pepita 78%
+
+  bloco  n_min  n blocos  AUC-bloco-viz   pepita  corr viz
+    1km      3       152          0.510      82%      0.03
+    2km      4       133          0.601      84%      0.05
+    2km      6        59          0.605      88%      0.12
+    4km      6        91          0.626      68%      0.20
+    4km     10        51          0.606      57%      0.29
+
+===== INTERPRETAÇÃO =====
+- AUC-bloco-vizinho ≈ teto prático da favorabilidade DE ZONA naquele
+  tamanho de bloco. Compare com 0,70:
+    >= 0,80 -> barra de 0,70 plenamente alcançável contra o alvo de
+               zona; retreinar (s06/s07 com alvo agregado) e a
+               geofísica entra para fechar o gap;
+    0,70–0,80 -> alcançável com margem estreita;
+    < 0,70 -> mesmo agregado o alvo não sustenta 0,70 — recalibrar
+              a barra pelo teto medido (declarado).
+- Pepita menor que os 78% do s09 confirma que a agregação está
+  cancelando o ruído poço-a-poço.
+- n_blocos é o novo n da modelagem: abaixo de ~150, a CV espacial
+  perde poder — preferir o menor bloco que já eleve o teto.
+Relatório salvo em: /data/outputs/s09b_relatorio.txt

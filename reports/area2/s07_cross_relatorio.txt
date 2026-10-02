@@ -1,0 +1,24 @@
+===== s07_cross — TRANSFERÊNCIA ENTRE ÁREAS =====
+Protocolo pré-registrado no cabeçalho do estágio.
+
+[área 1] matriz: 1742 poços ({'fissural': np.int64(951), 'outro': np.int64(791)})
+[área 2 (VP)] matriz: 493 poços ({'outro': np.int64(425), 'fissural': np.int64(68)})
+
+----- ÁREA 1 -> ÁREA 2 (treina SP-leste, prevê Vale do Paraíba) -----
+Colunas comuns usadas: 61
+Treino: 1742 | Teste: 493 (positivos: 124)
+AUC transferido: 0.553 | R² transferido: -1.252
+Top 5 (importância no treino): geof_k 0.028, geof_mag_ght 0.027, geof_ct 0.025, curvatura 0.025, dist_lin_intersec_sgb 0.023
+
+----- ÁREA 2 -> ÁREA 1 (treina VP, prevê SP-leste) -----
+Colunas comuns usadas: 61
+Treino: 493 | Teste: 1742 (positivos: 436)
+AUC transferido: 0.487 | R² transferido: -1.214
+Top 5 (importância no treino): geof_k 0.044, dist_lin_intersec_sgb 0.043, dist_lin_ne_sw 0.040, mde 0.039, dist_lin_ns_sgb 0.036
+
+===== LEITURA PELAS BANDAS PRÉ-REGISTRADAS =====
+A1->A2: AUC 0.553 -> TRANSFERÊNCIA PARCIAL — treino local recomendado
+A2->A1: AUC 0.487 -> NÃO TRANSFERE — treino local obrigatório
+
+Referências: CV espacial A1 0,660 | A2 0,736; fuzzy A1 0,519 | A2 0,434; sonda interna A2 0,653.
+Relatório salvo em: /data/outputs/s07_cross_relatorio.txt

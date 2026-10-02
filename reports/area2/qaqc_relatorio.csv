@@ -1,0 +1,9 @@
+regra,pocos
+2.1 fora_da_aoi (bloqueante),0
+2.2 duplicata (bloqueante),56
+2.5 filtro_abaixo_fundo (flag),0
+2.5 filtros_sobrepostos (flag),2
+2.6 lacuna_litologia (flag),33
+manual coord_divergente_siagas,1
+TOTAL pocos,1420
+TOTAL aprovados,1364

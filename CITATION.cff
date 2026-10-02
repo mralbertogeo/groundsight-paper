@@ -10,8 +10,8 @@ authors:
     email: mralberto@geoinovacoes.com.br
 repository-code: "https://github.com/mralbertogeo/groundsight-paper"
 license: AGPL-3.0
-version: 1.0.0
-date-released: 2026-08-25
+version: 1.1.0
+date-released: 2026-10-02
 keywords:
   - groundwater favorability
   - predictability ceiling

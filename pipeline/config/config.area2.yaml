@@ -64,10 +64,10 @@ modelagem:
   baseline: fuzzy_gamma
   classes_quantis: [0.25, 0.5, 0.75]
 validacao:
-  aoi_original_bbox: [-47.0, -22.95, -46.4, -22.3]   # v2.3: validação externa
-  teto_vizinho_auc: 0.672       # s09 (10/08/2026): AUC-vizinho a 250 m
-  teto_vizinho_ic: [0.622, 0.721]   # IC95% do teto (s09, bootstrap).
-  #   Área 1: fração capturada 93%, faixa 72-100% com o IC do teto.
+  aoi_original_bbox: [-45.85, -23.10, -45.15, -22.40]   # v2.3: validação externa
+  teto_vizinho_auc: 0.752       # s09 (10/08/2026): AUC-vizinho a 250 m
+  teto_vizinho_ic: [0.671, 0.828]   # IC95% do teto (s09, bootstrap).
+  #   Área 2: fração capturada 94%, faixa 72-100% com o IC do teto.
   #   A fração capturada herda essa incerteza amplificada, porque o
   #   denominador corrigido pelo acaso (teto - 0,5) é pequeno.
   fator_teto: 0.95              # barra = fator × teto (critério declarado)

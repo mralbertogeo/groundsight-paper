@@ -1,0 +1,14 @@
+===== s05b — LINEAMENTOS =====
+Famílias de azimute: {'ne_sw': (20, 70), 'ew': (70, 110), 'nw_se': (110, 160), 'ns': (160, 20)}
+[AUTO] segmentos extraídos do MDE: 8762
+[SGB] 4 shapefile(s), 8710 segmentos
+Quicklook: data/outputs/quicklook_lineamentos.png
+
+===== RELATÓRIO s05b =====
+Segmentos AUTO família ne_sw   : 5313
+Segmentos AUTO família ew      : 390
+Segmentos AUTO família nw_se   : 2520
+Segmentos AUTO família ns      : 539
+Segmentos AUTO família total   : 8762
+Covariáveis novas nos poços: 24
+Relatório salvo em: /data/outputs/s05b_relatorio.txt

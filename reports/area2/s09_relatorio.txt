@@ -1,0 +1,41 @@
+===== s09 — TETO DE PREVISIBILIDADE DO ALVO =====
+Poços: 493 | variância total de log Q/s: 0.569
+
+1) AUC-VIZINHO (classe do poço predita pelo log Q/s do vizinho mais próximo):
+    raio  n pares  AUC-vizinho  corr(z, z_viz)       IC95% da AUC
+    250m      179        0.752           0.459        0.671-0.828
+    500m      296        0.764           0.440        0.698-0.826
+   1000m      395        0.755           0.472        0.705-0.806
+   2000m      440        0.759           0.486        0.708-0.809
+
+2) SEMIVARIOGRAMA EMPÍRICO de log Q/s:
+       lag (m)   n pares   semivar  % do patamar    origem
+     0–   250       182     0.251           44%     todos
+   250–   500       208     0.282           50%     todos
+   500–  1000       488     0.275           48%     todos
+  1000–  2000      1270     0.340           60%     todos
+  2000–  4000     11422     0.341           60%   amostra
+  4000–  8000     28328     0.401           70%   amostra
+  8000– 16000     49578     0.447           78%   amostra
+
+Fração pepita (lag 0–250 m / variância): 44%
+IC95% da fração pepita: 33%-57% (182 pares no lag usado; patamar fixo, logo é limite inferior da incerteza)
+R² máximo teórico de qualquer mapa: ~0.56
+
+===== INTERPRETAÇÃO =====
+AUC-vizinho no raio de 250–500 m ≈ teto prático de modelos espaciais:
+  >= 0,80  -> há sinal local forte; 0,70 é alcançável com covariáveis
+              melhores (geofísica) — investir na Fase C;
+  0,70–0,80-> 0,70 é a fronteira; alcançável, com margem estreita;
+  < 0,70   -> NENHUM modelo espacial atinge 0,70 nesta base: o ruído
+              do alvo (erro de teste, construção, aleatoriedade de
+              fratura) domina. A barra deve ser recalibrada pelo teto
+              medido (decisão declarável) ou o alvo redefinido
+              (ex.: mediana por bloco em vez de poço a poço).
+A fração pepita conta a mesma história em regressão: o R² máximo é
+~(1 - pepita). Compare o R² obtido no s07 com esse valor, e compare a
+fração capturada com o IC da pepita, não só com o ponto estimado.
+O alcance também informa: se o semivariograma satura antes do
+espaçamento típico entre poços, interpolar entre poços opera além do
+comprimento de correlação.
+Relatório salvo em: /data/outputs/s09_relatorio.txt

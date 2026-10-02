@@ -1,0 +1,24 @@
+===== DOWNLOAD — Estruturas GIS Brasil 2004 =====
+AOI (+buffer 0.1°): [-46.1, -23.35, -44.9, -22.15]
+Formato: GeoJSON
+Feições estruturais na AOI: 186
+Atributos: ['FID', 'ID_MAPA', 'NOME_MAPA', 'TIPO_ESTRU', 'NMESTRUTUR', 'SENTIDO_DE', 'ANG_NORTE', 'MERGULHO', 'RUMO', 'DESLOC', 'IDADE_DESL', 'ORIGEM', 'REGIME_TEC', 'EVENTO_ORO', 'COD_FOLHA', 'GRUPO', 'ESCALA']
+   ID_MAPA: ['39']
+   NOME_MAPA: ['Carta geológica da folha Rio de Janeiro']
+   TIPO_ESTRU: ['Falha ou fratura', 'Falha ou zona de cisalhamento compressional', 'Falha ou zona de cisalhamento extensional', 'Falha ou zona de cisalhamento indiscriminada', 'Falha ou zona de cisalhamento transcorrente dextral', 'Falha ou zona de cisalhamento transcorrente sinistral']
+   NMESTRUTUR: [' ', 'Zona de Cisalhamento Cubatão', 'Zona de Cisalhamento Lobato', 'Zona de Cisalhamento Monteiro Lobato', 'Zona de Cisalhamento Natividade', 'Zona de Cisalhamento São Bento', 'Zona de Cisalhamento Taxaquara']
+   SENTIDO_DE: [' ', 'BLOCO ALTO A OESTE', 'BLOCO ALTO A SUL', 'BLOCO ALTO A SW']
+   MERGULHO: ['0', '45', '50', '55']
+   RUMO: [' ', 'S', 'SW', 'W']
+   DESLOC: ['0']
+   IDADE_DESL: ['0']
+   ORIGEM: ['Mantiqueira', 'Tocantins']
+   REGIME_TEC: ['Compressional', 'Extensional', 'Não determinado', 'Transcorrente']
+   EVENTO_ORO: [' ']
+   COD_FOLHA: ['SF-23']
+   GRUPO: ['6']
+   ESCALA: ['1000000']
+
+Shapefile gravado: /data/raw/estrutural/estruturas_gis_brasil_2004.shp
+Pronto para o s05b (rota SGB).
+Relatório salvo em: /data/outputs/estrutural_download.txt

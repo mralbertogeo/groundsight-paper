@@ -24,8 +24,40 @@ components of the wider platform are not part of this archive.
 | `s08b`, `s08c` | 3.7 | Map products and five-class validated favorability |
 | `s09`, `s09b` | 3.6 | Predictability-ceiling estimators |
 
+`s09` enumerates **every** well pair closer than 2 km from a k-d tree
+rather than sampling pairs, accepts a variogram lag only if it holds at
+least 100 pairs, prints the lag actually used, and reports a bootstrap
+95% confidence interval for both the neighbour AUC and the nugget
+fraction. The nugget interval holds the sill fixed and is therefore a
+lower bound on the total uncertainty of the fraction.
+
 Every stage writes a plain-text report to `data/outputs/` containing the
 numbers cited in the manuscript.
+
+## Areas and configuration
+
+The manuscript reports two areas. The only differences between the two runs
+are the AOI bounding box (set in `.env`) and the measured ceiling (set in the
+area configuration after running `s09`):
+
+| | Area 1 — Parana Basin border | Area 2 — Taubate rift |
+|---|---|---|
+| `AOI_BBOX` (WGS84 lon/lat) | `-47.35,-23.25,-46.15,-22.05` | `-46.10,-23.35,-44.90,-22.15` |
+| Working CRS | EPSG:31983 | EPSG:31983 |
+| Configuration | `pipeline/config/config.yaml` | `pipeline/config/config.area2.yaml` |
+| Neighbour-AUC ceiling @250 m | 0.672 (95% CI 0.622-0.721) | 0.752 (95% CI 0.671-0.828) |
+| Nugget fraction | 66% (95% CI 57-77%) | 44% (95% CI 33-57%) |
+
+`diff pipeline/config/config.yaml pipeline/config/config.area2.yaml` returns
+exactly two differing lines. That is the "configuration-only changes" claim
+of Section 4.5 in verifiable form.
+
+## Stage reports
+
+`reports/area1/` and `reports/area2/` hold the plain-text report written by
+each stage of the two runs, together with the spatial cross-validation
+results and the QA/QC summary. See `reports/README.md`, which also lists the
+reports still pending regeneration under the revised ceiling estimator.
 
 ## Data
 
@@ -42,7 +74,7 @@ All inputs are public and are **not** redistributed here:
 ## Running
 
 ```bash
-cp .env.exemplo .env       # set AOI_BBOX and database credentials
+cp .env.example .env       # set AOI_BBOX and database credentials
 docker compose build pipeline
 docker compose run --rm pipeline python stages/s00_migrations.py
 docker compose run --rm pipeline python stages/s01_extract_siagas.py
@@ -51,6 +83,11 @@ docker compose run --rm pipeline python stages/s01_extract_siagas.py
 
 Reproducing a new region requires editing only `AOI_BBOX` in `.env` and
 the ceiling value in `pipeline/config/config.yaml` after running `s09`.
+
+The fraction of the ceiling captured is reported **chance-corrected**,
+as `(AUC - 0.5) / (ceiling - 0.5)`, because an AUC of 0.5 is the
+expectation of a random ranking and not a zero of skill. The blocking
+bar itself (`fator_teto` x ceiling) stays in absolute terms.
 
 ## Citation
 
