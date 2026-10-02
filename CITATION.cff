@@ -9,6 +9,14 @@ authors:
     affiliation: "GeoInovações Ambientais Ltda."
     email: mralberto@geoinovacoes.com.br
 repository-code: "https://github.com/mralbertogeo/groundsight-paper"
+doi: "10.5281/zenodo.22097014"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22097014"
+    description: "Concept DOI — resolves to the latest version"
+  - type: doi
+    value: "10.5281/zenodo.23102501"
+    description: "Version 1.1.0"
 license: AGPL-3.0
 version: 1.1.0
 date-released: 2026-10-02
