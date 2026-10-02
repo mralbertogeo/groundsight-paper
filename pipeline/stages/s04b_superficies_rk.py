@@ -98,21 +98,66 @@ def blocos(x, y, bloco_km, n_folds, seed=42):
     return ids.map(mapa).values
 
 
+CORTE_VARIO = 2500      # abaixo disso: todos os pares reais
+MIN_PARES_VARIO = 80    # lag com menos pares que isso e descartado
+REPS_IC = 2000
+SEMENTE_IC = 20260101
+
+
+def ic_media(amostra, reps=REPS_IC, semente=SEMENTE_IC):
+    """IC95% da media por reamostragem com reposicao, em ordem canonica.
+
+    A ordenacao previa torna o intervalo independente da ordem de
+    leitura dos registros.
+    """
+    amostra = np.sort(np.asarray(amostra, dtype=float))
+    if len(amostra) < 2:
+        return (np.nan, np.nan)
+    r = np.random.default_rng(semente)
+    idx = r.integers(0, len(amostra), size=(reps, len(amostra)))
+    return tuple(np.percentile(amostra[idx].mean(axis=1), [2.5, 97.5]))
+
+
 def semivario(x, y, z, bins=(0, 300, 600, 1200, 2500, 5000, 10000, 20000)):
-    rng = np.random.default_rng(42)
+    """Semivariograma empirico dos contatos.
+
+    Abaixo de CORTE_VARIO todos os pares reais sao enumerados por k-d
+    tree, sem sorteio; acima do corte usa-se amostra de pares, que nao
+    entra na pepita. Devolve tambem a amostra do lag mais curto valido,
+    para o IC da fracao pepita, e os lags descartados antes dele.
+    """
+    from scipy.spatial import cKDTree
+    xy = np.c_[x, y]
     n = len(z)
+    tree = cKDTree(xy)
+    curtos = np.array(sorted(tree.query_pairs(r=CORTE_VARIO)),
+                      dtype=int).reshape(-1, 2)
+    rng = np.random.default_rng(42)
     m = min(300_000, n * (n - 1) // 2)
     ii = rng.integers(0, n, m); jj = rng.integers(0, n, m)
     ok = ii != jj
-    ii, jj = ii[ok], jj[ok]
-    h = np.hypot(x[ii] - x[jj], y[ii] - y[jj])
-    g = 0.5 * (z[ii] - z[jj]) ** 2
-    linhas = []
+    longos = np.column_stack((ii[ok], jj[ok]))
+
+    def gama(pares, a, b):
+        if len(pares) == 0:
+            return np.empty(0)
+        h = np.hypot(*(xy[pares[:, 0]] - xy[pares[:, 1]]).T)
+        s = (h > a) & (h <= b)
+        return 0.5 * (z[pares[s, 0]] - z[pares[s, 1]]) ** 2
+
+    linhas, amostra0, descartados = [], None, []
     for a, b in zip(bins[:-1], bins[1:]):
-        sel = (h > a) & (h <= b)
-        if sel.sum() >= 80:
-            linhas.append((a, b, int(sel.sum()), float(g[sel].mean())))
-    return linhas
+        todos = b <= CORTE_VARIO
+        g = gama(curtos if todos else longos, a, b)
+        if len(g) < MIN_PARES_VARIO:
+            if amostra0 is None:
+                descartados.append((a, b, int(len(g))))
+            continue
+        if amostra0 is None:
+            amostra0 = g
+        linhas.append((a, b, int(len(g)), float(g.mean()),
+                       "todos" if todos else "amostra"))
+    return linhas, amostra0, descartados
 
 
 # ---------------------------------------------------------------------
@@ -199,15 +244,27 @@ def main():
         print(f"\n===== {nome} (n={len(sub)}) =====")
 
         # ---------- B. diagnóstico ----------
-        sv = semivario(x, y, z)
+        sv, amostra0, descartados = semivario(x, y, z)
         var = z.var()
+        print(f"Variância do contato: {var:.1f} (desvio-padrão {np.sqrt(var):.2f} m)")
         if sv:
-            print(f"{'lag':>14s} {'n':>8s} {'semivar':>9s} {'%patamar':>9s}")
-            for a, b, n, gm in sv:
-                print(f"{a:6.0f}–{b:6.0f} {n:8d} {gm:9.1f} "
-                      f"{100 * gm / var:8.0f}%")
+            print(f"{'lag':>14s} {'n':>8s} {'semivar':>9s} {'%patamar':>9s} "
+                  f"{'origem':>9s}")
+            for a, b, npar, gm, origem in sv:
+                print(f"{a:6.0f}–{b:6.0f} {npar:8d} {gm:9.1f} "
+                      f"{100 * gm / var:8.0f}% {origem:>9s}")
             pepita = min(1.0, sv[0][3] / var)
-            print(f"Fração pepita: {pepita:.0%}")
+            print(f"Fração pepita (lag {sv[0][0]:.0f}–"
+                  f"{sv[0][1]:.0f} m / variância): {pepita:.0%}")
+            if amostra0 is not None:
+                lo, hi = np.clip(np.array(ic_media(amostra0)) / var, 0, 1)
+                print(f"IC95% da fração pepita: {lo:.0%}-{hi:.0%} "
+                      f"({len(amostra0)} pares no lag usado; patamar fixo, "
+                      "logo é limite inferior da incerteza)")
+            for a, b, k in descartados:
+                print(f"ATENÇÃO: lag {a:.0f}–{b:.0f} m "
+                      f"descartado ({k} pares < {MIN_PARES_VARIO}); a pepita "
+                      "acima foi medida num lag maior e SUBESTIMA a real.")
         reg_diag = LinearRegression().fit(X, z)
         r2_der = reg_diag.score(X, z)
         print(f"R² da deriva de terreno (in-sample): {r2_der:.3f}")
