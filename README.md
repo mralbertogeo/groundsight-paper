@@ -52,6 +52,15 @@ area configuration after running `s09`):
 exactly two differing lines. That is the "configuration-only changes" claim
 of Section 4.5 in verifiable form.
 
+## Protocol declared in advance
+
+`PROTOCOL_AREA2.md` reproduces, verbatim, the assertions and the area
+definition written for Area 2 before any Area 2 computation was run
+(document dated 11 August 2026; the Area 2 stage reports carry file dates of
+11-12 August 2026). It is the document behind Sections 3.6 and 4.5 of the
+manuscript. It was not deposited in a public pre-registration registry, and
+the file says so.
+
 ## Stage reports
 
 `reports/area1/` and `reports/area2/` hold the plain-text report written by

@@ -13,6 +13,20 @@ Every number cited in the paper can be traced to one of these files.
 | Modelling matrix | 1,742 | 493 |
 | Configuration | `pipeline/config/config.yaml` | `pipeline/config/config.area2.yaml` |
 
+## Why the two directories differ
+
+The two areas did not run the same set of optional stages, and the
+difference follows the experimental design rather than missing material:
+
+- `s04b` (regression-kriging upgrade of the weathering surfaces) and `s09b`
+  (zone-support ceiling) were Area 1 tests only; Section 3.5(d) and
+  Section 4.2 report them as such.
+- `s07_cross` (cross-area transfer, both directions) was run once, from
+  Area 2, and covers both directions.
+- The `s07_diag`, `s08` and `s08_diag_delta` diagnostics were produced
+  during Area 1 development and are kept for traceability of the validation
+  trajectory in Table 1.
+
 ## Predictability ceilings
 
 `s09_relatorio.txt` in each directory was produced on 2026-10-02 by
