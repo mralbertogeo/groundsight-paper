@@ -19,10 +19,11 @@ nao sao comparaveis em nivel absoluto — o alvo e o q75 da PROPRIA area,
 entao "probabilidade alta" significa coisas diferentes em cada uma. O
 que a legenda compara e o PADRAO espacial, nao a magnitude.
 
-A rampa da probabilidade e escolhida por --cmap-prob. O default NAO e
-mais RdYlGn: vermelho-verde e ilegivel para deuteranopia e protanopia,
-que atingem cerca de 8% dos homens, e e uma rampa arco-iris para dado
-sequencial. Use --cmap-prob RdYlGn para reproduzir a figura antiga.
+A rampa da probabilidade e escolhida por --cmap-prob. O default e
+RdYlGn, decisao do autor em 24/10/2026 para manter a leitura
+vermelho = baixo / verde = alto consagrada nos mapas de favorabilidade.
+Alternativas avaliadas e disponiveis: azul_casa (monocromatica, segura
+para daltonismo) e viridis.
 
 Uso:
     python fig7_products.py --raiz1 <dir> --raiz2 <dir> [--saida .]
@@ -96,7 +97,7 @@ def main():
     p.add_argument("--raiz1", required=True)
     p.add_argument("--raiz2", required=True)
     p.add_argument("--saida", default=".")
-    p.add_argument("--cmap-prob", default="azul_casa")
+    p.add_argument("--cmap-prob", default="RdYlGn")
     p.add_argument("--max-px", type=int, default=1200)
     a = p.parse_args()
 
