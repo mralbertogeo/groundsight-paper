@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Figura 3 do manuscrito — estimadores do teto de previsibilidade.
 
-(a) AUC-vizinho em funcao do raio de busca, com IC95%.
+(a) AUC-vizinho (AUC_nn no texto) em funcao do raio de busca, com IC95%.
 (b) Semivariograma empirico de log10(Q/s) em percentual do patamar.
 
 Os numeros NAO sao digitados: o script le os relatorios arquivados do s09
@@ -152,8 +152,9 @@ def main():
     ax1.set_xlim(raios.min() * 0.84, raios.max() * 1.20)
     ax1.set_ylim(0.48, 0.87)
     ax1.set_xlabel("Search radius (m)")
-    ax1.set_ylabel("Neighbour AUC")
-    ax1.set_title("(a) Nearest-neighbour discrimination", loc="left", pad=8)
+    ax1.set_ylabel(r"AUC$_{\mathrm{nn}}$ (nearest-neighbour AUC)")
+    ax1.set_title(r"(a) Predictability ceiling AUC$_{\mathrm{nn}}$ vs. search radius",
+                  loc="left", pad=8)
     limpa(ax1)
 
     # ---------------- (b) semivariograma ----------------
