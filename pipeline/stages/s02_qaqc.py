@@ -38,7 +38,11 @@ def enriquecer_aquifero(conn) -> int:
     df.columns = [c.lower() for c in df.columns]
     c_cod = "idt_ponto" if "idt_ponto" in df.columns else "codigo"
     if "str_aquifero" not in df.columns:
-        return 0
+        raise RuntimeError(
+            "cadastro_aoi.parquet não tem a coluna 'str_aquifero'. "
+            "A rota de origem do cadastro não entregou o campo de "
+            "aquífero, sem o qual o s03 não classifica domínio e o "
+            "s06 fica sem amostra de treino.")
     n = 0
     for _, r in df[[c_cod, "str_aquifero"]].dropna().iterrows():
         conn.execute(text(
@@ -85,6 +89,11 @@ def main():
         # Enriquecimento
         n_aq = enriquecer_aquifero(conn)
         print(f"Poços com aquífero do cadastro: {n_aq}")
+        if n_aq == 0 and n_total > 0:
+            raise RuntimeError(
+                f"Nenhum dos {n_total} poços recebeu aquífero do cadastro. "
+                "O domínio hidrogeológico não pode ser classificado e o "
+                "treino ficaria sem amostra.")
 
         # ---- 2.1 Coordenadas dentro da AOI ----
         r = conn.execute(text("""

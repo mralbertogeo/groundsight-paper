@@ -79,4 +79,4 @@ validacao:
   n_folds: 5
   auc_minimo_bloqueante: 0.70
   auc_alvo: 0.75
-  seeds: [42, 7, 2026]
+  seeds: [42, 7, 2026, 11, 23, 101, 202, 303, 404, 505]

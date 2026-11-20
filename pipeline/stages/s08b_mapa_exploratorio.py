@@ -2,23 +2,47 @@
 
 Gera o mapa de probabilidade de alta favorabilidade (quartil superior
 de Q/s) aplicando os modelos treinados (s06) ao grid completo, com a
-validação DECLARADA no próprio produto:
+validação DECLARADA no próprio produto.
 
-  - Título/metadados/relatório carregam: "EXPLORATÓRIO — AUC espacial
-    0,65 | externa 0,56 — triagem regional; não substitui investigação
-    local" (valores lidos de validacao_resultados.csv quando existir);
-  - Predição para POÇO-PADRÃO: profundidade, comprimento de intervalo
-    e tipo construtivo fixados (config) — o mapa responde "quão bom
-    seria um poço-padrão aqui", não "quão fundo perfuraram aqui";
-  - Mapa = média RF+XGBoost (ensemble); camadas de incerteza:
-    (a) divergência entre modelos |p_RF − p_XGB|;
-    (b) distância ao poço de treino mais próximo (suporte amostral).
+VARIANTES (v3, 26/10/2026) — mesma convenção do s06/s07/s08c:
+
+  pre_perfuracao (default)  usa os modelos treinados SÓ com informação
+      disponível antes de perfurar. Não há controle construtivo a
+      fixar: o mapa responde "quão bom seria um poço aqui" e a AUC que
+      o acompanha foi medida nessas mesmas condições.
+  completo  usa os modelos do conjunto completo e fixa os controles
+      construtivos no poço-padrão (comportamento da v2.2). O aviso
+      declara que a ordenação resultante não foi validada nessas
+      condições — o s07 mede a AUC com as profundidades reais.
+
+Mapa = RandomForest (v4, 13/11/2026: o ensemble foi abandonado porque
+o RF domina em AUC e em Brier nas duas areas e nas duas variantes;
+o XGBoost tem Brier skill score NEGATIVO em todas, isto e, as
+probabilidades dele sao piores que prever a taxa base); camadas de
+incerteza:
+  (a) divergência entre modelos |p_RF − p_XGB|;
+  (b) distância ao poço de treino mais próximo (suporte amostral).
+
+Os rasters mantêm o NOME CANÔNICO em qualquer variante (GeoTIFF de AOI
+é grande e duplicar não se justifica) e passam a carregar a tag
+VARIANTE, que o s08c confere antes de derivar as classes.
+
+Correções de v3 no aviso do produto:
+  - `teto_vizinho_auc` era lido de config()["produtos"], onde a chave
+    não existe — todo raster saiu com o default 0,672, errado na Área 2
+    (0,752). A fração "do teto" saiu do aviso: a revisão de 25/10 (R3)
+    mostrou que a referência de vizinhança é superável pelo próprio
+    modelo e que a razão tem intervalo largo demais para ir num rótulo.
+  - a AUC externa estava cravada em "0,59" no código. Saiu.
 
 Saídas (data/derived/covariaveis/ + outputs/): favorabilidade_prob.tif,
 incerteza_modelos.tif, dist_poco_treino.tif, quicklook e relatório.
 
-Execução:  docker compose run --rm pipeline python stages/s08b_mapa_exploratorio.py
+Execução:
+  docker compose run --rm pipeline python stages/s08b_mapa_exploratorio.py
+  docker compose run --rm pipeline python stages/s08b_mapa_exploratorio.py --variante completo
 """
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -35,11 +59,13 @@ GEO = DERIVED / "geologia_3d"
 MOD = DERIVED / "modelos"
 RELATORIO = OUT / "s08b_relatorio.txt"
 
-AVISO = ("VALIDADO DENTRO DO TETO MENSURAVEL - AUC espacial "
-         "{auc:.2f} ({frac:.0%} do teto-vizinho {teto:.2f}, "
-         "fracao corrigida pelo acaso) | "
-         "externa {ext} - triagem regional; nao substitui "
-         "investigacao local")
+AVISO = ("EXPLORATORIO - variante {variante} | AUC espacial {auc:.3f} "
+         "(media de {ns} sementes, CV em blocos de {bloco:.0f} km) - "
+         "triagem regional; nao substitui investigacao local")
+
+FIXOS_POCO_PADRAO = {"profundidade_m": None, "lf_m": None,
+                     "tipo_filtros": 0.0, "tipo_trecho_aberto": 1.0,
+                     "tipo_coluna_saturada": 0.0}
 
 
 class Tee:
@@ -52,6 +78,16 @@ class Tee:
 
     def flush(self):
         self.terminal.flush(); self.arquivo.flush()
+
+
+def resolver_variante(arg=None):
+    cfg = config().get("produtos", {}) or {}
+    cfg_cls = cfg.get("classes", {}) or {}
+    v = (arg or cfg.get("variante") or cfg_cls.get("variante")
+         or "pre_perfuracao")
+    if v not in ("completo", "pre_perfuracao"):
+        raise SystemExit(f"Variante desconhecida: {v}")
+    return v, ("" if v == "completo" else f"_{v}")
 
 
 def carregar_raster(nome, shape, transform, epsg):
@@ -81,40 +117,65 @@ def main():
     from scipy.spatial import cKDTree
     from s05_covariaveis import salvar
 
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--variante", default=None,
+                    help="pre_perfuracao | completo")
+    args = ap.parse_args()
+    variante, sufixo = resolver_variante(args.variante)
+
     OUT.mkdir(parents=True, exist_ok=True)
     sys.stdout = Tee(RELATORIO)
-    cfg = config().get("produtos", {})
+    cfg = config().get("produtos", {}) or {}
+    cfg_val = config().get("validacao", {}) or {}
+    bloco_km = float(cfg_val.get("bloco_km", 10))
 
     with rasterio.open(COV / "mde.tif") as src:
         shape = (src.height, src.width)
         transform, epsg = src.transform, src.crs.to_epsg()
         res = transform.a
 
-    preds = json.loads((MOD / "preditores.json").read_text())
+    arq_preds = MOD / f"preditores{sufixo}.json"
+    if not arq_preds.exists():
+        sys.exit(f"Nao encontrei {arq_preds.name}.\nRode antes:\n"
+                 f"  python stages/s06_treino.py --variante {variante}")
+    preds = json.loads(arq_preds.read_text())
     m = pd.read_parquet(DERIVED / "matriz_treino.parquet")
 
-    # validação para o aviso
-    auc, ext = 0.65, "0,59"
-    vr = DERIVED / "validacao_resultados.csv"
+    # ---- validacao da MESMA variante para o aviso ----
+    vr = DERIVED / f"validacao_resultados{sufixo}.csv"
     if vr.exists():
         dfv = pd.read_csv(vr)
-        auc = float(dfv[["auc_rf", "auc_xgb",
-                         "auc_ens"]].mean().max())
-    teto = float(cfg.get("teto_vizinho_auc", 0.672))
-    frac = (auc - 0.5) / (teto - 0.5) if teto > 0.5 else float("nan")
-    aviso = AVISO.format(auc=auc, ext=ext, teto=teto, frac=frac)
-    print("===== s08b — MAPA DE FAVORABILIDADE (validado no teto) =====")
+        auc = float(dfv[["auc_rf", "auc_xgb", "auc_ens"]].mean().max())
+        ns = len(dfv)
+    else:
+        print(f"AVISO: {vr.name} nao existe — o aviso do produto sai sem "
+              "AUC. Rode o s07 nesta variante.")
+        auc, ns = float("nan"), 0
+    aviso = AVISO.format(variante=variante, auc=auc, ns=ns, bloco=bloco_km)
+    print("===== s08b — MAPA DE FAVORABILIDADE =====")
     print(aviso)
+    if variante == "pre_perfuracao":
+        print("Variante pre_perfuracao: nenhum controle construtivo entre "
+              "os preditores,")
+        print("logo o mapa e a AUC acima descrevem as MESMAS condicoes.")
 
-    # ---- poço-padrão (controles fixados) ----
-    prof_padrao = float(cfg.get("profundidade_padrao_m", 150))
-    lf_padrao = float(cfg.get("lf_padrao_m",
-                              m["lf_m"].median(skipna=True)))
-    fixos = {"profundidade_m": prof_padrao, "lf_m": lf_padrao,
-             "tipo_filtros": 0.0, "tipo_trecho_aberto": 1.0,
-             "tipo_coluna_saturada": 0.0}
-    print(f"Poço-padrão: profundidade {prof_padrao:.0f} m, "
-          f"intervalo {lf_padrao:.0f} m, trecho aberto")
+    # ---- poço-padrão: só para os controles que forem preditores ----
+    fixos = {}
+    if any(k in preds for k in FIXOS_POCO_PADRAO):
+        prof_padrao = float(cfg.get("profundidade_padrao_m", 150))
+        lf_padrao = float(cfg.get("lf_padrao_m",
+                                  m["lf_m"].median(skipna=True)))
+        base = dict(FIXOS_POCO_PADRAO)
+        base["profundidade_m"] = prof_padrao
+        base["lf_m"] = lf_padrao
+        fixos = {k: v for k, v in base.items() if k in preds}
+        print(f"Poço-padrão: profundidade {prof_padrao:.0f} m, "
+              f"intervalo {lf_padrao:.0f} m, trecho aberto")
+        print("ATENCAO: a AUC do aviso foi medida com as profundidades "
+              "REAIS dos pocos,")
+        print("nao com o poco-padrao — a ordenacao deste mapa nao foi "
+              "validada nessas")
+        print("condicoes. Use a variante pre_perfuracao para o produto.")
 
     # ---- pilha de covariáveis ----
     pilha, ausentes = {}, []
@@ -130,8 +191,14 @@ def main():
     if ausentes:
         raise RuntimeError(f"Rasters ausentes para predição: {ausentes}")
 
-    rf = joblib.load(MOD / "rf_cls.joblib")
-    xg = joblib.load(MOD / "xgb_cls.joblib")
+    rf = joblib.load(MOD / f"rf_cls{sufixo}.joblib")
+    xg = joblib.load(MOD / f"xgb_cls{sufixo}.joblib")
+    # v3: a predicao monta as colunas na ordem de preds; se o modelo foi
+    # ajustado com outra ordem, o erro seria silencioso
+    nomes_mod = list(getattr(rf, "feature_names_in_", preds))
+    if nomes_mod != list(preds):
+        sys.exit("ORDEM DE COVARIAVEIS divergente entre o modelo e "
+                 f"preditores{sufixo}.json — regere o s06 nesta variante.")
 
     # ---- predição em blocos de linhas ----
     n_lin, n_col = shape
@@ -148,7 +215,7 @@ def main():
         p_xg[i0:i1] = xg.predict_proba(bloco)[:, 1].reshape(i1 - i0, n_col)
         print(f"   linhas {i0}–{i1} de {n_lin}", flush=True)
 
-    fav = (p_rf + p_xg) / 2.0
+    fav = p_rf
     incerteza = np.abs(p_rf - p_xg)
 
     # suporte amostral: distância ao poço de treino
@@ -167,8 +234,12 @@ def main():
                       ("dist_poco_treino", dist_poco)]:
         salvar(nome, arr, transform, epsg)
         with rasterio.open(COV / f"{nome}.tif", "r+") as dst:
-            dst.update_tags(AVISO=aviso,
-                            PRODUTO="GroundSight s08b - validado no teto mensuravel")
+            # v3: a tag VARIANTE e conferida pelo s08c
+            dst.update_tags(
+                AVISO=aviso, VARIANTE=variante, MODELO="rf",
+                N_PREDITORES=str(len(preds)),
+                POCO_PADRAO=("sim" if fixos else "nao_aplicavel"),
+                PRODUTO="GroundSight s08b")
 
     # ---- quicklook com o aviso ----
     try:
@@ -178,7 +249,7 @@ def main():
         fig, axs = plt.subplots(1, 2, figsize=(15, 7))
         im0 = axs[0].imshow(fav, cmap="RdYlGn", vmin=0, vmax=1)
         axs[0].set_title("Probabilidade de ALTA favorabilidade "
-                         "(poço-padrão)")
+                         "(poço-padrão, RandomForest)")
         fig.colorbar(im0, ax=axs[0], shrink=.75)
         im1 = axs[1].imshow(incerteza, cmap="magma", vmin=0, vmax=0.5)
         axs[1].set_title("Incerteza (divergência RF × XGB)")
@@ -199,6 +270,7 @@ def main():
           f"p90={np.nanpercentile(fav, 90):.2f}")
     print(f"Fração do grid com prob >= 0,5: "
           f"{float((fav >= 0.5).mean()):.1%}")
+    print(f"Variante gravada na tag dos rasters: {variante}")
     print(f"Relatório salvo em: {RELATORIO}")
     sys.stdout.arquivo.close()
     sys.stdout = sys.stdout.terminal

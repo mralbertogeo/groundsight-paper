@@ -108,7 +108,12 @@ def interpolar(x, y, z, gx, gy):
         ok = OrdinaryKriging(x, y, z, variogram_model="spherical",
                              nlags=12, enable_plotting=False)
         grade, _ = ok.execute("grid", gx, gy)
-        return np.asarray(grade), "krigagem_ordinaria_esferico"
+        grade = np.asarray(grade)
+        if np.nanstd(grade) < 1e-9:
+            raise RuntimeError(
+                "krigagem degenerou na media global (variograma sem "
+                "estrutura, provavelmente pepita pura)")
+        return grade, "krigagem_ordinaria_esferico"        
     except Exception as e:
         print(f"   Krigagem falhou ({e}); usando IDW.")
         from scipy.spatial import cKDTree
@@ -236,6 +241,15 @@ def main():
         s2 = np.maximum(superficies["topo_zona_rocha"], s1)
         s3 = np.maximum(superficies["topo_rocha_sa"], s2)
         superficies["topo_zona_rocha"], superficies["topo_rocha_sa"] = s2, s3
+        for nome_esp, esp in (("esp_saprolito", s2 - s1),
+                              ("esp_rocha_alterada", s3 - s2)):
+            if float(np.nanmax(esp)) <= 1e-6:
+                print(f"AVISO: {nome_esp} ficou identicamente zero em toda "
+                      "a grade. O empilhamento interpolado e inconsistente "
+                      "(topo da zona de rocha acima da base do solo). O "
+                      "raster sera gravado, mas a covariavel NAO carrega "
+                      "informacao — confira o dicionario litologico para "
+                      "esta area.")
         salvar_geotiff(GEO / "esp_solo.tif", s1, gx, gy, epsg)
         salvar_geotiff(GEO / "esp_saprolito.tif", s2 - s1, gx, gy, epsg)
         salvar_geotiff(GEO / "esp_rocha_alterada.tif", s3 - s2, gx, gy, epsg)

@@ -14,13 +14,36 @@
   4. Modelos data-driven: RandomForest e XGBoost (classificador p/ AUC
      e regressor p/ log_qs), treinados no conjunto completo para o
      mapa; a avaliação honesta é papel do s07 (CV espacial).
-  5. Interpretabilidade: importância por permutação + SHAP -> CSVs.
+  5. Interpretabilidade: importância por permutação -> CSV. SHAP saiu em
+     08/11/2026: nao era citado no manuscrito e a versao instalada e
+     incompativel com numpy 2.x.
+
+VARIANTES (v3, 26/10/2026) — mesma convenção do s07/s08b/s08c:
+
+  --variante pre_perfuracao  (default; ver config produtos.variante)
+      Treina SEM as covariáveis de projeto do poço (profundidade final,
+      comprimento de intervalo, tipo construtivo). Motivo: o mapa é
+      entregue para decidir ONDE perfurar, e nenhuma dessas existe
+      nesse momento. Treinar com elas e depois fixá-las num poço-padrão
+      na predição (como fazia a v2.2) produz um mapa cuja ordenação
+      nunca foi validada: o s07 media a AUC com as profundidades reais.
+  --variante completo
+      Conjunto completo, para comparação e para o modelo condicionado
+      ao projeto do poço (quando a locação já está decidida).
+
+Cada variante grava seus próprios arquivos com sufixo; 'completo'
+mantém os nomes históricos, sem sufixo. A MATRIZ é a mesma nas duas
+(as colunas excluídas continuam no parquet, apenas não entram como
+preditores), portanto reescrevê-la é idempotente.
 
 Saídas: matriz_treino (tabela + parquet), modelos .joblib em
-/data/derived/modelos/, importancias/shap em CSV.
+/data/derived/modelos/, importância por permutação em CSV.
 
-Execução:  docker compose run --rm pipeline python stages/s06_treino.py
+Execução:
+  docker compose run --rm pipeline python stages/s06_treino.py
+  docker compose run --rm pipeline python stages/s06_treino.py --variante completo
 """
+import argparse
 from pathlib import Path
 
 import joblib
@@ -32,6 +55,11 @@ from _comum import engine, config, DERIVED
 
 MOD = DERIVED / "modelos"
 
+# v3: covariáveis que só existem DEPOIS de perfurar. A variante
+# pre_perfuracao as remove por definição.
+CONSTRUTIVOS = ["profundidade_m", "lf_m", "tipo_filtros",
+                "tipo_trecho_aberto", "tipo_coluna_saturada"]
+
 PREDITORES = (["mde", "declividade", "northness", "curvatura", "tri",
                "twi", "hand", "dist_drenagem", "dens_drenagem",
                "esp_solo", "esp_saprolito", "esp_rocha_alterada",
@@ -40,12 +68,29 @@ PREDITORES = (["mde", "declividade", "northness", "curvatura", "tri",
               # v1.1: focais (robustez à incerteza posicional)
               + [f"{v}_f{r}" for v in ("declividade", "hand", "twi", "tri")
                  for r in (250, 500, 1000)]
-              # v1.1: profundidade como covariável de CONTROLE — no s08
-              # a predição usará poço-padrão (profundidade fixa)
+              # v1.1: profundidade como covariável de CONTROLE — usada
+              # apenas na variante 'completo' (ver docstring)
               + ["profundidade_m"])
 
 
-def montar_matriz() -> pd.DataFrame:
+def resolver_variante(arg=None):
+    """Variante efetiva: argumento > config > pre_perfuracao."""
+    cfg = config().get("produtos", {}) or {}
+    cfg_cls = cfg.get("classes", {}) or {}
+    v = (arg or cfg.get("variante") or cfg_cls.get("variante")
+         or "pre_perfuracao")
+    if v not in ("completo", "pre_perfuracao"):
+        raise SystemExit(f"Variante desconhecida: {v}")
+    return v, ("" if v == "completo" else f"_{v}")
+
+
+def montar_matriz(excluir=()):
+    """Devolve (matriz, lista de preditores da variante).
+
+    v3: deixou de alterar a global PREDITORES — a lista efetiva é
+    devolvida, para que duas variantes possam coexistir no mesmo
+    processo sem contaminar uma à outra.
+    """
     eng = engine()
     cov = pd.read_parquet(DERIVED / "covariaveis_pocos.parquet")
     with eng.connect() as conn:
@@ -57,7 +102,8 @@ def montar_matriz() -> pd.DataFrame:
     hd = pd.read_parquet(DERIVED / "hidraulica_derivada.parquet")
     m = m.merge(hd[["codigo_siagas", "dominio", "lf_m", "tipo_intervalo"]],
                 on="codigo_siagas", how="left")
-    # v2.2: controles construtivos (fixados no poço-padrão no s08)
+    # v2.2: controles construtivos (presentes na matriz em qualquer
+    # variante; entram como preditor apenas em 'completo')
     for t in ("filtros", "trecho_aberto", "coluna_saturada"):
         m[f"tipo_{t}"] = (m["tipo_intervalo"] == t).astype(int)
     with eng.connect() as conn:
@@ -72,19 +118,28 @@ def montar_matriz() -> pd.DataFrame:
                       if c.startswith(("dens_lin", "dist_lin", "geof_")))
     controles = ["lf_m", "tipo_filtros", "tipo_trecho_aberto",
                  "tipo_coluna_saturada"]
-    global PREDITORES
-    PREDITORES = ([c for c in PREDITORES if c in m.columns]
-                  + lin_cols + controles)
+    preds = ([c for c in PREDITORES if c in m.columns]
+             + lin_cols + controles)
     if lin_cols:
         print(f"Covariáveis estruturais incluídas: {len(lin_cols)}")
-    faltantes = [c for c in PREDITORES if c not in m.columns]
+    faltantes = [c for c in preds if c not in m.columns]
     if faltantes:
         raise RuntimeError(f"Covariáveis ausentes: {faltantes} — rode o s05.")
-    # imputação simples por mediana (declarada)
-    for c in PREDITORES:
-        m[c] = pd.to_numeric(m[c], errors="coerce")
-        m[c] = m[c].fillna(m[c].median())
-    return m
+    # v3: exclusão declarada da variante — erro se o nome não existir,
+    # para que um preditor grafado errado nao seja "excluido" em silencio
+    if excluir:
+        desconhecidos = [c for c in excluir if c not in preds]
+        if desconhecidos:
+            raise RuntimeError(
+                f"--excluir com preditores desconhecidos: {desconhecidos}")
+        preds = [c for c in preds if c not in excluir]
+    # imputação simples por mediana (declarada) — aplicada a TODAS as
+    # colunas candidatas, para que a matriz sirva as duas variantes
+    for c in dict.fromkeys(list(preds) + CONSTRUTIVOS):
+        if c in m.columns:
+            m[c] = pd.to_numeric(m[c], errors="coerce")
+            m[c] = m[c].fillna(m[c].median())
+    return m, preds
 
 
 def blocos_espaciais(m: pd.DataFrame, bloco_km: float, n_folds: int,
@@ -128,13 +183,31 @@ def main():
     from sklearn.inspection import permutation_importance
     import xgboost as xgb
 
+    # v3: argparse DENTRO de main() — o s07 importa blocos_espaciais e
+    # baseline_fuzzy deste modulo, e um parse_args em nivel de modulo
+    # engoliria os argumentos do estagio que importa
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--variante", default=None,
+                    help="pre_perfuracao | completo")
+    ap.add_argument("--excluir", nargs="*", default=None,
+                    help="preditores extras a remover nesta variante")
+    args = ap.parse_args()
+    variante, sufixo = resolver_variante(args.variante)
+
+    excluir = list(args.excluir or [])
+    if variante == "pre_perfuracao":
+        excluir = list(dict.fromkeys(CONSTRUTIVOS + excluir))
+
     cfg = config()
     quantis = cfg["modelagem"]["classes_quantis"]
     seed = cfg["validacao"]["seeds"][0]
     n_folds = cfg["validacao"]["n_folds"]
     bloco_km = float(cfg["validacao"].get("bloco_km", 10))
 
-    m = montar_matriz()
+    print(f"Variante: {variante}"
+          + (f" | excluindo {excluir}" if excluir else ""))
+
+    m, preds = montar_matriz(excluir=excluir)
     q = m["log_qs"].quantile(quantis).values
     m["classe"] = pd.cut(m["log_qs"],
                          [-np.inf, *q, np.inf],
@@ -143,7 +216,7 @@ def main():
     m["fold_espacial"] = blocos_espaciais(m, bloco_km, n_folds, seed)
     m["score_fuzzy"] = baseline_fuzzy(m)
 
-    X, y_reg, y_cls = m[PREDITORES], m["log_qs"], m["alvo_binario"]
+    X, y_reg, y_cls = m[preds], m["log_qs"], m["alvo_binario"]
 
     # ---- Modelos finais (conjunto completo — avaliação é no s07) ----
     MOD.mkdir(parents=True, exist_ok=True)
@@ -162,35 +235,30 @@ def main():
             n_estimators=400, max_depth=4, learning_rate=0.05,
             subsample=0.8, colsample_bytree=0.8, random_state=seed),
     }
+    escritos = []
     for nome, mod in modelos.items():
         alvo = y_cls if nome.endswith("cls") else y_reg
         mod.fit(X, alvo)
-        joblib.dump(mod, MOD / f"{nome}.joblib")
+        destino = MOD / f"{nome}{sufixo}.joblib"
+        joblib.dump(mod, destino)
+        escritos.append(destino.name)
 
     # ---- Interpretabilidade ----
     pi = permutation_importance(modelos["rf_cls"], X, y_cls,
                                 n_repeats=10, random_state=seed, n_jobs=-1)
-    imp = (pd.DataFrame({"covariavel": PREDITORES,
+    imp = (pd.DataFrame({"covariavel": preds,
                          "importancia_permutacao": pi.importances_mean})
            .sort_values("importancia_permutacao", ascending=False))
-    imp.to_csv(MOD / "importancia_permutacao.csv", index=False)
-
-    try:
-        import shap
-        expl = shap.TreeExplainer(modelos["xgb_cls"])
-        sv = expl.shap_values(X)
-        shap_med = (pd.DataFrame({"covariavel": PREDITORES,
-                                  "shap_medio_abs": np.abs(sv).mean(axis=0)})
-                    .sort_values("shap_medio_abs", ascending=False))
-        shap_med.to_csv(MOD / "shap_importancia.csv", index=False)
-    except Exception as e:
-        shap_med = None
-        print(f"SHAP não calculado: {e}")
+    imp.to_csv(MOD / f"importancia_permutacao{sufixo}.csv", index=False)
+    escritos.append(f"importancia_permutacao{sufixo}.csv")
 
     # ---- Persistência da matriz ----
+    # A matriz é idêntica nas duas variantes (as colunas excluídas
+    # continuam aqui), portanto reescrevê-la é idempotente.
     m.to_parquet(DERIVED / "matriz_treino.parquet", index=False)
     import json
-    (MOD / "preditores.json").write_text(json.dumps(PREDITORES, indent=1))
+    (MOD / f"preditores{sufixo}.json").write_text(json.dumps(preds, indent=1))
+    escritos.append(f"preditores{sufixo}.json")
     with engine().begin() as conn:
         conn.execute(text("DELETE FROM matriz_treino"))
         for _, r in m.iterrows():
@@ -202,8 +270,10 @@ def main():
                  "k": str(r["classe"]), "f": int(r["fold_espacial"])})
 
     # ---- Relatório ----
-    print("\n===== RELATÓRIO s06 (treino) =====")
+    print(f"\n===== RELATÓRIO s06 (treino) — variante '{variante}' =====")
     print(f"Poços na matriz: {len(m)}")
+    print(f"Preditores: {len(preds)}"
+          + (f" (excluídos: {excluir})" if excluir else ""))
     print(f"Limiares de classe (log10 Q/s): "
           f"{', '.join(f'{v:.2f}' for v in q)}")
     print(f"Alvo binário 'alta' (>= q75): {int(y_cls.sum())} positivos")
@@ -212,9 +282,14 @@ def main():
     print("\nTop 8 covariáveis (importância por permutação):")
     for _, r in imp.head(8).iterrows():
         print(f"   {r['covariavel']:22s} {r['importancia_permutacao']:.4f}")
-    print("\nModelos salvos em data/derived/modelos/ "
-          "(rf/xgb, classificador e regressor)")
-    print("A avaliação honesta (CV espacial, AUC bloqueante) é o s07.")
+    print("\nArquivos escritos em data/derived/modelos/:")
+    for nome in escritos:
+        print(f"   {nome}")
+    print("A avaliação honesta (CV espacial, AUC bloqueante) é o s07, "
+          f"na MESMA variante:")
+    print(f"   python stages/s07_validacao.py"
+          + ("" if variante == "completo" else
+             f" --variante {variante} --excluir " + " ".join(CONSTRUTIVOS)))
 
 
 if __name__ == "__main__":

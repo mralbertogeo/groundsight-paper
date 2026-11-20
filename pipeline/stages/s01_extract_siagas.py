@@ -48,6 +48,43 @@ def _arcgis_get(session, url, params, retries=5, sleep=2.0):
                 raise
             time.sleep(sleep * tentativa)
 
+def cadastro_da_base_local(url: str, bbox: list[float]) -> pd.DataFrame:
+    """Lê o cadastro da AOI de uma base local, no lugar do geoportal.
+
+    Alternativa declarada e opcional: sem a variável SIAGAS_CADASTRO_URL
+    o estágio consulta o servidor do SGB, como sempre. A base local é
+    uma cópia do arquivo em massa publicado pelo próprio SGB e devolve
+    as mesmas colunas da camada ArcGIS, com uma diferença declarada: o
+    arquivo em massa não traz a cota do terreno, que passa a vir apenas
+    do MDE nos estágios seguintes.
+    """
+    from sqlalchemy import create_engine as _criar_motor
+    consulta = text("""
+        SELECT codigo_siagas     AS idt_ponto,
+               lon               AS longitude,
+               lat               AS latitude,
+               profundidade_m    AS num_profundidade,
+               natureza          AS str_natureza_ponto,
+               uso               AS str_uso_agua,
+               ne_m              AS ne,
+               nd_m              AS nd,
+               vazao_especifica  AS num_vazao_especifica,
+               data_perfuracao AS data_perfuracao,
+               aquifero AS str_aquifero
+          FROM cadastro
+         WHERE lon BETWEEN :xmin AND :xmax
+           AND lat BETWEEN :ymin AND :ymax
+    """)
+    with _criar_motor(url, pool_pre_ping=True).connect() as conn:
+        df = pd.read_sql(consulta, conn, params={
+            "xmin": bbox[0], "ymin": bbox[1],
+            "xmax": bbox[2], "ymax": bbox[3]})
+    df.columns = [c.lower().strip() for c in df.columns]
+    print(f"[Fase A] Poços na AOI segundo a base local: {len(df)}")
+    if df.empty:
+        raise RuntimeError("Nenhum poço na AOI na base local — confira "
+                           "AOI_BBOX e se a base está carregada.")
+    return df
 
 def baixar_cadastro_aoi(bbox: list[float]) -> pd.DataFrame:
     """Baixa o cadastro dos poços dentro do envelope AOI (lon/lat WGS84)."""
@@ -280,7 +317,9 @@ def main():
     assert len(bbox) == 4, "AOI_BBOX deve ter 4 valores: lon_min,lat_min,lon_max,lat_max"
 
     # ---------- Fase A ----------
-    df = baixar_cadastro_aoi(bbox)
+    base_local = os.environ.get("SIAGAS_CADASTRO_URL")
+    df = (cadastro_da_base_local(base_local, bbox) if base_local
+          else baixar_cadastro_aoi(bbox))
     RAW.mkdir(parents=True, exist_ok=True)
     df.to_parquet(RAW / "cadastro_aoi.parquet", index=False)  # bruto imutável
     n_pocos = carregar_pocos(df)

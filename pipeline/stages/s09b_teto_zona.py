@@ -91,8 +91,9 @@ def main():
     xy = np.c_[g.geometry.x, g.geometry.y]
 
     print("===== s09b — TETO DO ALVO DE ZONA =====")
-    print(f"Poços de entrada: {len(m)} | referência do s09 "
-          f"(poço a poço): AUC-vizinho 0,672 | pepita 78%\n")
+    print(f"Poços de entrada: {len(m)} | referência poço a poço do "
+          f"s09 desta área: ver s09_relatorio.txt (AUC-vizinho e "
+          f"pepita)\n")
     print(f"{'bloco':>7s} {'n_min':>6s} {'n blocos':>9s} "
           f"{'AUC-bloco-viz':>14s} {'pepita':>8s} {'corr viz':>9s}")
     linhas = []

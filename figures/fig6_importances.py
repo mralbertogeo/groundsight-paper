@@ -6,17 +6,28 @@ covariaveis principais, colorida por familia.
 (a) Area 1 — borda da Bacia do Parana
 (b) Area 2 — rifte de Taubate
 
-Os numeros NAO sao digitados: o script le importancia_permutacao.csv
+Os numeros NAO sao digitados: o script le o CSV de importancia
 arquivado de cada area, de modo que a figura e sempre consistente com o
 que o s06 produziu. A traducao nome-interno -> rotulo em ingles e a
 atribuicao de familia ficam em tabelas explicitas aqui; qualquer
 covariavel que o s06 produzir e que nao esteja nelas interrompe a
 execucao em vez de ser desenhada sem familia.
 
+VARIANTE (09/11/2026): o default passou a ser pre_perfuracao, que le
+importancia_permutacao_pre_perfuracao.csv. Motivo: o mapa e entregue
+para decidir ONDE perfurar, e as covariaveis de projeto do poco
+(profundidade final, comprimento de intervalo) nao existem nesse
+momento — alem de medirem causalidade reversa, ja que a profundidade
+final e decidida durante a obra. No conjunto completo elas ocupavam as
+DUAS primeiras posicoes nas duas areas, com importancia ~3x a da
+primeira covariavel de sitio.
+
 Uso:
     python fig6_importances.py [--reports reports] [--saida .]
+                               [--variante pre_perfuracao|completo]
 
-Saida: fig6_importances.pdf e .png
+Saida: fig6_importances.pdf/.png (variante pre_perfuracao) ou
+       fig6_importances_completo.pdf/.png (variante completo)
 """
 import argparse
 import csv
@@ -71,6 +82,38 @@ COVARIAVEIS = {
     "prof_base_solo":        ("Depth to soil base",            "weathering"),
     "prof_topo_zona_rocha":  ("Depth to weathered rock",       "weathering"),
     "prof_topo_rocha_sa":    ("Depth to sound rock",           "weathering"),
+    # 09/11/2026: completadas as 29 covariaveis que o s06 produz e que
+    # faltavam aqui — duas delas entram no top 8 da variante
+    # pre_perfuracao (dist_lin_total_sgb na Area 1, tri_f250 na Area 2)
+    "dist_lin_total":        ("Dist. all lineaments",           "structural"),
+    "dist_lin_total_sgb":    ("Dist. all structures (SGB)",     "structural"),
+    "dens_lin_ne_sw":        ("Dens. NE\u2013SW lineaments",       "structural"),
+    "dens_lin_ew":           ("Dens. E\u2013W lineaments",         "structural"),
+    "dens_lin_nw_se":        ("Dens. NW\u2013SE lineaments",       "structural"),
+    "dens_lin_ns":           ("Dens. N\u2013S lineaments",         "structural"),
+    "dens_lin_total":        ("Dens. all lineaments",           "structural"),
+    "dens_lin_intersec":     ("Dens. lineament intersections",  "structural"),
+    "dens_lin_ne_sw_sgb":    ("Dens. NE\u2013SW structures (SGB)", "structural"),
+    "dens_lin_ew_sgb":       ("Dens. E\u2013W structures (SGB)",   "structural"),
+    "dens_lin_nw_se_sgb":    ("Dens. NW\u2013SE structures (SGB)", "structural"),
+    "dens_lin_ns_sgb":       ("Dens. N\u2013S structures (SGB)",   "structural"),
+    "dens_lin_total_sgb":    ("Dens. all structures (SGB)",     "structural"),
+    "dens_lin_intersec_sgb": ("Dens. structure intersections",  "structural"),
+    "curvatura":             ("Curvature",                      "terrain"),
+    "northness":             ("Northness",                      "terrain"),
+    "dens_drenagem":         ("Drainage density",               "terrain"),
+    "declividade_f250":      ("Slope (250 m focal)",            "terrain"),
+    "declividade_f500":      ("Slope (500 m focal)",            "terrain"),
+    "declividade_f1000":     ("Slope (1 km focal)",             "terrain"),
+    "hand_f250":             ("HAND (250 m focal)",             "terrain"),
+    "hand_f500":             ("HAND (500 m focal)",             "terrain"),
+    "hand_f1000":            ("HAND (1 km focal)",              "terrain"),
+    "twi_f250":              ("TWI (250 m focal)",              "terrain"),
+    "twi_f500":              ("TWI (500 m focal)",              "terrain"),
+    "twi_f1000":             ("TWI (1 km focal)",               "terrain"),
+    "tri_f250":              ("TRI (250 m focal)",              "terrain"),
+    "tri_f500":              ("TRI (500 m focal)",              "terrain"),
+    "tri_f1000":             ("TRI (1 km focal)",               "terrain"),
 }
 
 
@@ -125,11 +168,20 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--reports", default="reports")
     p.add_argument("--saida", default=".")
+    p.add_argument("--variante", default="pre_perfuracao",
+                   help="pre_perfuracao (default) | completo")
     a = p.parse_args()
+    if a.variante not in ("pre_perfuracao", "completo"):
+        sys.exit("Variante desconhecida: %s" % a.variante)
+    sufixo = "" if a.variante == "completo" else "_" + a.variante
+    nome_saida = ("fig6_importances" if a.variante == "pre_perfuracao"
+                  else "fig6_importances_" + a.variante)
+    print("Variante: %s" % a.variante)
 
     dados, usadas = {}, []
     for chave, _ in AREAS:
-        caminho = os.path.join(a.reports, chave, "importancia_permutacao.csv")
+        caminho = os.path.join(a.reports, chave,
+                               "importancia_permutacao%s.csv" % sufixo)
         if not os.path.exists(caminho):
             sys.exit("Nao encontrei %s" % caminho)
         dados[chave] = ler_importancias(caminho)
@@ -162,7 +214,7 @@ def main():
                handleheight=1.1, handletextpad=0.5, columnspacing=1.6)
 
     fig.tight_layout(rect=(0, 0.07, 1, 1))
-    grava(fig, a.saida, "fig6_importances")
+    grava(fig, a.saida, nome_saida)
 
 
 if __name__ == "__main__":

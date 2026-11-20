@@ -1,0 +1,83 @@
+# Dicionário de-para v2.2 (final v1) — revisado pelo hidrogeólogo em 09/08/2026
+# (amostra de 60 descrições; ver histórico no repositório).
+# Mudanças da revisão: aluviao e rocha_sa_sed criadas; termos de
+# alteração movidos de rocha_alterada para saprolito; rocha_fraturada
+# mantida SOMENTE para fraturado/fissurado sem alteração (pendente de
+# confirmação final — para fundir com saprolito, mover os termos).
+# A ORDEM importa: primeira classe que casar vence.
+# Matching: minúsculas, sem acento, substring.
+
+aluviao:
+  - aluvi
+
+rocha_sa_sed:              # rochas sedimentares (Tubarão/Itararé etc.)
+  - arenito
+  - siltito
+  - argilito
+  - folhelho
+  - ritmito
+  - conglomerado
+  - tilito
+  - varvito
+  - diamictito
+  - calcario
+  - lamito
+  - turbidito
+  - marga
+
+solo_coluviao:
+  - solo
+  - coluvi
+  - aterro
+  - "terra vegetal"
+  - areia
+  - argila
+  - cascalho
+  - seixo
+  - silte
+  - laterit
+  - sediment
+  - "material organico"
+
+saprolito:                 # inclui "rocha alterada" do perfurador (revisão)
+  - saprolito
+  - alterad
+  - intemperiz
+  - decompost
+  - "solo residual"
+  - regolito
+  - "solo de alteracao"
+  - "semi-alterada"
+  - "semi alterada"
+  - friavel
+
+rocha_fraturada:           # fraturada/fissurada SEM alteração
+  - fraturad
+  - fissurad
+
+rocha_sa:
+  - granito
+  - gnaisse
+  - migmatito
+  - xisto
+  - quartzito
+  - diabasio
+  - basalto
+  - milonito
+  - filito
+  - anfibolito
+  - granulito
+  - charnockito
+  - gabro
+  - monzonito
+  - riolito
+  - sienito
+  - diorito
+  - tufito
+  - marmore
+  - granodiorito
+  - "rocha sa"
+  - "rocha dura"
+  - "rocha firme"
+  - "rocha compacta"
+  - cristalin
