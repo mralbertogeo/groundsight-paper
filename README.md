@@ -105,8 +105,8 @@ bar itself (`fator_teto` x ceiling) stays in absolute terms.
 If you use this code, please cite the manuscript and this archive (see
 `CITATION.cff`). The concept DOI
 [10.5281/zenodo.22097014](https://doi.org/10.5281/zenodo.22097014) resolves
-to the latest version; version 1.1.0, the one reported in the manuscript, is
-[10.5281/zenodo.23102501](https://doi.org/10.5281/zenodo.23102501).
+to the latest version; version 1.2.0, the one reported in the manuscript, is
+[10.5281/zenodo.XXXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXXX).
 
 ## License
 

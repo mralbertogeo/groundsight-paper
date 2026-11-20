@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "GroundSight: pipeline for ceiling-relative validation of groundwater favorability models"
+title: "GroundSight: pipeline for predictability ceilings and reference-relative validation of groundwater favorability models"
 message: "If you use this software, please cite both the software and the associated paper."
 type: software
 authors:
@@ -18,8 +18,8 @@ identifiers:
     value: "10.5281/zenodo.23102501"
     description: "Version 1.1.0"
 license: AGPL-3.0
-version: 1.1.0
-date-released: 2026-10-02
+version: 1.2.0
+date-released: 2026-11-20
 keywords:
   - groundwater favorability
   - predictability ceiling
