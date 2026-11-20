@@ -1,11 +1,13 @@
-===== s08b — MAPA DE FAVORABILIDADE (validado no teto) =====
-VALIDADO DENTRO DO TETO MENSURAVEL - AUC espacial 0.66 (98% do teto-vizinho 0.67) | externa 0,59 - triagem regional; nao substitui investigacao local
-Poço-padrão: profundidade 150 m, intervalo 101 m, trecho aberto
+===== s08b — MAPA DE FAVORABILIDADE =====
+EXPLORATORIO - variante pre_perfuracao | AUC espacial 0.591 (media de 10 sementes, CV em blocos de 10 km) - triagem regional; nao substitui investigacao local
+Variante pre_perfuracao: nenhum controle construtivo entre os preditores,
+logo o mapa e a AUC acima descrevem as MESMAS condicoes.
    linhas 0–886 de 2426
    linhas 886–1772 de 2426
    linhas 1772–2426 de 2426
 Quicklook: data/outputs/quicklook_mapa_exploratorio.png
 
-Distribuição da probabilidade: p10=0.10  med=0.17  p90=0.31
-Fração do grid com prob >= 0,5: 0.9%
+Distribuição da probabilidade: p10=0.17  med=0.29  p90=0.41
+Fração do grid com prob >= 0,5: 1.9%
+Variante gravada na tag dos rasters: pre_perfuracao
 Relatório salvo em: /data/outputs/s08b_relatorio.txt

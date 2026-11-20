@@ -1,19 +1,33 @@
 ===== s08c — CLASSES DE FAVORABILIDADE (5 graus) =====
-Superfície de probabilidade: /data/derived/covariaveis/favorabilidade_prob.tif
+Variante de validacao: pre_perfuracao | probabilidade: rf (p_rf)
+  -> classes validadas SO com informacao disponivel antes de perfurar
 
-Calculando predições out-of-fold (CV espacial)...
-Quebras (quintis das probabilidades OOF dos poços): 0.190 | 0.242 | 0.291 | 0.350
+Superficie de probabilidade: /data/derived/covariaveis/favorabilidade_prob.tif
+Raster e quebras na mesma variante (pre_perfuracao) — consistente.
+Raster e taxas no mesmo modelo (rf) — consistente.
+OOF do s07: 1742 pocos, 10 sementes [np.int64(7), np.int64(11), np.int64(23), np.int64(42), np.int64(101), np.int64(202), np.int64(303), np.int64(404), np.int64(505), np.int64(2026)]
+Quebras (quintis da probabilidade OOF media dos pocos): 0.191 | 0.235 | 0.278 | 0.328
+IC95% por reamostragem de 139 blocos de 10 km, 2000 repeticoes
 
-Validação por classe (out-of-fold):
-      classe  n poços  % área  taxa alta   lift
- muito_baixa      349   59.7%      17.5%   0.7x
-       baixa      348   17.1%      19.8%   0.8x
-       media      348   10.0%      25.3%   1.0x
-        alta      348    6.9%      31.9%   1.3x
-  muito_alta      349    6.3%      30.7%   1.2x
-Taxa-base (fração de poços 'alta'): 25.0%
+Validacao por classe (out-of-fold do s07):
+      classe  n pocos  % area  taxa alta            IC95%   lift   entre sementes
+ muito_baixa      349   14.0%      16.6%       12.1-22.1%  0.66x       13.9-17.4%
+       baixa      348   12.8%      20.1%       15.7-23.3%  0.80x       18.5-24.6%
+       media      348   16.9%      25.9%       20.5-31.2%  1.03x       21.3-29.2%
+        alta      348   21.8%      29.9%       24.6-35.4%  1.19x       27.8-31.8%
+  muito_alta      349   34.5%      32.7%       26.0-38.3%  1.31x       29.2-34.9%
+Taxa-base (fracao de pocos 'alta'): 25.0%
+
+Leitura operacional:
+  Ganho da classe muito_alta sobre a base: 1.31x [1.09-1.51]
+  Pocos a perfurar para 10 acertos: 31 na classe muito_alta | 40 ao acaso | 60 na classe muito_baixa
+  Dos pocos de alta favorabilidade, 26% caem na classe muito_alta
+  Ressalva: taxas medidas EM POCOS existentes, que estao onde ja se perfurou;
+  a taxa numa celula arbitraria da mesma classe pode diferir.
+
 Monotonicidade: OK — taxas crescem de muito_baixa a muito_alta
 
 Raster de classes: /data/derived/covariaveis/classes_favorabilidade.tif
+CSV: /data/outputs/s08c_taxas_classe.csv
 Quicklook: data/outputs/quicklook_classes.png
-Relatório salvo em: /data/outputs/s08c_relatorio.txt
+Relatorio salvo em: /data/outputs/s08c_relatorio.txt

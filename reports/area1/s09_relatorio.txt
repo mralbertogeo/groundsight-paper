@@ -7,6 +7,26 @@ Poços: 1742 | variância total de log Q/s: 0.503
     500m      967        0.624           0.260        0.584-0.663
    1000m     1335        0.594           0.198        0.558-0.629
    2000m     1586        0.585           0.193        0.552-0.617
+  (IC acima = reamostragem de pares, formato histórico; o IC por poços está no CSV)
+
+1b) k-NN COM PESO 1/d, no mesmo subconjunto de cada raio (R2):
+    raio       n       k=1       k=3       k=5      k=10
+    250m     616     0.672     0.686     0.687     0.687
+    500m     967     0.624     0.636     0.640     0.639
+   1000m    1335     0.594     0.609     0.615     0.611
+   2000m    1586     0.585     0.593     0.607     0.608
+  Se k>1 supera k=1, o vizinho único é uma observação ruidosa,
+  não um limite superior: reportar como REFERÊNCIA (benchmark).
+
+1c) AUC-VIZINHO POR FAIXA DE DISTÂNCIA (não cumulativa, R2):
+     faixa (m)       n    prev      AUC      IC95% (poços)
+         0–250     616    0.24    0.672        0.582-0.758
+       250–500     351    0.27    0.546        0.431-0.657
+      500–1000     368    0.26    0.517        0.404-0.626
+     1000–2000     251    0.26    0.541        0.401-0.684
+      2000–inf     156    0.21    0.530        0.346-0.706
+  Prevalência estável entre faixas => a queda (ou a constância)
+  da AUC reflete distância, não composição da amostra.
 
 2) SEMIVARIOGRAMA EMPÍRICO de log Q/s:
        lag (m)   n pares   semivar  % do patamar    origem
@@ -14,28 +34,53 @@ Poços: 1742 | variância total de log Q/s: 0.503
    250–   500       700     0.394           78%     todos
    500–  1000      1809     0.490           97%     todos
   1000–  2000      4858     0.453           90%     todos
-  2000–  4000      3787     0.485           96%   amostra
-  4000–  8000     11844     0.503          100%   amostra
-  8000– 16000     36634     0.501          100%   amostra
+  2000–  4000     14609     0.490           97%     todos
+  4000–  8000     44692     0.502          100%     todos
+  8000– 16000    139178     0.501          100%     todos
 
 Fração pepita (lag 0–250 m / variância): 66%
 IC95% da fração pepita: 57%-77% (595 pares no lag usado; patamar fixo, logo é limite inferior da incerteza)
+IC95% por reamostragem de POÇOS (R2, patamar reamostrado): 47%-91%
+  -> R² máximo teórico entre 0.09 e 0.53
 R² máximo teórico de qualquer mapa: ~0.34
 
+2b) SEMIVARIOGRAMA APÓS REMOÇÃO DE TENDÊNCIA LINEAR (R2):
+Tendência: z = -1.010 + -1.362e-06·x' + 4.308e-06·y'   (R² da tendência: 0.026; variância residual 0.490)
+       lag (m)   n pares   semivar  % do patamar    origem
+     0–   250       595     0.334           68%     todos
+   250–   500       700     0.394           80%     todos
+   500–  1000      1809     0.490          100%     todos
+  1000–  2000      4858     0.453           92%     todos
+  2000–  4000     14609     0.490          100%     todos
+  4000–  8000     44692     0.502          102%     todos
+  8000– 16000    139178     0.501          102%     todos
+
+Fração pepita sem tendência: 68% (IC95% por poços: 48%-93%)
+R² máximo teórico sobre o resíduo: ~0.32
+  Se a pepita cai muito aqui, parte do 'ruído' era tendência regional;
+  se não muda, o patamar global era uma referência adequada.
+
+2c) SEMIVARIOGRAMA DIRECIONAL (R2) — % do patamar global:
+       lag (m)          N-S        NE-SW          E-W        NW-SE
+     0–   250      52% (134)      99% (152)      55% (151)      58% (158)
+   250–   500      79% (179)      73% (180)      92% (164)      70% (177)
+   500–  1000      88% (433)      99% (429)      94% (475)     108% (472)
+  1000–  2000      91% (1161)      91% (1278)      88% (1148)      89% (1271)
+  2000–  4000      97% (3625)     100% (3618)      96% (3570)      96% (3796)
+  4000–  8000      94% (11496)     104% (11421)     100% (10796)     102% (10979)
+  8000– 16000     100% (35352)      99% (30029)      98% (34481)     101% (39316)
+  Anisotropia aparece como direções que saturam em lags diferentes.
+
 ===== INTERPRETAÇÃO =====
-AUC-vizinho no raio de 250–500 m ≈ teto prático de modelos espaciais:
-  >= 0,80  -> há sinal local forte; 0,70 é alcançável com covariáveis
-              melhores (geofísica) — investir na Fase C;
-  0,70–0,80-> 0,70 é a fronteira; alcançável, com margem estreita;
-  < 0,70   -> NENHUM modelo espacial atinge 0,70 nesta base: o ruído
-              do alvo (erro de teste, construção, aleatoriedade de
-              fratura) domina. A barra deve ser recalibrada pelo teto
-              medido (decisão declarável) ou o alvo redefinido
-              (ex.: mediana por bloco em vez de poço a poço).
+A AUC-vizinho no raio de 250–500 m é uma REFERÊNCIA de vizinhança, não
+um limite superior demonstrado: compare-a com o k-NN de (1b). Se k>1
+supera k=1, qualquer fração calculada contra k=1 está inflada, e o
+denominador honesto é o melhor k.
 A fração pepita conta a mesma história em regressão: o R² máximo é
-~(1 - pepita). Compare o R² obtido no s07 com esse valor, e compare a
-fração capturada com o IC da pepita, não só com o ponto estimado.
-O alcance também informa: se o semivariograma satura antes do
-espaçamento típico entre poços, interpolar entre poços opera além do
-comprimento de correlação.
+~(1 - pepita). Use o IC por reamostragem de poços, não o de pares.
+O alcance informa mais que a pepita: se o semivariograma satura antes
+do espaçamento típico entre poços, interpolar entre poços opera além
+do comprimento de correlação. Em base que não satura no maior lag,
+leia (2b) antes de tratar a variância global como patamar.
 Relatório salvo em: /data/outputs/s09_relatorio.txt
+CSVs em: /data/outputs

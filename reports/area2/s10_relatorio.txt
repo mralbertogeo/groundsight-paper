@@ -1,0 +1,56 @@
+===== s10 — FRAÇÃO CAPTURADA, IC CONJUNTO POR BLOCOS =====
+Poços: 493 | blocos de 10 km | 2000 reamostras
+
+Blocos com poço: 74 | mediana de poços por bloco: 2 | maior: 93
+Poços com vizinho a <= 250 m: 179
+
+Pares a <= 250 m (pepita): 182
+Variante 'completo': 10 sementes carregadas
+Variante 'pre_perfuracao': 10 sementes carregadas
+
+--- ESTIMATIVAS PONTUAIS ---
+Referencia k=1 a 250 m: AUC = 0.752
+Referencia k=5 a 250 m: AUC = 0.775
+Modelo 'completo': AUC(todos) = 0.738 | AUC(subconjunto) = 0.781 | R2 = 0.227
+Modelo 'pre_perfuracao': AUC(todos) = 0.701 | AUC(subconjunto) = 0.744 | R2 = 0.179
+Pepita (lag 0-250 m): 44% | R2 maximo: 0.56
+
+--- BOOTSTRAP POR BLOCOS (2000 reamostras) ---
+
+Referencia de vizinhanca (denominador):
+  k=1: 0.752  IC95% 0.663-0.833
+  k=5: 0.775  IC95% 0.697-0.851
+Pepita: 44%  IC95% 29%-66%  -> R2 maximo 0.34 a 0.71
+
+FRACAO DA REFERENCIA CAPTURADA (AUC), sem truncamento:
+        variante       populacao   k    ponto             IC95%   >100%
+        completo         A_todos   1      94%        63% - 132%   42.2%
+        completo         A_todos   5      87%        58% - 115%   19.1%
+        completo   B_subconjunto   1     111%        52% - 146%   74.5%
+        completo   B_subconjunto   5     102%        39% - 129%   59.0%
+  pre_perfuracao         A_todos   1      80%        48% - 113%    9.7%
+  pre_perfuracao         A_todos   5      73%         43% - 98%    1.8%
+  pre_perfuracao   B_subconjunto   1      97%        27% - 125%   40.6%
+  pre_perfuracao   B_subconjunto   5      89%        17% - 111%   20.5%
+
+FRACAO DO R2 MAXIMO CAPTURADA, sem truncamento:
+        variante    ponto             IC95%   >100%
+        completo      41%         17% - 64%    0.0%
+  pre_perfuracao      32%         10% - 51%    0.0%
+
+===== COMO LER =====
+populacao A_todos      = numerador em todos os pocos, denominador no
+                         subconjunto com vizinho no raio (e a comparacao
+                         que o artigo faz hoje; as populacoes diferem).
+populacao B_subconjunto= numerador e denominador nos MESMOS pocos.
+k=1  reproduz o denominador do artigo; k=5 e a referencia recomendada
+     depois do R2 (o vizinho unico e superavel, logo nao e teto).
+A coluna '>100%' e a proporcao de reamostras em que o modelo supera a
+referencia de vizinhanca. Se nao for desprezivel, a referencia nao pode
+ser apresentada como limite superior — e esse e o ponto.
+O IC e conjunto: numerador e denominador variam juntos na mesma
+reamostra de blocos, o que capta a correlacao entre eles. Nao cobre a
+incerteza de QUEM e o vizinho (a vizinhanca e tratada como fixa).
+
+Relatorio: /data/outputs/s10_relatorio.txt
+CSV: /data/outputs/s10_fracao.csv

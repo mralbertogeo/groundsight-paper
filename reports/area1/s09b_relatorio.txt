@@ -1,5 +1,5 @@
 ===== s09b — TETO DO ALVO DE ZONA =====
-Poços de entrada: 1742 | referência do s09 (poço a poço): AUC-vizinho 0,672 | pepita 78%
+Poços de entrada: 1742 | referência poço a poço do s09 desta área: ver s09_relatorio.txt (AUC-vizinho e pepita)
 
   bloco  n_min  n blocos  AUC-bloco-viz   pepita  corr viz
     1km      3       152          0.510      82%      0.03
